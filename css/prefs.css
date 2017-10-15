@@ -1,0 +1,44 @@
+html.arguments-and-values\=combined main section.arguments,
+html.arguments-and-values\=combined main section.values,
+html.arguments-and-values\=separate main section.arguments-and-values
+{
+    display: none;
+}
+
+
+html.diff\.visibility\=hide main .boilerplate-diff
+{
+    padding: 0;
+    border: none;
+    border-radius: initial;
+    background-color: transparent;
+}
+
+html.diff\.visibility\=hide main del.boilerplate-diff,
+html.diff\.removed\.visibility\=hide main del.boilerplate-diff
+{
+    display: none;
+}
+
+html.diff\.removed\.strikethrough\=strike main del.boilerplate-diff {
+    text-decoration: line-through;
+}
+
+
+html.\/book\/pages\/references\.visibility\=hide div.page {
+    display: none;
+}
+
+html.\/book\/pages\/references\.visibility\=hide .mid-paragraph-transition-mark,
+html.\/book\/pages\/mid-paragraph-transition-marks\.visibility\=hide .mid-paragraph-transition-mark {
+    display: none;
+}
+
+html.\/book\/pages\/mid-paragraph-transition-marks\.type\=‸ .mid-paragraph-transition-mark {
+    margin-left: -0.55em;
+    margin-top: -0.05em;
+}
+
+html.\/book\/pages\/mid-paragraph-transition-marks\.type\=‸ .mid-paragraph-transition-mark:before {
+    content: "‸";
+}

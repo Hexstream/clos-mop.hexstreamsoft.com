@@ -1,0 +1,335 @@
+@import "https://global.hexstreamsoft.com/css/global.css";
+@import "prefs.css";
+
+.scroll {
+    max-width: 100%;
+}
+
+.no-sidenav main {
+    margin-left: 6em;
+}
+
+.no-sidenav main ~ #footer > div {
+    margin-left: 6em;
+}
+
+.no-sidenav main ~ #footer .back-to-top {
+    width: 4.5em;
+}
+
+#page-header .description a {
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style-type: initial;
+}
+
+ul[type="i"], ol[type="i"] {
+    list-style-type: lower-roman;
+}
+
+nav ul, nav ol {
+    list-style-type: none;
+}
+
+section {
+    position: relative;
+}
+
+section.body-section {
+    margin: 0;
+}
+
+section.body-section h1 {
+    font-size: medium;
+    margin: 0 1em -1em 1em;
+}
+
+div.page {
+    position: absolute;
+    right: 100%;
+    margin-right: 1em;
+    width: 3.5em;
+    height: 4.5em;
+    border: thin solid black;
+    line-height: 1.4em;
+    white-space: nowrap;
+}
+
+.methods .method.definition div.page {
+    margin-right: 3em;
+}
+
+div.page.approximate:before {
+    content: "↳";
+}
+
+div.page.approximate.starts-midpage:before {
+    content: "↱";
+}
+
+div.on.page:before {
+    content: "On";
+}
+
+div.page.approximate:before, div.on.page:before, div.page.approximate a.transition {
+    position: absolute;
+    right: 100%;
+    top: 0%;
+    margin-top: 0.25em;
+    margin-right: 0.2em;
+}
+
+div.page a {
+    text-decoration: none;
+}
+
+div.page a:hover {
+    text-decoration: underline;
+}
+
+div.page .hide {
+    display: none;
+}
+
+div.page > a.page-number {
+    position: absolute;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    width: 100%;
+    color: black;
+}
+
+div.page > a.page-number > span.page-number {
+    display: block;
+    text-align: center;
+}
+
+div.page > a.page-number > span.page-number .page-fraction {
+    position: absolute;
+}
+
+div.page > a.embedded.page-number {
+    top: initial;
+    bottom: 0;
+}
+
+div.page > a.embedded.page-number > span.page-number:before {
+    content: "↳";
+}
+
+div.page > a.embedded.page-number > span.page-number:after {
+    content: "↲";
+}
+
+div.page .anchor {
+    position: absolute;
+    display: table;
+    top: 50%;
+    margin-top: -0.7em;
+    width: 1.2em;
+    left: 50%;
+    margin-left: -0.6em;
+    text-align: center;
+}
+
+code, .constant {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+var, .lambda-keyword {
+    white-space: nowrap;
+}
+
+figure {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    padding: 0.7em;
+    padding-bottom: 0.5em;
+    border: thin solid lightgray;
+    /*background: linen;*/
+    max-width: max-content;
+}
+
+figcaption {
+    flex: 1 1 auto;
+    max-width: fit-content;
+    text-align: center;
+    margin-top: 0.2em;
+}
+
+figure table {
+    flex: none;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+table {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+table caption {
+    /*caption-side: bottom;*/
+}
+
+table caption p {
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+a.body-link, .self {
+    white-space: nowrap;
+}
+
+.fixme {
+    color: red;
+}
+
+.audited {
+    color: green;
+}
+
+var.keyword-initarg, var.environment-initarg {
+    font-style: normal;
+    font-weight: bold;
+}
+
+.meta-extra {
+    background-color: #E3DAC9;
+}
+
+section h1.breadcrumbs .here .extra.prefix {
+    position: absolute;
+    font-size: 1rem;
+    bottom: 100%;
+    padding: 0.1em 0.3em 0;
+    margin-left: -0.3em;
+    border: thin solid gray;
+    border-bottom: thin solid #ECECEC;
+    background-color: #ECECEC;
+}
+
+section h1.breadcrumbs .ellipsis {
+    position: relative;
+}
+
+section h1.breadcrumbs .ellipsis sub {
+    position: absolute;
+    font-size: medium;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    top: 0;
+    margin-top: 0.25em;
+}
+
+
+.body-list {
+    list-style-type: none;
+    margin-left: 1em;
+    margin-right: 1em;
+    counter-reset: index;
+}
+
+.body-list li {
+    position: relative;
+    counter-increment: index;
+}
+
+.body-list li:before {
+    content: url("images/disc.svg");
+    display: block;
+    width: 0.4em;
+    height: 0.4em;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.body-list li p:first-child {
+    margin-top: 0;
+}
+
+.body-list.paren-roman > li p {
+    margin-left: 1.7em;
+}
+
+.body-list.paren-roman > li:before {
+    content: "(" counter(index, lower-roman) ")";
+    width: initial;
+    height: initial;
+    line-height: 1.4em;
+}
+
+.body-list.decimal > li:before {
+    content: counter(index, decimal) ".";
+    width: initial;
+    height: initial;
+    line-height: 1.4em;
+}
+
+#five-prime:before {
+    content: "(" counter(index, lower-roman) "')";
+    counter-reset: index 5;
+    counter-increment: index 0;
+}
+
+.body-list div.page {
+    margin-right: 2em;
+}
+
+.body-list .body-list div.page {
+    margin-right: 3em;
+}
+
+.description .body-list .body-list div.page {
+    margin-right: 4em;
+}
+
+.mid-paragraph-transition-mark {
+    position: absolute;
+    margin-left: -0.3em;
+}
+
+.mid-paragraph-transition-mark:before {
+    content: "⁁";
+    font-weight: bold;
+    color: green;
+    font-size: 1.25em;
+}
+
+
+.boilerplate-diff {
+    border-radius: 1.55em;
+    padding: 0 0.3em 0.05em;
+    border: thin solid;
+}
+
+.boilerplate-diff .boilerplate-diff {
+    border-color: black;
+}
+
+ins.boilerplate-diff {
+    background-color: rgba(128, 255, 128, 1);
+    text-decoration: none;
+    border-color: rgba(128, 255, 128, 1);
+}
+
+ins.boilerplate-diff a {
+    text-decoration: underline;
+}
+
+del.boilerplate-diff {
+    background-color: rgba(255, 128, 128, 1);
+    text-decoration: none;
+    border-color: rgba(255, 128, 128, 1);
+}
+
+.tabs.split + .tabs.split {
+    margin-top: 1em;
+}

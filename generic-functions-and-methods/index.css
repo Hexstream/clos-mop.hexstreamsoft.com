@@ -1,0 +1,366 @@
+#navigation {
+    font-size: larger;
+    margin-top: 1em;
+}
+
+#navigation section > .body {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+#navigation p, #navigation .tabs {
+    font-size: medium;
+}
+
+#navigation ul.operator-and-methods {
+    display: table;
+    border-collapse: collapse;
+    flex-flow: column;
+    align-items: stretch;
+    background-color: #FFCC99;
+    border: medium solid black;
+}
+
+#navigation ul.operator-and-methods + ul.operator-and-methods {
+    margin-top: 0.5em;
+}
+
+#navigation ul.operator-and-methods > li
+{
+    display: table-row;
+}
+
+#navigation ul.operator-and-methods > li > *
+{
+    display: table-cell;
+    padding: 0.175em 0.25em;
+    white-space: nowrap;
+}
+
+#navigation ul.operator-and-methods {
+    margin: 0;
+}
+
+#navigation ul.operator-and-methods li + li {
+    margin-top: 0;
+}
+
+#navigation ul.operator-and-methods a {
+    text-decoration: none;
+}
+
+#navigation ul.operator-and-methods a:hover,
+#navigation ul.operator-and-methods a:focus {
+    text-decoration: underline;
+    background-color: #FFDD99;
+}
+
+#navigation ul.operator-and-methods .type {
+    text-align: right;
+}
+
+#navigation ul.operator-and-methods .name, #navigation ul.operator-and-methods .specializer {
+    font-weight: bold;
+}
+
+#navigation_metaobjects .wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+@media (min-width: 84.5em) {
+    #navigation_metaobjects p {
+        text-align: center;
+    }
+
+    #navigation_metaobjects .wrapper {
+        justify-content: center;
+    }
+}
+
+#navigation_metaobjects .wrapper section {
+    margin: 1em;
+}
+
+#navigation_metaobjects .wrapper section h1 {
+    margin: 0 0 0.5rem 0.5em;
+    border-left: medium solid transparent;
+}
+
+#navigation_metaobjects .wrapper section h1 a:hover,
+#navigation_metaobjects .wrapper section h1 a:focus {
+    text-decoration: underline;
+}
+
+#navigation_metaobjects ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+#navigation_metaobjects ul li {
+    background-color: #FFCC99;
+    border: medium solid black;
+}
+
+#navigation_metaobjects ul li + li {
+    margin-top: 0;
+    border-top: none;
+}
+
+#navigation_metaobjects ul li a {
+    display: block;
+    padding: 0.175em 0.5em;
+    text-decoration: none;
+    background-color: #FFCC99;
+}
+
+#navigation_metaobjects ul li a:hover,
+#navigation_metaobjects ul li a:focus {
+    background-color: #FFDD99;
+    text-decoration: underline;
+}
+
+#navigation_metaobjects ul li.setfable {
+    display: flex;
+    flex-flow: row;
+    justify-content: stretch;
+}
+
+#navigation_metaobjects ul li.setfable .reader {
+    flex: 1 0;
+}
+
+#navigation_metaobjects ul li.setfable .writer {
+    flex: none;
+    text-align: right;
+    opacity: 0.5;
+}
+
+#navigation_metaobjects ul li.setfable .writer:hover,
+#navigation_metaobjects ul li.setfable .writer:focus {
+    opacity: 1;
+}
+
+
+
+
+article.method.definition section.description h1,
+article.reader.generic-function.definition section.description h1 {
+    display: none;
+}
+
+article.method.definition section.description > *,
+article.reader.generic-function.definition section.description > * {
+    margin-left: 1em;
+}
+
+article.method.see-description-below h1 {
+    margin-top: 0.3em;
+}
+
+
+pre {
+    margin-top: 1em;
+}
+
+
+p.args-and-retvals {
+    margin-top: 0.25em;
+    margin-left: 2em;
+}
+
+article.method.definition > p.args-and-retvals {
+    margin-bottom: -0.2em;
+}
+
+p.args-and-retvals + p.args-and-retvals,
+p.args-and-retvals + .or + p.args-and-retvals {
+    margin-top: -0.75em;
+}
+
+.merged-args-and-retvals {
+    position: relative;
+}
+
+.merged-args-and-retvals .or {
+    position: absolute;
+    right: 100%;
+    margin-top: -1.35em;
+    margin-right: -1.5em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+.two-dimensional-navtable {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.two-dimensional-navtable + .tabs {
+    margin-top: 1em;
+}
+
+.two-dimensional-navtable table {
+    font-size: medium;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+.two-dimensional-navtable table td {
+    text-align: center;
+}
+
+.two-dimensional-navtable table td a {
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: 50% 50%;
+    background-size: 1em;
+    color: transparent;
+}
+
+.two-dimensional-navtable table td a {
+    background-image: url("https://global.hexstreamsoft.com/css/images/unchecked-radio-button.svg");
+}
+
+.two-dimensional-navtable table td a.here {
+    background-image: url("https://global.hexstreamsoft.com/css/images/checked-radio-button.svg");
+}
+
+
+.generated-methods {
+    position: relative;
+    left: -1.4em;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 1.1em;
+    border-left: 0.3em solid rgba(0, 0, 0, 0.25);
+    border-radius: 1.4em;
+    margin-top: 0;
+}
+
+.generated-methods > h1 {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+    right: 100%;
+    margin-right: -0.95em;
+    transform: rotate(-90deg);
+    font-size: 2em;
+}
+
+.generated-methods > h1 a {
+    opacity: 0.25;
+}
+
+.generated-methods > h1 a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+#readers-for-class-metaobjects_methods_table-and-descriptions {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+}
+
+#readers-for-class-metaobjects_methods_table-and-descriptions table {
+    font-size: medium;
+    flex: none;
+    margin-top: 0;
+    margin-right: 0.75em;
+}
+
+#readers-for-class-metaobjects_methods_table-and-descriptions table thead th,
+#readers-for-class-metaobjects_methods_table-and-descriptions table tbody td {
+    text-align: center;
+}
+
+#readers-for-class-metaobjects_methods_table-and-descriptions table .chomp.top.left {
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#readers-for-class-metaobjects_methods_table-and-descriptions table .chomp.top.left .anchor {
+    font-size: x-large;
+}
+
+#readers-for-class-metaobjects_methods_table-and-descriptions table .chomp.top.left ~ th a {
+    display: inline;
+    padding: 0;
+}
+
+#readers-for-class-metaobjects_methods_table-and-descriptions ol {
+    flex: 1 1;
+    display: flex;
+    flex-flow: row wrap;
+    list-style-type: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#readers-for-class-metaobjects_methods_table-and-descriptions ol li {
+    display: flex;
+    flex-flow: row;
+}
+
+#readers-for-class-metaobjects_methods_table-and-descriptions ol li:before {
+    position: static;
+    width: 1.2em;
+    text-align: right;
+    margin-right: 0.4em;
+    flex: none;
+}
+
+#readers-for-class-metaobjects_methods_table-and-descriptions ol li p {
+    margin: 0;
+    margin-right: 1em;
+}
+
+
+nav.tabs.initargs li, nav.tabs.readers li {
+    white-space: nowrap;
+}
+
+nav.init-nav, nav.readers-nav {
+    position: relative;
+}
+
+.init-readers-toggle {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    bottom: 1em;
+    margin-left: 1em;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.init-readers-toggle ul {
+    margin-top: 0.1em;
+    text-align: center;
+}
+
+.init-readers-toggle ul li {
+    display: table-row;
+}
+
+
+section.advisory-header > h1 .here:before {
+    content: "[";
+}
+
+section.advisory-header > h1 .here:after {
+    content: "]";
+}
+
+section > h1.breadcrumbs a.advisory-header:before {
+    content: "[";
+}
+
+section > h1.breadcrumbs a.advisory-header:after {
+    content: "]";
+}

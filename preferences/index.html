@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="license" href="https://clos-mop.hexstreamsoft.com/UNLICENSE" />
+    <meta name="description" content="Preferences for the modern public domain online version of the CLOS MOP." />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Preferences | CLOS MOP specification</title>
+    <link href="../css/global.css" rel="stylesheet" type="text/css" />
+    <link href="https://global.hexstreamsoft.com/css/forms.css" rel="stylesheet" type="text/css" />
+    <link href="../css/definitions.css" rel="stylesheet" type="text/css" />
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <script src="https://global.hexstreamsoft.com/scripts/global.js"></script>
+    <script src="../scripts/global.js"></script>
+  </head>
+
+  <body class="no-sidenav">
+
+    <nav id="top-nav">
+
+      <div class="main">
+
+        <div class="breadcrumbs">
+          <a href="https://www.hexstreamsoft.com/">HexstreamSoft</a>
+          <span class="crumb"><span class="s"> » </span><a href="https://www.hexstreamsoft.com/articles/">Articles</a></span>
+          <span class="crumb"><span class="s"> » </span><a href="../">CLOS MOP</a></span>
+          <span class="crumb"><span class="s"> » </span><a class="here">Preferences</a></span>
+        </div>
+
+        <nav id="meta-nav">
+          <a href="https://clos-mop.hexstreamsoft.com/preferences/">
+            <abbr title="Canonical">C</abbr>
+          </a>
+          <a href="https://github.com/Hexstream/clos-mop.hexstreamsoft.com/blob/master/preferences/index.html">
+            <abbr title="Source">S</abbr>
+          </a>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="../concepts/">Concepts</a></li>
+            <li><a href="../generic-functions-and-methods/">Generic Functions and Methods</a></li>
+            <li><a href="../classes/">Classes</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a class="here">Preferences</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <p id="last-updated"><span>This page was last updated on </span><time datetime="2017-10-15">15 october 2017</time><span>.</span></p>
+
+    </nav>
+
+    <main>
+
+      <header id="page-header">
+        <h1>Preferences</h1>
+        <p class="description">For a more personalized experience.</p>
+      </header>
+
+      <section id="options" data-state-domain="site-prefs">
+
+        <section id="preferences-page-preferences">
+          <h1>Preferences page preferences</h1>
+          <ul>
+            <li>
+              <div class="labelled-control">
+                <input id="prefs-hints-visibility-option" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                       data-state-key="/prefs/hints.visibility" data-state-value="show" data-state-antivalue="hide"/>
+                <label for="prefs-hints-visibility-option">&nbsp;</label>
+                <label for="prefs-hints-visibility-option">Show hints</label>
+              </div>
+            </li>
+            <li>
+              <div class="labelled-control">
+                <input id="prefs-preview-visibility-option" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                       data-state-key="/prefs/preview.visibility" data-state-value="show" data-state-antivalue="hide"/>
+                <label for="prefs-preview-visibility-option">&nbsp;</label>
+                <label for="prefs-preview-visibility-option">Show preview</label>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Arguments and Values</h1>
+          <ul>
+            <li>
+              <div class="labelled-control">
+                <input type="radio" class="replaced" id="arguments-and-values_combined" name="arguments-and-values" disabled="disabled" checked="checked"
+                       data-state-key="arguments-and-values" data-state-value="combined" />
+                <label for="arguments-and-values_combined">&nbsp;</label>
+                <label for="arguments-and-values_combined">Combined <span class="hint">(as in CLHS)</span></label>
+              </div>
+            </li>
+            <li>
+              <div class="labelled-control">
+                <input type="radio" class="replaced" id="arguments-and-values_separate" name="arguments-and-values" disabled="disabled"
+                       data-state-key="arguments-and-values" data-state-value="separate" />
+                <label for="arguments-and-values_separate">&nbsp;</label>
+                <label for="arguments-and-values_separate">Separate <span class="hint">(as in book)</span></label>
+              </div>
+            </li>
+            <li>
+              <div class="labelled-control">
+                <input type="radio" class="replaced" id="arguments-and-values_combined-and-separate" name="arguments-and-values" disabled="disabled"
+                       data-state-key="arguments-and-values" data-state-value="combined-and-separate" />
+                <label for="arguments-and-values_combined-and-separate">&nbsp;</label>
+                <label for="arguments-and-values_combined-and-separate">Both <span class="hint">(for auditing)</span></label>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Boilerplate diff</h1>
+          <ul>
+            <li>
+              <div class="labelled-control">
+                <input id="diff-visibility-option" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                       data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+                <label for="diff-visibility-option">&nbsp;</label>
+                <label for="diff-visibility-option">Show diff<span class="hint"><br />(highlights differences between substantially similar passages)</span></label>
+              </div>
+            </li>
+            <li>
+              <ul>
+                <li>
+                  <div class="labelled-control">
+                    <input id="diff-removed-visibility-option" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                           data-state-key="diff.removed.visibility" data-state-value="show" data-state-antivalue="hide"/>
+                    <label for="diff-removed-visibility-option">&nbsp;</label>
+                    <label for="diff-removed-visibility-option">Show "removed" text <span class="hint">(better "stability" when comparing)</span></label>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="labelled-control">
+                        <input id="diff-removed-strikethrough-option" type="checkbox" class="replaced" disabled="disabled"
+                               data-state-key="diff.removed.strikethrough" data-state-value="strike" data-state-antivalue="no-strike"/>
+                        <label for="diff-removed-strikethrough-option">&nbsp;</label>
+                        <label for="diff-removed-strikethrough-option">Strikethrough <span class="hint">(easier to ignore shown "removed" text)</span></label>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Book pages</h1>
+          <ul>
+            <li>
+              <div class="labelled-control">
+                <input id="book-pages-references-visibility-option" type="checkbox" class="replaced" disabled="disabled"
+                       data-state-key="/book/pages/references.visibility" data-state-value="show" data-state-antivalue="hide"/>
+                <label for="book-pages-references-visibility-option">&nbsp;</label>
+                <label for="book-pages-references-visibility-option">Show page references</label>
+              </div>
+              <ul>
+                <li>
+                  <div class="labelled-control">
+                    <input id="book-pages-mid-paragraph-transition-marks-visibility-option" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                           data-state-key="/book/pages/mid-paragraph-transition-marks.visibility" data-state-value="show" data-state-antivalue="hide"/>
+                    <label for="book-pages-mid-paragraph-transition-marks-visibility-option">&nbsp;</label>
+                    <label for="book-pages-mid-paragraph-transition-marks-visibility-option">Show mid-paragraph page transition marks</label>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="controls-group horizontal">
+                        <span id="hack1">Mark type:</span>
+                        <div class="labelled-control">
+                          <input type="radio" class="replaced" id="book-pages-mid-paragraph-transition-marks-type_⁁" name="book-pages-mid-paragraph-transition-marks-type" disabled="disabled" checked="checked"
+                                 data-state-key="/book/pages/mid-paragraph-transition-marks.type" data-state-value="⁁" />
+                          <label for="book-pages-mid-paragraph-transition-marks-type_⁁">&nbsp;</label>
+                          <label for="book-pages-mid-paragraph-transition-marks-type_⁁">⁁</label>
+                        </div>
+                        <div class="labelled-control">
+                          <input type="radio" class="replaced" id="book-pages-mid-paragraph-transition-marks-type_‸" name="book-pages-mid-paragraph-transition-marks-type" disabled="disabled"
+                                 data-state-key="/book/pages/mid-paragraph-transition-marks.type" data-state-value="‸" />
+                          <label for="book-pages-mid-paragraph-transition-marks-type_‸">&nbsp;</label>
+                          <label for="book-pages-mid-paragraph-transition-marks-type_‸">‸</label>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+      </section>
+
+      <section id="preview">
+        <h1>Preview</h1>
+        <div class="page">
+          <a href="../raw/pages/164.png" target="_blank">
+            <span class="hide">[Page </span>
+            <span class="page-number">164</span>
+            <span class="hide">]</span>
+          </a>
+        </div>
+        <p><b>Boilerplate diff test:</b> <del class="boilerplate-diff">This text is present in at least one of the other sections, but not this one.</del> This text is common to all the relevant sections. <ins class="boilerplate-diff">This text is present in this and possibly other sections, but not all of them.</ins></p>
+        <a href="../generic-functions-and-methods/#initialization-of-class-metaobjects_introduction" target="_blank">Open complex diff in new tab</a>
+        <p>A page transition is occurring <span class="mid-paragraph-transition-mark"></span> in the middle of this paragraph.</p>
+      </section>
+
+    </main>
+
+    <footer id="footer">
+      <div class="back-to-top left">
+        <a href="#">⬆</a>
+      </div>
+      <div class="main">
+        <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fclos-mop.hexstreamsoft.com%2Fpreferences%2F">✔ HTML5</a>
+        <a href="https://clos-mop.hexstreamsoft.com/README">✔ Public Domain</a>
+        <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fclos-mop.hexstreamsoft.com%2Fpreferences%2F">✔ CSS3</a>
+        <a>✔ Mobile-friendly</a>
+      </div>
+      <div class="back-to-top right">
+        <a href="#">⬆</a>
+      </div>
+    </footer>
+
+  </body>
+</html>

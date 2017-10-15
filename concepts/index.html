@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="license" href="https://clos-mop.hexstreamsoft.com/UNLICENSE" />
+    <meta name="description" content="Fancy online version of Chapter 5 of The Art of the Metaobject Protocol, derived from Robert Strandh's public domain HTML version." />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Chapter 5: Concepts | CLOS MOP specification</title>
+    <link href="../css/global.css" rel="stylesheet" type="text/css" />
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <script src="https://global.hexstreamsoft.com/scripts/global.js"></script>
+    <script src="../scripts/global.js"></script>
+  </head>
+
+  <body class="no-sidenav">
+
+    <nav id="top-nav">
+
+      <div class="main">
+
+        <div class="breadcrumbs">
+          <a href="https://www.hexstreamsoft.com/">HexstreamSoft</a>
+          <span class="crumb"><span class="s"> » </span><a href="https://www.hexstreamsoft.com/articles/">Articles</a></span>
+          <span class="crumb"><span class="s"> » </span><a href="../">CLOS MOP</a></span>
+          <span class="crumb"><span class="s"> » </span><a class="here">Chapter 5</a></span>
+        </div>
+
+        <nav id="meta-nav">
+          <a href="https://clos-mop.hexstreamsoft.com/concepts/">
+            <abbr title="Canonical">C</abbr>
+          </a>
+          <a href="https://github.com/Hexstream/clos-mop.hexstreamsoft.com/blob/master/concepts/index.html">
+            <abbr title="Source">S</abbr>
+          </a>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a class="here">Concepts</a></li>
+            <li><a href="../generic-functions-and-methods/">Generic Functions and Methods</a></li>
+            <li><a href="../classes/">Classes</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="../preferences/">Preferences</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <p id="last-updated"><span>This page was last updated on </span><time datetime="2017-10-15">15 october 2017</time><span>.</span></p>
+
+    </nav>
+
+    <main>
+
+      <header id="page-header">
+        <h1>Concepts</h1>
+        <p class="description">Chapter 5 of <a href="https://www.amazon.ca/Art-Metaobject-Protocol-Gregor-Kiczales/dp/0262610744"><cite>The Art of the Metaobject Protocol</cite></a>.</p>
+      </header>
+
+      <nav class="hanging-menu">
+        <ul>
+          <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/table-of-contents.html">RS</a></li>
+        </ul>
+      </nav>
+
+      <section id="introduction">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#introduction" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.1</span> Introduction</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/introduction.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <div class="page" id="page-137">
+          <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/137.png" target="_blank" class="page-number">
+            <span class="hide">[Page </span>
+            <span class="page-number">137</span>
+            <span class="hide">]</span>
+          </a>
+          <a href="#page-137" class="anchor">⚓</a>
+        </div>
+
+        <p>The <a href="http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node260.html#SECTION003200000000000000000" class="body-link cltl2">CLOS Specification</a> <span class="amop-detail">[X3J13, CLtLII]</span> describes the standard Programmer Interface for the Common Lisp Object System (CLOS). This document extends that specification by defining a metaobject protocol for CLOS---that is, a description of CLOS itself as an extensible CLOS program. In this description, the fundamental elements of CLOS programs (classes, slot definitions, generic functions, methods, specializers and method combinations) are represented by first-class objects. The behavior of CLOS is provided by these objects, or, more precisely, by methods specialized to the classes of these objects.</p>
+
+        <p>Because these objects represent pieces of CLOS programs, and because their behavior provides the behavior of the CLOS language itself, they are considered meta-level objects or metaobjects. The protocol followed by the metaobjects to provide the behavior of CLOS is called the CLOS Metaobject Protocol (MOP).</p>
+
+      </section>
+
+      <section id="metaobjects">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#metaobjects" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.2</span> Metaobjects</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/metaobjects.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <p>For each kind of program element there is a corresponding <i>basic metaobject class</i>. These are the classes: <a href="../classes/#class" class="body-link class">class</a>, <a href="../classes/#slot-definition" class="body-link class">slot-definition</a>, <a href="../classes/#generic-function" class="body-link class">generic-function</a>, <a href="../classes/#method" class="body-link class">method</a>, and <a href="../classes/#method-combination" class="body-link class">method-combination</a>. A <i>metaobject class</i> is a subclass of exactly one of these classes. The results are undefined if an attempt is made to define a class that is a subclass of more than one basic metaobject class. A <i>metaobject</i> is an instance of a metaobject class.</p>
+
+        <p>Each metaobject represents one program element. Associated with each metaobject is the information required to serve its role. This includes information that might be provided directly in a user interface macro such as <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> or <a href="file:///home/hexstream/quicklisp/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a>. It also includes information computed indirectly from other metaobjects such as that computed from class inheritance or the full set of methods associated with a generic function.</p>
+
+        <p>Much of the information associated with a metaobject is in the form of connections to other metaobjects. This interconnection means that the role of a metaobject is always based on that of other metaobjects. As an introduction to this interconnected structure, this section presents a partial enumeration of the kinds of information associated with each kind of metaobject. More detailed information is presented later.</p>
+
+        <section id="classes">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#classes" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#metaobjects">Metaobjects</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.2.1</span> Classes</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/classes.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>A <i>class metaobject</i> determines the structure and the default behavior of its instances. The following information is associated with class metaobjects:</p>
+
+          <div class="page" id="page-138">
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/138.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">138</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-138" class="anchor">⚓</a>
+          </div>
+
+          <ul class="body-list">
+
+            <li>
+              <p>The name, if there is one, is available as an object.</p>
+            </li>
+
+            <li>
+              <p>The direct subclasses, direct superclasses and class precedence list are available as lists of class metaobjects.</p>
+            </li>
+
+            <li>
+              <p>The slots defined directly in the class are available as a list of direct slot definition metaobjects. The slots which are accessible in instances of the class are available as a list of effective slot definition metaobjects.</p>
+            </li>
+
+            <li>
+              <p>The documentation is available as a string or <code class="constant">nil</code>.</p>
+            </li>
+
+            <li>
+              <p>The methods which use the class as a specializer, and the generic functions associated with those methods are available as lists of method and generic function metaobjects respectively.</p>
+            </li>
+
+          </ul>
+
+        </section>
+
+        <section id="slot-definitions">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#slot-definitions" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#metaobjects">Metaobjects</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.2.2</span> Slot definitions</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/slot-definitions.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>A <i>slot definition metaobject</i> contains information about the definition of a slot. There are two kinds of slot definition metaobjects. A direct slot definition metaobject is used to represent the direct definition of a slot in a class. This corresponds roughly to the slot specifiers found in <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> forms. An effective slot definition metaobject is used to represent information, including inherited information, about a slot which is accessible in instances of a particular class.</p>
+
+          <p>Associated with each class metaobject is a list of direct slot definition metaobjects representing the slots defined directly in the class. Also associated with each class metaobject is a list of effective slot definition metaobjects representing the set of slots accessible in instances of that class.</p>
+
+          <p>The following information is associated with both direct and effective slot definitions metaobjects:</p>
+
+          <ul class="body-list">
+
+            <li>
+              <p>The name, allocation, and type are available as forms that could appear in a <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form.</p>
+            </li>
+
+            <li>
+              <p>The initialization form, if there is one, is available as a form that could appear in a <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form. The initialization form together with its lexical environment is available as a function of no arguments which, when called, returns the result of evaluating the initialization form in its lexical environment. This is called the <i class="maybe-var">initfunction</i> of the slot.</p>
+            </li>
+
+            <li>
+              <p>The slot filling initialization arguments are available as a list of symbols.</p>
+            </li>
+
+            <li>
+              <p>The documentation is available as a string or <code class="constant">nil</code>.</p>
+            </li>
+
+          </ul>
+
+          <p>Certain other information is only associated with direct slot definition metaobjects. This information applies only to the direct definition of the slot in the class (it is not inherited).</p>
+
+          <ul class="body-list">
+
+            <li>
+              <p>The function names of those generic functions for which there are automatically generated reader and writer methods. This information is available as lists of function <span class="mid-paragraph-transition-mark" id="138-139-page-transition"></span> names. Any accessors specified in the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form are broken down into their equivalent readers and writers in the direct slot definition.</p>
+            </li>
+
+          </ul>
+
+          <div class="page approximate" id="page-139">
+            <a href="#138-139-page-transition" class="transition">↳</a>
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/139.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">139</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-139" class="anchor">⚓</a>
+          </div>
+
+          <p>Information, including inherited information, which applies to the definition of a slot in a particular class in which it is accessible is associated only with effective slot definition metaobjects.</p>
+
+          <ul class="body-list">
+
+            <li>
+              <p>For certain slots, the location of the slot in instances of the class is available.</p>
+            </li>
+
+          </ul>
+
+        </section>
+
+        <section id="generic-functions">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#generic-functions" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#metaobjects">Metaobjects</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.2.3</span> Generic functions</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/generic-functions.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>A <i>generic function metaobject</i> contains information about a generic function over and above the information associated with each of the generic function's methods.</p>
+
+          <ul class="body-list">
+
+            <li>
+              <p>The name is available as a function name.</p>
+            </li>
+
+            <li>
+              <p>The methods associated with the generic function are available as a list of method metaobjects.</p>
+            </li>
+
+            <li>
+              <p>The default class for this generic function's method metaobjects is available as a class metaobject.</p>
+            </li>
+
+            <li>
+              <p>The lambda list is available as a list.</p>
+            </li>
+
+            <li>
+              <p>The method combination is available as a method combination metaobject.</p>
+            </li>
+
+            <li>
+              <p>The documentation is available as a string or <code>nil</code>.</p>
+            </li>
+
+            <li>
+              <p>The argument precedence order is available as a permutation of those symbols from the lambda list which name the required arguments of the generic function.</p>
+            </li>
+
+            <li>
+              <p>The declarations are available as a list of declarations.</p>
+              <section class="body-section">
+                <h1>Terminology Note:</h1>
+                <p>There is some ambiguity in Common Lisp about the terms used to identify the various parts of <a href="http://www.lispworks.com/documentation/HyperSpec/Body/s_declar.htm#declare" class="body-link clhs">declare</a> special forms. In this document, the term <i>declaration</i> is used to refer to an object that could be an argument to a <a href="http://www.lispworks.com/documentation/HyperSpec/Body/s_declar.htm#declare" class="body-link clhs">declare</a> special form. For example, in the special form <code>(declare (special *g1*))</code>, the list <code>(special *g1*)</code> is a declaration.</p>
+              </section>
+            </li>
+          </ul>
+
+        </section>
+
+        <section id="methods">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#methods" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#metaobjects">Metaobjects</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.2.4</span> Methods</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/methods.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>A <i>method metaobject</i> contains information about a specific method.</p>
+
+          <ul class="body-list">
+
+            <li>
+              <p>The qualifiers are available as a list <span class="amop-typo" data-original="of of">of</span> non-null atoms.</p>
+            </li>
+
+            <li>
+              <p>The lambda list is available as a list.</p>
+            </li>
+
+            <li>
+              <p>The specializers are available as a list of specializer metaobjects.</p>
+            </li>
+
+            <li>
+              <p>The function is available as a function. This function can be applied to arguments and a list of next methods using <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_apply.htm#apply" class="body-link clhs">apply</a> or <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_funcal.htm#funcall" class="body-link clhs">funcall</a>.</p>
+            </li>
+
+            <li>
+              <div class="page" id="page-140">
+                <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/140.png" target="_blank" class="page-number">
+                  <span class="hide">[Page </span>
+                  <span class="page-number">140</span>
+                  <span class="hide">]</span>
+                </a>
+                <a href="#page-140" class="anchor">⚓</a>
+              </div>
+              <p>When the method is associated with a generic function, that generic function metaobject is available. A method can be associated with at most one generic function at a time.</p>
+            </li>
+
+            <li>
+              <p>The documentation is available as a string or <code>nil</code>.</p>
+            </li>
+
+          </ul>
+
+        </section>
+
+        <section id="specializers">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#specializers" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#metaobjects">Metaobjects</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.2.5</span> Specializers</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/specializers.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>A specializer metaobject represents the specializers of a method. Class metaobjects are themselves specializer metaobjects. A special kind of specializer metaobject is used for <code>eql</code> specializers.</p>
+
+        </section>
+
+        <section id="method-combinations">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#method-combinations" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#metaobjects">Metaobjects</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.2.6</span> Method combinations</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/method-combinations.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>A <i>method combination metaobject</i> represents the information about the method combination being used by a generic function.</p>
+
+          <section class="body-section">
+            <h1>Note:</h1>
+            <p>This document does not specify the structure of method combination metaobjects.</p>
+          </section>
+
+        </section>
+
+        <nav class="end-of-section-indicator">
+          <a href="#metaobjects">
+            "<span>Metaobjects</span>" end.
+          </a>
+        </nav>
+
+      </section>
+
+      <section id="inheritance-structure-of-metaobject-classes">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#inheritance-structure-of-metaobject-classes" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.3</span> Inheritance structure of metaobject classes</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/inheritance-structure.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <p>The inheritance structure of the specified metaobject classes is shown in <a href="#table-5.1_figure" class="body-link figure table">Table 5.1</a>.</p>
+
+        <div class="on page">
+          <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/141.png" target="_blank" class="page-number">
+            <span class="hide">[On page </span>
+            <span class="page-number">141</span>
+            <span class="hide">]</span>
+          </a>
+          <a href="#table-5.1_figure" class="anchor">⚓</a>
+        </div>
+
+        <figure id="table-5.1_figure">
+          <figcaption>
+            <p>Table 5.1</p>
+            <p>Direct superclass relationships among the specified metaobject classes. The class of every class shown is <a href="../classes/#standard-class" class="body-link class">standard-class</a> except for the class <a href="../classes/#t" class="body-link class t">t</a> which is an instance of the class <a href="../classes/#built-in-class" class="body-link class">built-in-class</a> and the classes <a href="../classes/#generic-function" class="body-link class">generic-function</a> and <a href="../classes/#standard-generic-function" class="body-link class">standard-generic-function</a> which are instances of the class <a href="../classes/#funcallable-standard-class" class="body-link class">funcallable-standard-class</a>.</p>
+          </figcaption>
+          <div class="scroll">
+            <table id="table-5.1">
+              <tr>
+                <th class="chomp top left">
+                  <a href="#table-5.1" class="anchor">⚓</a>
+                </th>
+                <th>Metaobject Class</th>
+                <th>Direct Superclasses</th>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#standard-object" class="body-link class">standard-object</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#t" class="body-link class">t</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#funcallable-standard-object" class="body-link class">funcallable-standard-object</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#standard-object" class="body-link class">standard-object</a> <a href="../classes/#function" class="body-link class">function</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  *
+                </td>
+                <td>
+                  <a href="../classes/#metaobject" class="body-link class">metaobject</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#standard-object" class="body-link class">standard-object</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  *
+                </td>
+                <td>
+                  <a href="../classes/#generic-function" class="body-link class">generic-function</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#metaobject" class="body-link class">metaobject</a> <a href="../classes/#funcallable-standard-object" class="body-link class">funcallable-standard-object</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#standard-generic-function" class="body-link class">standard-generic-function</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#generic-function" class="body-link class">generic-function</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  *
+                </td>
+                <td>
+                  <a href="../classes/#method" class="body-link class">method</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#metaobject" class="body-link class">metaobject</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#standard-method" class="body-link class">standard-method</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#method" class="body-link class">method</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  *
+                </td>
+                <td>
+                  <a href="../classes/#standard-accessor-method" class="body-link class">standard-accessor-method</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#standard-method" class="body-link class">standard-method</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#standard-reader-method" class="body-link class">standard-reader-method</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#standard-accessor-method" class="body-link class">standard-accessor-method</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#standard-writer-method" class="body-link class">standard-writer-method</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#standard-accessor-method" class="body-link class">standard-accessor-method</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  *
+                </td>
+                <td>
+                  <a href="../classes/#method-combination" class="body-link class">method-combination</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#metaobject" class="body-link class">metaobject</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  *
+                </td>
+                <td>
+                  <a href="../classes/#slot-definition" class="body-link class">slot-definition</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#metaobject" class="body-link class">metaobject</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  *
+                </td>
+                <td>
+                  <a href="../classes/#direct-slot-definition" class="body-link class">direct-slot-definition</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#slot-definition" class="body-link class">slot-definition</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  *
+                </td>
+                <td>
+                  <a href="../classes/#effective-slot-definition" class="body-link class">effective-slot-definition</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#slot-definition" class="body-link class">slot-definition</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  *
+                </td>
+                <td>
+                  <a href="../classes/#standard-slot-definition" class="body-link class">standard-slot-definition</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#slot-definition" class="body-link class">slot-definition</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#standard-direct-slot-definition" class="body-link class">standard-direct-slot-definition</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#standard-slot-definition" class="body-link class">standard-slot-definition</a> <a href="../classes/#direct-slot-definition" class="body-link class">direct-slot-definition</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#standard-effective-slot-definition" class="body-link class">standard-effective-slot-definition</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#standard-slot-definition" class="body-link class">standard-slot-definition</a> <a href="../classes/#effective-slot-definition" class="body-link class">effective-slot-definition</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  *
+                </td>
+                <td>
+                  <a href="../classes/#specializer" class="body-link class">specializer</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#metaobject" class="body-link class">metaobject</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#eql-specializer" class="body-link class">eql-specializer</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#specializer" class="body-link class">specializer</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  *
+                </td>
+                <td>
+                  <a href="../classes/#class" class="body-link class">class</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#specializer" class="body-link class">specializer</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#built-in-class" class="body-link class">built-in-class</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#class" class="body-link class">class</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#forward-referenced-class" class="body-link class">forward-referenced-class</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#class" class="body-link class">class</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#standard-class" class="body-link class">standard-class</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#class" class="body-link class">class</a>)</code>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <a href="../classes/#funcallable-standard-class" class="body-link class">funcallable-standard-class</a>
+                </td>
+                <td>
+                  <code>(<a href="../classes/#class" class="body-link class">class</a>)</code>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </figure>
+
+        <p>Each class marked with a <q>*</q> is an <i>abstract class</i> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of one of these classes with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+
+        <p>The classes <a href="../classes/#standard-class" class="body-link class">standard-class</a>, <a href="../classes/#standard-direct-slot-definition" class="body-link class">standard-direct-slot-definition</a>, <a href="../classes/#standard-effective-slot-definition" class="body-link class">standard-effective-slot-definition</a>, <a href="../classes/#standard-method" class="body-link class">standard-method</a>, <a href="../classes/#standard-reader-method" class="body-link class">standard-reader-method</a>, <a href="../classes/#standard-writer-method" class="body-link class">standard-writer-method</a>, and <a href="../classes/#standard-generic-function" class="body-link class">standard-generic-function</a> are called <i>standard metaobject classes</i>. For each kind of metaobject, this is the class the user interface macros presented in the CLOS Specification use by default. These are also the classes on which user specializations are normally based.</p>
+
+        <p>The classes <a href="../classes/#built-in-class" class="body-link class">built-in-class</a>, <a href="../classes/#funcallable-standard-class" class="body-link class">funcallable-standard-class</a> and <a href="../classes/#forward-referenced-class" class="body-link class">forward-referenced-class</a> are special-purpose class metaobject classes. Built-in classes are instances of the class <a href="../classes/#built-in-class" class="body-link class">built-in-class</a>. The class <a href="../classes/#funcallable-standard-class" class="body-link class">funcallable-standard-class</a> provides a special kind of instances described in the section called <q><a href="#funcallable-instances" class="body-link">Funcallable Instances</a><!-- Original: "." inside --></q>. When the definition of a class references another class which has not yet been defined, an instance of <a href="../classes/#forward-referenced-class" class="body-link class">forward-referenced-class</a> is used as a stand-in until the class is actually defined.</p>
+
+        <p>The class <a href="../classes/#standard-object" class="body-link class">standard-object</a> is the <i>default direct superclass</i> of the class <a href="../classes/#standard-class" class="body-link class">standard-class</a>. When an instance of the class <a href="../classes/#standard-class" class="body-link class">standard-class</a> is created, and no direct superclasses are explicitly specified, it defaults to the class <a href="../classes/#standard-object" class="body-link class">standard-object</a>. In this way, any <span class="mid-paragraph-transition-mark" id="140-142-page-transition"></span> behavior associated with the class <a href="../classes/#standard-object" class="body-link class">standard-object</a> will be inherited, directly or indirectly, by all instances of the class <a href="../classes/#standard-class" class="body-link class">standard-class</a>. A subclass of <a href="../classes/#standard-class" class="body-link class">standard-class</a> may have a different class as its default direct superclass, but that class must be a subclass of the class <a href="../classes/#standard-object" class="body-link class">standard-object</a>.</p>
+
+        <div class="page approximate" id="page-142">
+          <a href="#140-142-page-transition" class="transition">↳</a>
+          <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/142.png" target="_blank" class="page-number">
+            <span class="hide">[Page </span>
+            <span class="page-number">142</span>
+            <span class="hide">]</span>
+          </a>
+          <a href="#page-142" class="anchor">⚓</a>
+        </div>
+
+        <p>The same is true for <a href="../classes/#funcallable-standard-class" class="body-link class">funcallable-standard-class</a> and <a href="../classes/#funcallable-standard-object" class="body-link class">funcallable-standard-object</a>.</p>
+
+        <p>The class <a href="../classes/#specializer" class="body-link class">specializer</a> captures only the most basic behavior of method specializers, and is not itself intended to be instantiated. The class <a href="../classes/#class" class="body-link class">class</a> is a direct subclass of <a href="../classes/#specializer" class="body-link class">specializer</a> reflecting the property that classes by themselves can be used as method specializers. The class <a href="../classes/#eql-specializer" class="body-link class">eql-specializer</a> is used for <code>eql</code> specializers.</p>
+
+        <section id="implementation-and-user-specialization">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#implementation-and-user-specialization" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="#" class="ellipsis">...<sub>2</sub></a>
+              <span class="crumb"><span class="s"> » </span><a href="#inheritance-structure-of-metaobject-classes">Inheritance structure of metaobject classes</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.3.1</span> Implementation and User Specialization</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/implementation-and-user-specialization.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>The purpose of the Metaobject Protocol is to provide users with a powerful mechanism for extending and customizing the basic behavior of the Common Lisp Object System. As an object-oriented description of the basic CLOS behavior, the Metaobject Protocol makes it possible to create these extensions by defining specialized subclasses of existing metaobject classes.</p>
+
+          <p>The Metaobject Protocol provides this capability without interfering with the implementor's ability to develop high-performance implementations. This balance between user extensibility and implementor freedom is mediated by placing explicit restrictions on each. Some of these restrictions are general---they apply to the entire class graph and the applicability of all methods. These are presented in this section.</p>
+
+          <p>The following additional terminology is used to present these restrictions:</p>
+
+          <ul class="body-list">
+
+            <li>
+              <p>Metaobjects are divided into three categories. Those defined in this document are called <i>specified</i>; those defined by an implementation but not mentioned in this document are called <i>implementation-specific</i>; and those defined by a portable program are called <i>portable</i>.</p>
+            </li>
+
+            <li>
+              <p>A class <var>I</var> is <i>interposed</i> between two other classes <var>C<sub>1</sub></var> and <var>C<sub>2</sub></var> if and only if there is some path, following direct superclasses, from the class <var>C<sub>1</sub></var> to the class <var>C<sub>2</sub></var> which includes <var>I</var>.</p>
+            </li>
+
+            <li>
+              <p>A method is <i>specialized to</i> a class if and only if that class is in the list of specializers associated with the method; and the method is in the list of methods associated with some generic function.</p>
+            </li>
+
+            <li>
+              <p>In a given implementation, a specified method is said to have been <i>promoted</i> if and only if the specializers of the method, <var>S<sub>1</sub></var> ... <var>S<sub>n</sub></var>, are defined in this specification as the classes <var>C<sub>1</sub></var> ... <var>C<sub>n</sub></var>, but in the implementation, one or more of the specializers <var>S<sub>i</sub></var>, is a superclass of the class given in the specification <var>C<sub>i</sub></var>.</p>
+            </li>
+
+            <li>
+              <p>For a given generic function and set of arguments, a method <var>M<sub>2</sub></var> <i>extends</i> a method <var>M<sub>1</sub></var> if and only if:</p>
+              <div class="page" id="page-143">
+                <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/143.png" target="_blank" class="page-number">
+                  <span class="hide">[Page </span>
+                  <span class="page-number">143</span>
+                  <span class="hide">]</span>
+                </a>
+                <a href="#page-143" class="anchor">⚓</a>
+              </div>
+              <ol class="body-list paren-roman">
+                <li>
+                  <p><var>M<sub>1</sub></var> and <var>M<sub>2</sub></var> are both associated with the given generic function,</p>
+                </li>
+                <li>
+                  <p><var>M<sub>1</sub></var> and <var>M<sub>2</sub></var> are both applicable to the given arguments,</p>
+                </li>
+                <li>
+                  <p>the specializers and qualifiers of the methods are such that when the generic function is called, <var>M<sub>2</sub></var> is executed before <var>M<sub>1</sub></var>,</p>
+                </li>
+                <li>
+                  <p><var>M<sub>1</sub></var> will be executed if and only if <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_call_n.htm#call-next-method" class="body-link clhs">call-next-method</a> is invoked from within the body of <var>M<sub>2</sub></var> and</p>
+                </li>
+                <li>
+                  <p><a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_call_n.htm#call-next-method" class="body-link clhs">call-next-method</a> is invoked from within the body of <var>M<sub>2</sub></var>, thereby causing <var>M<sub>1</sub></var> to be executed.</p>
+                </li>
+              </ol>
+            </li>
+
+            <li>
+              <p>For a given generic function and set of arguments, a method <var>M<sub>2</sub></var> <i>overrides</i> a method <var>M<sub>1</sub></var> if and only if conditions i through iv above hold and</p>
+              <ol class="body-list paren-roman">
+                <li id="five-prime">
+                  <p><a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_call_n.htm#call-next-method" class="body-link clhs">call-next-method</a> is not invoked from within the body of <var>M<sub>2</sub></var>, thereby preventing <var>M<sub>1</sub></var> from being executed.</p>
+                </li>
+              </ol>
+            </li>
+          </ul>
+
+          <section id="restrictions-on-implementations">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#restrictions-on-implementations" class="anchor">⚓</a>
+              </span>
+              <div class="breadcrumbs">
+                <a href="#inheritance-structure-of-metaobject-classes" class="ellipsis">...<sub>3</sub></a>
+                <span class="crumb"><span class="s"> » </span><a href="#implementation-and-user-specialization">Implementation and User Specialization</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">Restrictions on implementations</a></span>
+              </div>
+            </h1>
+
+            <nav class="hanging-menu">
+              <ul>
+                <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/restrictions-on-implementations.html">RS</a></li>
+              </ul>
+            </nav>
+
+            <p>Implementations are allowed latitude to modify the structure of specified classes and methods. This includes: the interposition of implementation-specific classes; the promotion of specified methods; and the consolidation of two or more specified methods into a single method specialized to interposed classes.</p>
+
+            <p>Any such modifications are permitted only so long as for any portable class <var>C</var><sub>p</sub> that is a subclass of one or more specified classes <var>C</var><sub>0</sub> ... <var>C</var><sub>i</sub>, the following conditions are met:</p>
+
+            <ul class="body-list">
+
+              <li>
+                <p>In the actual class precedence list of <var>C</var><sub>p</sub>, the classes <var>C</var><sub>0</sub> ... <var>C</var><sub>i</sub> must appear in the same order as they would have if no implementation-specific modifications had been made.</p>
+              </li>
+
+              <li>
+                <p>The method applicability of any specified generic function must be the same in terms of behavior as it would have been had no implementation-specific changes been made. This includes specified generic functions that have had portable methods added. In this context, the expression <q>the same in terms of behavior</q> means that methods with the same behavior as those specified are applicable, and in the same order.</p>
+              </li>
+
+              <li>
+                <p>No portable class <var>C</var><sub>p</sub> may inherit, by virtue of being a direct or indirect subclass of a specified class, any slot for which the name is a symbol accessible in the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/11_abb.htm" class="body-link clhs">common-lisp-user</a> package or exported by any package defined in the ANSI Common Lisp standard.</p>
+              </li>
+
+              <li>
+                <p>Implementations are free to define implementation-specific before- and after-methods on specified generic functions. Implementations are also free to define implementation-specific around-methods with extending behavior.</p>
+              </li>
+
+            </ul>
+
+          </section>
+
+          <section id="restrictions-on-portable-programs">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#restrictions-on-portable-programs" class="anchor">⚓</a>
+              </span>
+              <div class="breadcrumbs">
+                <a href="#inheritance-structure-of-metaobject-classes" class="ellipsis">...<sub>3</sub></a>
+                <span class="crumb"><span class="s"> » </span><a href="#implementation-and-user-specialization">Implementation and User Specialization</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">Restrictions on portable programs</a></span>
+              </div>
+            </h1>
+
+            <nav class="hanging-menu">
+              <ul>
+                <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/restrictions-on-portable-programs.html">RS</a></li>
+              </ul>
+            </nav>
+
+            <p>Portable programs are allowed to define subclasses of specified classes, and are permitted to define methods on specified generic <span class="mid-paragraph-transition-mark" id="143-144-page-transition"></span> functions, with the following restrictions. The results are undefined if any of these restrictions is violated.</p>
+
+            <div class="page approximate" id="page-144">
+              <a href="#143-144-page-transition" class="transition">↳</a>
+              <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/144.png" target="_blank" class="page-number">
+                <span class="hide">[Page </span>
+                <span class="page-number">144</span>
+                <span class="hide">]</span>
+              </a>
+              <a href="#page-144" class="anchor">⚓</a>
+            </div>
+
+            <ul class="body-list">
+
+              <li>
+                <p>Portable programs must not redefine any specified classes, generic functions, methods or method combinations. Any method defined by a portable program on a specified generic function must have at least one specializer that is neither a specified class nor an <code>eql</code> specializer whose associated value is an instance of a specified class.</p>
+              </li>
+
+              <li>
+                <p>Portable programs may define methods that extend specified methods unless the description of the specified method explicitly prohibits this. Unless there is a specific statement to the contrary, these extending methods must return whatever value was returned by the call to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_call_n.htm#call-next-method" class="body-link clhs">call-next-method</a>.</p>
+              </li>
+
+              <li>
+                <p>Portable programs may define methods that override specified methods only when the description of the specified method explicitly allows this. Typically, when a method is allowed to be overridden, a small number of related methods will need to be overridden as well.</p>
+
+                <p>An example of this is the specified methods on the generic functions <a href="../generic-functions-and-methods/#add-dependent" class="body-link generic-function">add-dependent</a>, <a href="../generic-functions-and-methods/#remove-dependent" class="body-link generic-function">remove-dependent</a> and <a href="../generic-functions-and-methods/#map-dependents" class="body-link generic-function">map-dependents</a>. Overriding a specified method on one of these generic functions requires that the corresponding method on the other two generic functions be overridden as well.</p>
+              </li>
+
+              <li>
+                <p>Portable methods on specified generic functions specialized to portable metaobject classes must be defined before any instances of those classes (or any subclasses) are created, either directly or indirectly by a call to <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>. Methods can be defined after instances are created by <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_alloca.htm#allocate-instance" class="body-link clhs">allocate-instance</a> however. Portable metaobject classes cannot be redefined.</p>
+
+                <section class="body-section">
+                  <h1>Implementation Note:</h1>
+                  <p>The purpose of this last restriction is to permit implementations to provide performance optimizations by analyzing, at the time the first instance of a metaobject class is initialized, what portable methods will be applicable to it. This can make it possible to optimize calls to those specified generic functions which would have no applicable portable methods.</p>
+                </section>
+
+                <section class="body-section">
+                  <h1>Note:</h1>
+                  <p>The specification technology used in this document needs further development. The concepts of object-oriented protocols and subclass specialization are intuitively familiar to programmers of object-oriented systems; the protocols presented here fit quite naturally into this framework. Nonetheless, in preparing this document, we have found it difficult to give specification-quality descriptions of the protocols in a way that makes it clear what extensions users can and cannot write. Object-oriented protocol specification is inherently about specifying leeway, and this seems difficult using current technology.</p>
+                </section>
+
+              </li>
+            </ul>
+
+          </section>
+
+          <nav class="end-of-section-indicator">
+            <a href="#implementation-and-user-specialization">
+              "<span>Implementation and User Specialization</span>" end.
+            </a>
+          </nav>
+
+        </section>
+
+        <nav class="end-of-section-indicator">
+          <a href="#inheritance-structure-of-metaobject-classes">
+            "<span>Inheritance structure of metaobject classes</span>" end.
+          </a>
+        </nav>
+
+      </section>
+
+      <section id="processing-of-the-user-interface-macros">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#processing-of-the-user-interface-macros" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.4</span> Processing of the user interface macros</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/processing-of-the-user-interface-macros.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <div class="page" id="page-145">
+          <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/145.png" target="_blank" class="page-number">
+            <span class="hide">[Page </span>
+            <span class="page-number">145</span>
+            <span class="hide">]</span>
+          </a>
+          <a href="#page-145" class="anchor">⚓</a>
+        </div>
+
+        <p>A list in which the first element is one of the symbols <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a>, <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a>, <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defgen.htm#defgeneric" class="body-link clhs">defgeneric</a>, <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defi_4.htm#define-method-combination" class="body-link clhs">define-method-combination</a>, <code>generic-function</code>, <code>generic-flet</code> or <code>generic-labels</code>, and which has proper syntax for that macro is called a <i>user interface macro form</i>. This document provides an extended specification of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a>, <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> and <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defgen.htm#defgeneric" class="body-link clhs">defgeneric</a> macros.</p>
+
+        <p>The user interface macros <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a>, <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defgen.htm#defgeneric" class="body-link clhs">defgeneric</a> and <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> can be used not only to define metaobjects that are instances of the corresponding standard metaobject class, but also to define metaobjects that are instances of appropriate portable metaobject classes. To make it possible for portable metaobject classes to properly process the information appearing in the macro form, this document provides a limited specification of the processing of these macro forms.</p>
+
+        <p>User interface macro forms can be <i>evaluated</i> or <i>compiled</i> and later <i>executed</i>. The effect of evaluating or executing a user interface macro form is specified in terms of calls to specified functions and generic functions which provide the actual behavior of the macro. The arguments received by these functions and generic functions are derived in a specified way from the macro form.</p>
+
+        <p>Converting a user interface macro form into the arguments to the appropriate functions and generic functions has two major aspects: the conversion of the macro argument syntax into a form more suitable for later processing, and the processing of macro arguments which are forms to be evaluated (including method bodies).</p>
+
+        <p>In the syntax of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> macro, the <var>initform</var> and <var>default-initarg-initial-value-form</var> arguments are forms which will be evaluated one or more times after the macro form is evaluated or executed. Special processing must be done on these arguments to ensure that the lexical scope of the forms is captured properly. This is done by building a function of zero arguments which, when called, returns the result of evaluating the form in the proper lexical environment.</p>
+
+        <p>In the syntax of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> macro the <var>form*</var> argument is a list of forms that comprise the body of the method definition. This list of forms must be processed specially to capture the lexical scope of the macro form. In addition, the lexical functions available only in the body of methods must be introduced. To allow this and any other special processing (such as slot access optimization), a specializable protocol is used for processing the body of methods. This is discussed in the section <q><a href="#processing-method-bodies" class="body-link">Processing Method Bodies</a></q><!-- Original: "." inside -->.</p>
+
+        <section id="compile-file-processing-of-the-user-interface-macros">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#compile-file-processing-of-the-user-interface-macros" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="#" class="ellipsis">...<sub>2</sub></a>
+              <span class="crumb"><span class="s"> » </span><a href="#processing-of-the-user-interface-macros">Processing of the user interface macros</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.4.1</span> Compile-file processing of the user interface macros</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/compile-file-processing-of-the-user-interface-macros.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <div class="page" id="page-146">
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/146.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">146</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-146" class="anchor">⚓</a>
+          </div>
+
+          <p>It is common practice for Common Lisp compilers, while processing a file or set of files, to maintain information about the definitions that have been compiled so far. Among other things, this makes it possible to ensure that a global macro definition (<a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmac.htm#defmacro" class="body-link clhs">defmacro</a> form) which appears in a file will affect uses of the macro later in that file. This information about the state of the compilation is called the <i>compile-file environment</i>.</p>
+
+          <p>When compiling files containing CLOS definitions, it is useful to maintain certain additional information in the compile-file environment. This can make it possible to issue various kinds of warnings (e.g., lambda list congruence) and to do various performance optimizations that would not otherwise be possible.</p>
+
+          <p>At this time, there is such significant variance in the way existing Common Lisp implementations handle compile-file environments that it would be premature to specify this mechanism. Consequently, this document specifies only the behavior of evaluating or executing user interface macro forms. What functions and generic functions are called during compile-file processing of a user interface macro form is not specified. Implementations are free to define and document their own behavior. Users may need to check implementation-specific behavior before attempting to compile certain portable programs.</p>
+
+        </section>
+
+        <section id="the-defclass-macro">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#the-defclass-macro" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="#" class="ellipsis">...<sub>2</sub></a>
+              <span class="crumb"><span class="s"> » </span><a href="#processing-of-the-user-interface-macros">Processing of the user interface macros</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.4.2</span> The <code>defclass</code> macro</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/the-defclass-macro.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>The evaluation or execution of a <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form results in a call to the <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a> function. The arguments received by <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a> are derived from the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form in a defined way. The exact macro-expansion of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form is not defined, only the relationship between the arguments to the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> macro and the arguments received by the <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a> function. Examples of typical <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> forms and sample expansions are shown in Figures <a href="#figure-5.1_figure" class="body-link">5.1</a> and <a href="#figure-5.2_figure" class="body-link">5.2</a>.</p>
+
+          <div class="on page">
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/147.png" target="_blank" class="page-number">
+              <span class="hide">[On page </span>
+              <span class="page-number">147</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#figure-5.1_figure" class="anchor">⚓</a>
+          </div>
+
+          <figure id="figure-5.1_figure">
+            <figcaption>
+              <p>Figure 5.1</p>
+              <p>A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form with standard slot and class options and an expansion of it that would result in the proper call to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a>.<p>
+            </figcaption>
+            <div class="scroll">
+              <pre id="figure-5.1">
+(defclass plane (moving-object graphics-object)
+     ((altitude :initform 0 :accessor plane-altitude)
+      (speed))
+  (:default-initargs :engine *jet*))
+
+(ensure-class 'plane
+  ':direct-superclasses '(moving-object graphics-object)
+  ':direct-slots (list (list ':name 'altitude
+                             ':initform '0
+                             ':initfunction #'(lambda () 0)
+                             ':readers '(plane-altitude)
+                             ':writers '((setf plane-altitude)))
+                       (list ':name 'speed))
+  ':direct-default-initargs (list (list ':engine
+                                        '*jet*
+                                        #'(lambda () *jet*))))
+              </pre>
+            </div>
+
+          </figure>
+
+          <div class="on page">
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/148.png" target="_blank" class="page-number">
+              <span class="hide">[On page </span>
+              <span class="page-number">148</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#figure-5.2_figure" class="anchor">⚓</a>
+          </div>
+
+          <figure id="figure-5.2_figure">
+            <figcaption>
+              <p>Figure 5.2</p>
+              <p>A <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form with non-standard class and slot options, and an expansion of it which results in the proper call to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a>. Note that the order of the slot options has not affected the order of the properties in the canonicalized slot specification, but has affected the order of the elements in the lists which are the values of those properties.</p>
+            </figcaption>
+            <div class="scroll">
+              <pre id="figure-5.2">
+(defclass sst (plane)
+     ((mach mag-step 2
+            locator sst-mach
+            locator mach-location
+            :reader mach-speed
+            :reader mach))
+  (:metaclass faster-class)
+  (another-option foo bar))
+
+(ensure-class 'sst
+  ':direct-superclasses '(plane)
+  ':direct-slots (list (list ':name 'mach
+                             ':readers '(mach-speed mach)
+                             'mag-step '2
+                             'locator '(sst-mach mach-location)))
+  ':metaclass 'faster-class
+  'another-option '(foo bar))
+              </pre>
+            </div>
+
+          </figure>
+
+          <ul class="body-list">
+
+            <li>
+              <p>The <var>name</var> argument to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> becomes the value of the first argument to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a>. This is the only positional argument accepted by <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a>; all other arguments are keyword arguments.</p>
+            </li>
+
+            <li>
+              <p>The <var>direct-superclasses</var> argument to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> becomes the value of the <code>:direct-superclasses</code> keyword argument to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a>.</p>
+            </li>
+
+            <li>
+              <p>The <var class="amop-typo" data-original="direct slots">direct-slots</var> argument to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> becomes the value of the <code>:direct-slots</code> keyword argument to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a>. Special processing of this value is done to regularize the form of each slot specification and to properly capture the lexical scope of the initialization forms. This is done by converting each slot specification to a property list called a <i>canonicalized slot specification</i>. The resulting list of canonicalized slot specifications is the value of the <code>:direct-slots</code> keyword argument.</p>
+              <div class="page" id="page-147">
+                <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/147.png" target="_blank" class="page-number">
+                  <span class="hide">[Page </span>
+                  <span class="page-number">147</span>
+                  <span class="hide">]</span>
+                </a>
+                <a href="#page-147" class="anchor">⚓</a>
+              </div>
+              <p>Canonicalized slot specifications are later used as the keyword arguments to a generic function which will, in turn, pass them to <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a> for use as a set of initialization arguments. Each canonicalized slot specification is formed from the corresponding slot specification as follows:</p>
+              <ul class="body-list">
+                <li>
+                  <p>The name of the slot is the value of the <code>:name</code> property. This property appears in every canonicalized slot specification.</p>
+                </li>
+                <li>
+                  <p>When the <code>:initform</code> slot option is present in the slot specification, then both the <code>:initform</code> and <code>:initfunction</code> properties are present in the canonicalized slot specification. The value of the <code>:initform</code> property is the initialization form. The value of the <code>:initfunction</code> property is a function of zero arguments which, when called, returns the result of evaluating the initialization form in its proper lexical environment.</p>
+                  <p>If the <code>:initform</code> slot option is not present in the slot specification, then either the <code>:initfunction</code> property will not appear, or its value will be false. In such cases, the value of the <code>:initform</code> property, or whether it appears, is unspecified.</p>
+                </li>
+                <li>
+                  <p>The value of the <code>:initargs</code> property is a list of the values of each <code>:initarg</code> slot option. If there are no <code>:initarg</code> slot options, then either the <code>:initargs</code> property will not appear or its value will be the empty list.</p>
+                </li>
+                <li>
+                  <div class="page" id="page-148">
+                    <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/148.png" target="_blank" class="page-number">
+                      <span class="hide">[Page </span>
+                      <span class="page-number">148</span>
+                      <span class="hide">]</span>
+                    </a>
+                    <a href="#page-148" class="anchor">⚓</a>
+                  </div>
+                  <p>The value of the <code>:readers</code> property is a list of the values of each <code>:reader</code> and <code>:accessor</code> slot option. If there are no <code>:reader</code> or <code>:accessor</code> slot options, then either the <code>:readers</code> property will not appear or its value will be the empty list.</p>
+                </li>
+                <li>
+                  <p>The value of the <code>:writers</code> property is a list of the values specified by each <code>:writer</code> and <code>:accessor</code> slot option. The value specified by a <code>:writer</code> slot option is just the value of the slot option. The value specified by an <code>:accessor</code> slot option is a two element list: the first element is the symbol <code>setf</code>, the second element is the value of the slot option. If there are no <code>:writer</code> or <code>:accessor</code> slot options, then either the <code>:writers</code> property will not appear or its value will be the empty list.</p>
+                </li>
+                <li>
+                  <p>The value of the <code>:documentation</code> property is the value of the <code>:documentation</code> slot option. If there is no <code>:documentation</code> slot option, then either the <code>:documentation</code> property will not appear or its value will be false.</p>
+                </li>
+                <li>
+                  <p>All other slot options appear as the values of properties with the same name as the slot option. Note that this includes not only the remaining standard slot options (<code>:allocation</code> and <code>:type</code>), but also any other options and values appearing in the <span class="mid-paragraph-transition-mark" id="148-149-page-transition"></span> slot specification. If one of these slot options appears more than once, the value of the property will be a list of the specified values.</p>
+                </li>
+                <li>
+                  <div class="page approximate" id="page-149">
+                    <a href="#148-149-page-transition" class="transition">↳</a>
+                    <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/149.png" target="_blank" class="page-number">
+                      <span class="hide">[Page </span>
+                      <span class="page-number">149</span>
+                      <span class="hide">]</span>
+                    </a>
+                    <a href="#page-149" class="anchor">⚓</a>
+                  </div>
+                  <p>An implementation is free to add additional properties to the canonicalized slot specification provided these are not symbols accessible in the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/11_abb.htm" class="body-link clhs">common-lisp-user</a> package, or exported by any package defined in the ANSI Common Lisp standard.</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <p>Returning to the correspondence between arguments to the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> macro and the arguments received by the <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a> function:</p>
+
+          <ul class="body-list">
+            <li>
+              <p>The <var class="amop-typo" data-original="default initargs">default-initargs</var> class option, if it is present in the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form, becomes the value of the <code>:direct-default-initargs</code> keyword argument to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a>. Special processing of this value is done to properly capture the lexical scope of the default value forms. This is done by converting each default initarg in the class option into a <i>canonicalized default initarg</i>. The resulting list of canonicalized default initargs is the value of the <code>:direct-default-initargs</code> keyword argument to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a>.</p>
+              <p>A canonicalized default initarg is a list of three elements. The first element is the name; the second is the actual form itself; and the third is a function of zero arguments which, when called, returns the result of evaluating the default value form in its proper lexical environment.</p>
+            </li>
+
+            <li>
+              <p>The <var>metaclass</var> class option, if it is present in the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form, becomes the value of the <code>:metaclass</code> keyword argument to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a>.</p>
+            </li>
+
+            <li>
+              <p>The <var>documentation</var> class option, if it is present in the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form, becomes the value of the <code>:documentation</code> keyword argument to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a>.</p>
+            </li>
+
+            <li>
+              <p>Any other class options become the value of keyword arguments with the same name. The value of the keyword argument is the tail of the class option. An error is signaled if any class option appears more than once in the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form.</p>
+            </li>
+
+          </ul>
+
+          <p>In the call to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a>, every element of its arguments appears in the same left-to-right order as the corresponding element of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form, except that the order of the properties of canonicalized slot specifications is unspecified. The values of properties in canonicalized slot specifications do follow this ordering requirement. Other ordering relationships in the keyword arguments to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a> are unspecified.</p>
+
+          <p>The result of the call to <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a> is returned as the result of evaluating or executing the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> form.</p>
+
+        </section>
+
+        <section id="the-defmethod-macro">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#the-defmethod-macro" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="#" class="ellipsis">...<sub>2</sub></a>
+              <span class="crumb"><span class="s"> » </span><a href="#processing-of-the-user-interface-macros">Processing of the user interface macros</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.4.3</span> The <code>defmethod</code> macro</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/the-defmethod-macro.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>The evaluation or execution of a <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form requires first that the body of the method be converted to a method function. This process is described in the next section. The result of this process is a method function and a set of additional initialization <span class="mid-paragraph-transition-mark" id="149-150-page-transition"></span> arguments to be used when creating the new method. Given these two values, the evaluation or execution of a <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form proceeds in three steps.</p>
+
+          <div class="page approximate" id="page-150">
+            <a href="#149-150-page-transition" class="transition">↳</a>
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/150.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">150</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-150" class="anchor">⚓</a>
+          </div>
+
+          <p>The first step ensures the existence of a generic function with the specified name. This is done by calling the function <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a>. The first argument in this call is the generic function name specified in the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form.</p>
+
+          <p>The second step is the creation of the new method metaobject by calling <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>. The class of the new method metaobject is determined by calling <a href="../generic-functions-and-methods/#generic-function-method-class" class="body-link generic-function">generic-function-method-class</a> on the result of the call to <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a> from the first step.</p>
+
+          <p>The initialization arguments received by the call to <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a> are as follows:</p>
+
+          <ul class="body-list">
+
+            <li>
+              <p>The value of the <var class="keyword-initarg">:qualifiers</var> initialization argument is a list of the qualifiers which appeared in the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form. No special processing is done on these values. The order of the elements of this list is the same as in the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form.</p>
+            </li>
+
+            <li>
+              <p>The value of the <var class="keyword-initarg">:lambda-list</var> initialization argument is the unspecialized lambda list from the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form.</p>
+            </li>
+
+            <li>
+              <p>The value of the <var class="keyword-initarg">:specializers</var> initialization argument is a list of the specializers for the method. For specializers which are classes, the specializer is the class metaobject itself. In the case of <code>eql</code> specializers, it will be an <a href="../classes/#eql-specializer" class="body-link class">eql-specializer</a> metaobject obtained by calling <a href="../generic-functions-and-methods/#intern-eql-specializer" class="body-link function">intern-eql-specializer</a> on the result of evaluating the <code>eql</code> specializer form in the lexical environment of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form.</p>
+            </li>
+
+            <li>
+              <p>The value of the <var class="keyword-initarg">:function</var> initialization argument is the method function.</p>
+            </li>
+
+            <li>
+              <p>The value of the <var class="keyword-initarg">:declarations</var> initialization argument is a list of the declarations from the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form. If there are no declarations in the macro form, this initialization argument either doesn't appear, or appears with a value of the empty list.</p>
+            </li>
+
+            <li>
+              <p>The value of the <var class="keyword-initarg">:documentation</var> initialization argument is the documentation string from the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form. If there is no documentation string in the macro form this initialization argument either doesn't appear, or appears with a value of false.</p>
+            </li>
+
+            <li>
+              <p>Any other initialization argument produced in conjunction with the method function are also included.</p>
+            </li>
+
+            <li>
+              <p>The implementation is free to include additional initialization arguments provided these are not symbols accessible in the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/11_abb.htm" class="body-link clhs">common-lisp-user</a> package, or exported by any package defined in the ANSI Common Lisp standard.</p>
+            </li>
+
+          </ul>
+
+          <p>In the third step, <a href="../generic-functions-and-methods/#add-method" class="body-link generic-function">add-method</a> is called to add the newly created method to the set of methods associated with the generic function metaobject.</p><!-- There's a stray weirdly-shaped dot here in my copy of the book. Weird... -->
+
+          <div class="page" id="page-151">
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/151.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">151</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-151" class="anchor">⚓</a>
+          </div>
+
+          <p>The result of the call to <a href="../generic-functions-and-methods/#add-method" class="body-link generic-function">add-method</a> is returned as the result of evaluating or executing the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form.</p>
+
+          <p>An example showing a typical <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form and a sample expansion is shown in <a href="#figure-5.3_figure" class="body-link">Figure 5.3</a>. The processing of the method body for this method is shown in <a href="#figure-5.4_figure" class="body-link">Figure 5.4</a>.</p>
+
+          <figure id="figure-5.3_figure">
+            <figcaption>
+              <p>Figure 5.3</p>
+              <p>An example <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form and one possible correct expansion. In the expansion, <i>method-lambda</i> is the result of calling <a href="../generic-functions-and-methods/#make-method-lambda" class="body-link generic-function">make-method-lambda</a> as described in the section <a href="#processing-method-bodies" class="body-link"><q>Processing Method Bodies</q>.</a> The initargs appearing after <var class="keyword-initarg">:function</var> are assumed to be additional initargs returned from the call to <a href="../generic-functions-and-methods/#make-method-lambda" class="body-link generic-function">make-method-lambda</a>.</p>
+            </figcaption>
+            <div class="scroll">
+              <pre id="figure-5.3">
+(defmethod move :before ((p position) (l (eql 0))
+                         <span class="lambda-keyword">&amp;optional</span> (visiblyp t)
+                         <span class="lambda-keyword">&amp;key</span> color)
+  (set-to-origin p)
+  (when visiblyp (show-move p 0 color)))
+
+(let ((#:g001 (ensure-generic-function 'move)))
+  (add-method #:g001
+    (make-instance (generic-function-method-class #:g001)
+                   ':qualifiers '(:before)
+                   ':specializers (list (find-class 'position)
+                                        (intern-eql-specializer 0))
+                   ':lambda-list '(p l <span class="lambda-keyword">&amp;optional</span> (visiblyp t)
+                                       <span class="lambda-keyword">&amp;key</span> color)
+                   ':function (function method-lambda)
+                   'additional-initarg-1 't
+                   'additional-initarg-2 '39)))
+              </pre>
+            </div>
+
+          </figure>
+
+          <div class="on page">
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/152.png" target="_blank" class="page-number">
+              <span class="hide">[On page </span>
+              <span class="page-number">152</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#figure-5.4_figure" class="anchor">⚓</a>
+          </div>
+
+          <figure id="figure-5.4_figure">
+            <figcaption>
+              <p>Figure 5.4</p>
+              <p>During macro-expansion of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> macro shown in <a href="#figure-5.3_figure" class="body-link">Figure 5.3</a>, code similar to this would be run to produce the method lambda and additional initargs. In this example, <I>environment</I> is the macroexpansion environment of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> macro form.
+</P>
+            </figcaption>
+            <div class="scroll">
+              <pre id="figure-5.4">
+(let ((gf (ensure-generic-function 'move)))
+  (make-method-lambda
+    gf
+    (class-prototype (generic-function-method-class gf))
+    '(lambda (p l <span class="lambda-keyword">&amp;optional</span> (visiblyp t) <span class="lambda-keyword">&amp;key</span> color)
+       (set-to-origin p)
+       (when visiblyp (show-move p 0 color)))
+    <var>environment</var>))
+              </pre>
+            </div>
+          </figure>
+
+        </section>
+
+        <section id="processing-method-bodies">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#processing-method-bodies" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="#" class="ellipsis">...<sub>2</sub></a>
+              <span class="crumb"><span class="s"> » </span><a href="#processing-of-the-user-interface-macros">Processing of the user interface macros</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.4.4</span> Processing method bodies</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/processing-method-bodies.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>Before a method can be created, the list of forms comprising the method body must be converted to a method function. This conversion is a two step process.</p>
+
+          <!-- FIXME: Some indentation or something...-->
+          <section class="body-section">
+            <h1>Note:</h1>
+            <p>The body of methods can also appear in the <code>:initial-methods</code> option of <a href="#the-defgeneric-macro" class="body-link macro">defgeneric</a> forms. Initial methods are not considered by any of the protocols specified in this document.</p>
+          </section>
+
+          <p>The first step occurs during macro-expansion of the macro form. In this step, the method lambda list, declarations and body are converted to a lambda expression called <span class="mid-paragraph-transition-mark" id="151-152-page-transition"></span> a <i>method lambda</i>. This conversion is based on information associated with the generic function definition in effect at the time the macro form is expanded.</p>
+
+          <div class="page approximate" id="page-152">
+            <a href="#151-152-page-transition" class="transition">↳</a>
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/152.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">152</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-152" class="anchor">⚓</a>
+          </div>
+
+          <p>The generic function definition is obtained by calling <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a> with a first argument of the generic function name specified in the macro form. The <code>:lambda-list</code> keyword argument is not passed in this call.</p>
+
+          <p>Given the generic function, production of the method lambda proceeds by calling <a href="../generic-functions-and-methods/#make-method-lambda" class="body-link generic-function">make-method-lambda</a>. The first argument in this call is the generic function obtained as described above. The second argument is the result of calling <a href="../generic-functions-and-methods/#class-prototype" class="body-link generic-function">class-prototype</a> on the result of calling <a href="../generic-functions-and-methods/#generic-function-method-class" class="body-link generic-function">generic-function-method-class</a> on the generic function. The third argument is a lambda expression formed from the method lambda list, declarations and body. The fourth argument is the macro-expansion environment of the macro form; this is the value of the <code><span class="lambda-keyword">&amp;environment</span></code> argument to the <a href="#the-defmethod-macro" class="body-link macro">defmethod</a> macro.</p>
+
+          <p>The generic function <a href="../generic-functions-and-methods/#make-method-lambda" class="body-link generic-function">make-method-lambda</a> returns two values. The first is the method lambda itself. The second is a list of initialization arguments and values. These are included in the initialization arguments when the method is created.</p>
+
+          <p>In the second step, the method lambda is converted to a function which properly captures the lexical scope of the macro form. This is done by having the method lambda appear in the macro-expansion as the argument of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/s_fn.htm#function" class="body-link clhs">function</a> special form. During the subsequent evaluation of the macro-expansion, the result of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/s_fn.htm#function" class="body-link clhs">function</a> special form is the method function.</p>
+
+        </section>
+
+        <section id="the-defgeneric-macro">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#the-defgeneric-macro" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="#" class="ellipsis">...<sub>2</sub></a>
+              <span class="crumb"><span class="s"> » </span><a href="#processing-of-the-user-interface-macros">Processing of the user interface macros</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.4.5</span> The <code>defgeneric</code> macro</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/the-defgeneric-macro.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>The evaluation or execution of a <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defgen.htm#defgeneric" class="body-link clhs">defgeneric</a> form results in a call to the <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a> function. The arguments received by <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a> are derived from the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defgen.htm#defgeneric" class="body-link clhs">defgeneric</a> form in a defined way. As with <a href="#the-defclass-macro" class="body-link macro">defclass</a> and <a href="#the-defmethod-macro" class="body-link macro">defmethod</a>, the exact <span class="mid-paragraph-transition-mark" id="152-153-page-transition"></span> macro-expansion of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defgen.htm#defgeneric" class="body-link clhs">defgeneric</a> form is not defined, only the relationship between the arguments to the macro and the arguments received by <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a>.</p>
+
+          <div class="page approximate" id="page-153">
+            <a href="#152-153-page-transition" class="transition">↳</a>
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/153.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">153</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-153" class="anchor">⚓</a>
+          </div>
+
+          <ul class="body-list">
+
+            <li>
+              <p>The <var>function-name</var> argument to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defgen.htm#defgeneric" class="body-link clhs">defgeneric</a> becomes the first argument to <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a>. This is the only positional argument accepted by <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a>; all other arguments are keyword arguments.<p>
+            </li>
+
+            <li>
+              <p>The <var>lambda-list</var> argument to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defgen.htm#defgeneric" class="body-link clhs">defgeneric</a> becomes the value of the <code>:lambda-list</code> keyword argument to <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a>.</p>
+            </li>
+
+            <li>
+              <p>For each of the options <code>:argument-precedence-order</code>, <code>:documentation</code>, <code>:generic-function-class</code> and <code>:method-class</code>, the value of the option becomes the value of the keyword argument with the same name. If the option does not appear in the macro form, the keyword argument does not appear in the resulting call to <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a>.</p>
+            </li>
+
+            <li>
+              <p>For the option <code>declare</code>, the list of declarations becomes the value of the <code>:declarations</code> keyword argument. If the <code>declare</code> option does not appear in the macro form, the <code>:declarations</code> keyword argument does not appear in the call to <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a>.</p>
+            </li>
+
+            <li>
+              <p>The handling of the <code>:method-combination</code> option is not specified.</p>
+            </li>
+
+          </ul>
+
+          <p>The result of the call to <a href="../generic-functions-and-methods/#ensure-generic-function" class="body-link function">ensure-generic-function</a> is returned as the result of evaluating or executing the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defgen.htm#defgeneric" class="body-link clhs">defgeneric</a> form.</p>
+
+        </section>
+
+        <nav class="end-of-section-indicator">
+          <a href="#processing-of-the-user-interface-macros">
+            "<span>Processing of the user interface macros</span>" end.
+          </a>
+        </nav>
+
+      </section>
+
+      <section id="subprotocols">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#subprotocols" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.5</span> Subprotocols</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/subprotocols.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <p>This section provides an overview of the Metaobject Protocols. The detailed behavior of each function, generic function and macro in the Metaobject Protocol is presented in <a href="../generic-functions-and-methods/" class="body-link">Chapter 6</a>. The remainder of this chapter is intended to emphasize connections among the parts of the Metaobject Protocol, and to provide some examples of the kinds of specializations and extensions the protocols are designed to support.</p>
+
+        <section id="metaobject-initialization-protocols">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#metaobject-initialization-protocols" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#subprotocols">Subprotocols</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.5.1</span> Metaobject initialization protocols</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/metaobject-initialization-protocols.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>Like other objects, metaobjects can be created by calling <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>. The initialization arguments passed to <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a> are used to initialize the metaobject in the usual way. The set of legal initialization arguments, and their interpretation, depends on the kind of metaobject being created. Implementations and portable programs are free to extend the set of legal initialization arguments. Detailed information about the initialization of each kind of metaobject are provided in <a href="../generic-functions-and-methods/" class="body-link">Chapter 6</a>; this section provides an overview and examples of this behavior.</p>
+
+          <section id="initialization-of-class-metaobjects">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#initialization-of-class-metaobjects" class="anchor">⚓</a>
+              </span>
+              <div class="breadcrumbs">
+                <a href="#subprotocols" class="ellipsis">...<sub>3</sub></a>
+                <span class="crumb"><span class="s"> » </span><a href="#metaobject-initialization-protocols">Metaobject initialization protocols</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">Initialization of Class Metaobjects</a></span>
+              </div>
+            </h1>
+
+            <nav class="hanging-menu">
+              <ul>
+                <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/initialization-of-class-metaobjects.html">RS</a></li>
+              </ul>
+            </nav>
+
+            <div class="page" id="page-154">
+              <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/154.png" target="_blank" class="page-number">
+                <span class="hide">[Page </span>
+                <span class="page-number">154</span>
+                <span class="hide">]</span>
+              </a>
+              <a href="#page-154" class="anchor">⚓</a>
+            </div>
+
+            <p>Class metaobjects created with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a> are usually <i>anonymous</i>; that is, they have no proper name. An anonymous class metaobject can be given a proper name using <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_find_c.htm#find-class" class="body-link clhs">(setf find-class)</a> and <a href="../generic-functions-and-methods/#setf_class-name" class="body-link generic-function">(setf class-name)</a>.</p>
+
+            <p>When a class metaobject is created with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>, it is initialized in the usual way. The initialization arguments passed to <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a> are <span class="amop-typo" data-original="use">used</span> to establish the definition of the class. Each initialization argument is checked for errors and associated with the class metaobject. The initialization arguments correspond roughly to the arguments accepted by the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> macro, and more closely to the arguments accepted by the <a href="../generic-functions-and-methods/#ensure-class" class="body-link function">ensure-class</a> function.</p>
+
+            <p>Some class metaobject classes allow their instances to be redefined. When permissible, this is done by calling <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs">reinitialize-instance</a>. This is discussed in the next section.</p>
+
+            <p>An example of creating an anonymous class directly using <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a> follows:</p>
+
+            <div class="scroll">
+              <pre>
+(flet ((zero () 0)
+       (propellor () *propellor*))
+  (make-instance 'standard-class
+    :name '(my-class foo)
+    :direct-superclasses (list (find-class 'plane)
+                               <var>another-anonymous-class</var>)
+    :direct-slots `((:name x
+                     :initform 0
+                     :initfunction ,#'zero
+                     :initargs (:x)
+                     :readers (position-x)
+                     :writers ((setf position-x)))
+                    (:name y
+                     :initform 0
+                     :initfunction ,#'zero
+                     :initargs (:y)
+                     :readers (position-y)
+                     :writers ((setf position-y))))
+    :direct-default-initargs `((:engine *propellor* ,#'propellor))))
+              </pre>
+            </div>
+
+            <section class="body-section meta-extra">
+              <h1>Comments and remarks:</h1>
+              <p>This section is named <i>Initialization of Class Metaobjects</i> and appears in Chapter 5 (Concepts) of the original text. There is <a href="../generic-functions-and-methods/#initialization-of-class-metaobjects" class="body-link">a section with the same name in Chapter 6 (Generic functions and methods) of the original text.</a> When sections are referred to in the text, it is not specified which one.</p>
+            </section>
+
+          </section>
+
+          <section id="reinitialization-of-class-metaobjects">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#reinitialization-of-class-metaobjects" class="anchor">⚓</a>
+              </span>
+              <div class="breadcrumbs">
+                <a href="#subprotocols" class="ellipsis">...<sub>3</sub></a>
+                <span class="crumb"><span class="s"> » </span><a href="#metaobject-initialization-protocols">Metaobject initialization protocols</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">Reinitialization of Class Metaobjects</a></span>
+              </div>
+            </h1>
+
+            <nav class="hanging-menu">
+              <ul>
+                <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/reinitialization-of-class-metaobjects.html">RS</a></li>
+              </ul>
+            </nav>
+
+            <p>Some class metaobject classes allow their instances to be reinitialized. This is done by calling <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs">reinitialize-instance</a>. The initialization arguments have the same interpretation as in class initialization.</p>
+
+            <p>If the class metaobject was finalized before the call to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs">reinitialize-instance</a>, <a href="../generic-functions-and-methods/#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> will be called again once all the initialization arguments have been processed <span class="mid-paragraph-transition-mark"></span> and associated with the class metaobject. In addition, once finalization is complete, any dependents of the class metaobject will be updated by calling <a href="../generic-functions-and-methods/#update-dependent" class="body-link generic-function">update-dependent</a>.</p>
+
+          </section>
+
+          <section id="initialization-of-generic-function-and-method-metaobjects">
+
+            <h1 class="breadcrumbs-bar">
+              <span class="section-relative-nav">
+                <a href="#initialization-of-generic-function-and-method-metaobjects" class="anchor">⚓</a>
+              </span>
+              <div class="breadcrumbs">
+                <a href="#subprotocols" class="ellipsis">...<sub>3</sub></a>
+                <span class="crumb"><span class="s"> » </span><a href="#metaobject-initialization-protocols">Metaobject initialization protocols</a></span>
+                <span class="crumb"><span class="s"> » </span><a class="here">Initialization of generic function and method metaobjects</a></span>
+              </div>
+            </h1>
+
+            <nav class="hanging-menu">
+              <ul>
+                <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/initialization-of-generic-function-and-method-metaobjects.html">RS</a></li>
+              </ul>
+            </nav>
+
+            <div class="page" id="page-155">
+              <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/155.png" target="_blank" class="page-number">
+                <span class="hide">[Page </span>
+                <span class="page-number">155</span>
+                <span class="hide">]</span>
+              </a>
+              <a href="#page-155" class="anchor">⚓</a>
+            </div>
+
+            <p>An example of creating a generic function and a method metaobject, and then adding the method to the generic function is shown below. This example is comparable to the method definition shown in <a href="#figure-5.3_figure" class="body-link">Figure 5.3</a>.</p>
+
+            <div class="scroll">
+              <pre>
+(let* ((gf (make-instance 'standard-generic-function
+                          :lambda-list '(p l <span class="lambda-keyword">&amp;optional</span> visiblyp <span class="lambda-keyword">&amp;key</span>)))
+       (method-class (generic-function-method-class gf)))
+  (multiple-value-bind (lambda initargs)
+       (make-method-lambda
+         gf
+         (class-prototype method-class)
+         '(lambda (p l <span class="lambda-keyword">&amp;optional</span> (visiblyp t) <span class="lambda-keyword">&amp;key</span> color)
+            (set-to-origin p)
+            (when visiblyp (show-move p 0 color)))
+         nil)
+    (add-method gf
+                (apply #'make-instance method-class
+                       :function (compile nil lambda)
+                       :specializers (list (find-class 'position)
+                                           (intern-eql-specializer 0))
+                       :qualifiers ()
+                       :lambda-list '(p l <span class="lambda-keyword">&amp;optional</span> (visiblyp t)
+                                          <span class="lambda-keyword">&amp;key</span> color)
+                       initargs))))
+              </pre>
+            </div>
+
+          </section>
+
+          <nav class="end-of-section-indicator">
+            <a href="#metaobject-initialization-protocols">
+              "<span>Metaobject initialization protocols</span>" end.
+            </a>
+          </nav>
+
+        </section>
+
+        <section id="class-finalization-protocol">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#class-finalization-protocol" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#subprotocols">Subprotocols</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.5.2</span> Class finalization protocol</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-finalization-protocol.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>Class <i>finalization</i> is the process of computing the information a class inherits from its superclasses and preparing to actually allocate instances of the class. The class finalization process includes computing the class' class precedence list, the full set of slots accessible in instances of the class and the full set of default initialization arguments for the class. These values are associated with the class metaobject and can be accessed by calling the appropriate reader. In addition, the class finalization process makes decisions about how instances of the class will be implemented.</p>
+
+          <p>To support forward-referenced superclasses, and to account for the fact that not all classes are actually instantiated, class finalization is not done as part of the initialization <span class="mid-paragraph-transition-mark" id="155-156-page-transition"></span> of the class metaobject. Instead, finalization is done as a separate protocol, invoked by calling the generic function <a href="../generic-functions-and-methods/#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a>. The exact point at which <a href="../generic-functions-and-methods/#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> is called depends on the class of the class metaobject; for <a href="../classes/#standard-class" class="body-link class">standard-class</a> it is called sometime after all the <span class="amop-typo" data-original="classes">class'</span> superclasses are defined, but no later than when the first instance of the class is allocated (by <a href="../generic-functions-and-methods/#allocate-instance" class="body-link generic-function">allocate-instance</a>).</p>
+
+          <div class="page approximate" id="page-156">
+            <a href="#155-156-page-transition" class="transition">↳</a>
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/156.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">156</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-156" class="anchor">⚓</a>
+          </div>
+
+          <p>The first step of class finalization is computing the class precedence list. Doing this first allows subsequent steps to access the class precedence list. This step is performed by calling the generic function <a href="../generic-functions-and-methods/#compute-class-precedence-list" class="body-link generic-function">compute-class-precedence-list</a>. The value returned from this call is associated with the class metaobject and can be accessed by calling the <a href="../generic-functions-and-methods/#class-precedence-list" class="body-link generic-function">class-precedence-list</a> generic function.</p>
+
+          <p>The second step is computing the full set of slots that will be accessible in instances of the class. This step is performed by calling the generic function <a href="../generic-functions-and-methods/#compute-slots" class="body-link generic-function">compute-slots</a>. The result of this call is a list of effective slot definition metaobjects. This value is associated with the class metaobject and can be accessed by calling the <a href="../generic-functions-and-methods/#class-slots" class="body-link generic-function">class-slots</a> generic function.</p>
+
+          <p>The behavior of <a href="../generic-functions-and-methods/#compute-slots" class="body-link generic-function">compute-slots</a> is itself layered, consisting of calls to <a href="../generic-functions-and-methods/#effective-slot-definition-class" class="body-link generic-function">effective-slot-definition-class</a> and <a href="../generic-functions-and-methods/#compute-effective-slot-definition" class="body-link generic-function">compute-effective-slot-definition</a>.</p>
+
+          <p>The final step of class finalization is computing the full set of initialization arguments for the class. This is done by calling the generic function <a href="../generic-functions-and-methods/#compute-default-initargs" class="body-link generic-function">compute-default-initargs</a>. The value returned by this generic function is associated with the class metaobject and can be accessed by calling <a href="../generic-functions-and-methods/#class-default-initargs" class="body-link generic-function">class-default-initargs</a>.</p>
+
+          <p>If the class was previously finalized, <a href="../generic-functions-and-methods/#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> may call <a href="file:///home/hexstream/quicklisp/HyperSpec/Body/f_mk_i_1.htm" class="body-link clhs">make-instances-obsolete</a>. The circumstances under which this happens are <span class="amop-typo" data-original="describe">described</span> in <a href="http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node300.html#SECTION0032110000000000000000" class="body-link cltl2">the section of the CLOS specification called <q>Redefining Classes</q>.<!-- Original: "." inside --></a></p>
+
+          <p>Forward-referenced classes, which provide a temporary definition for a class which has been referenced but not yet defined, can never be finalized. An error is <span class="amop-typo" data-original="signalled">signaled</span><!-- The book uses "signaled" in another place and "signalled" here. We should be consistent; I'm opting to use the more modern "signaled" here. --> if <a href="../generic-functions-and-methods/#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> is called on a forward-referenced class.</p>
+
+        </section>
+
+        <section id="instance-structure-protocol">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#instance-structure-protocol" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#subprotocols">Subprotocols</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.5.3</span> Instance Structure Protocol</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/instance-structure-protocol.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>The instance structure protocol is responsible for implementing the behavior of the slot access functions like <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_va.htm#slot-value" class="body-link clhs">slot-value</a> and <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_va.htm#slot-value" class="body-link clhs">(setf slot-value)</a>.</p>
+
+          <p>For each CLOS slot access function other than <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_ex.htm#slot-exists-p" class="body-link clhs">slot-exists-p</a>, there is a corresponding generic function which actually provides the behavior of the function. When called, the slot access function finds the pertinent effective slot definition metaobject, calls the corresponding generic function and returns its result. The arguments passed on to the generic function include one additional value, the class of the <var>object</var> argument, which always immediately precedes the <var>object</var> argument.</p>
+
+          <div class="page" id="page-157">
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/157.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">157</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-157" class="anchor">⚓</a>
+          </div>
+
+          <p>The correspondences between slot access function and underlying slot access generic function are as follows:</p>
+
+          <div class="scroll">
+            <table>
+              <!-- The original capitalized the first letter of all words of these headers, but I like Robert Strandh's capitalization better. -->
+              <tr>
+                <th>Slot access function</th>
+                <th>Corresponding slot access generic function</th>
+              </tr>
+              <tr>
+                <td>
+                  <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_bo.htm#slot-boundp" class="body-link clhs">slot-boundp</a>
+                </td>
+                <td>
+                  <a href="../generic-functions-and-methods/#slot-boundp-using-class" class="body-link generic-function">slot-boundp-using-class</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_ma.htm#slot-makunbound" class="body-link clhs">slot-makunbound</a>
+                </td>
+                <td>
+                  <a href="../generic-functions-and-methods/#slot-makunbound-using-class" class="body-link generic-function">slot-makunbound-using-class</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_va.htm#slot-value" class="body-link clhs">slot-value</a>
+                </td>
+                <td>
+                  <a href="../generic-functions-and-methods/#slot-value-using-class" class="body-link generic-function">slot-value-using-class</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_va.htm#slot-value" class="body-link clhs">(setf slot-value)</a>
+                </td>
+                <td>
+                  <a href="../generic-functions-and-methods/#setf_slot-value-using-class" class="body-link generic-function">(setf slot-value-using-class)</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <p>At the lowest level, the instance structure protocol provides only limited mechanisms for portable programs to control the implementation of instances and to directly access the storage associated with instances without going through the indirection of slot access. This is done to allow portable programs to perform certain commonly requested slot access optimizations.</p>
+
+          <p>In particular, portable programs can control the implementation of, and obtain direct access to, slots with allocation <code>:instance</code> and type <a href="../classes/#t" class="body-link class t">t</a>. These are called <i>directly accessible slots</i>.</p>
+
+          <p>The relevant specified around-method on <a href="../generic-functions-and-methods/#compute-slots" class="body-link generic-function">compute-slots</a> determines the implementation of instances by deciding how each slot in the instance will be stored. For each directly accessible slot, this method allocates a <i>location</i> and associates it with the effective slot definition metaobject. The location can be accessed by calling the <a href="../generic-functions-and-methods/#slot-definition-location" class="body-link generic-function">slot-definition-location</a> generic function. Locations are non-negative integers. For a given class, the locations increase consecutively, in the order that the directly accessible slots appear in the list of effective slots. (Note that here, the next paragraph, and the specification of this around-method are the only places where the value returned by <a href="../generic-functions-and-methods/#compute-slots" class="body-link generic-function">compute-slots</a> is described as a list rather than a set.)</p>
+
+          <p>Given the location of a directly accessible slot, the value of that slot in an instance can be accessed with the appropriate accessor. For <a href="../classes/#standard-class" class="body-link class">standard-class</a>, this accessor is the function <a href="../generic-functions-and-methods/#standard-instance-access" class="body-link function">standard-instance-access</a>. For <a href="../classes/#funcallable-standard-class" class="body-link class">funcallable-standard-class</a>, this accessor is the function <a href="../generic-functions-and-methods/#funcallable-standard-instance-access" class="body-link function">funcallable-standard-instance-access</a>. In each case, the arguments to the accessor are the instance and the slot location, in that order. See the definition of each accessor in <a href="../generic-functions-and-methods/" class="body-link">Chapter 6</a> for additional restrictions on the use of these <span class="amop-typo" data-original="function">functions</span>.</p>
+
+          <p>Portable programs are permitted to affect and rely on the allocation of locations only in the following limited way: By first defining a portable primary method on <a href="../generic-functions-and-methods/#compute-slots" class="body-link generic-function">compute-slots</a> which orders the returned value in a predictable way, and then relying on the defined behavior of the specified around-method to assign locations to all directly accessible slots. <span class="mid-paragraph-transition-mark" id="157-158-page-transition"></span> Portable programs may compile-in calls to low-level accessors which take advantage of the resulting predictable allocation of slot locations.</p>
+
+          <div class="page approximate" id="page-158">
+            <a href="#157-158-page-transition" class="transition">↳</a>
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/158.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">158</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-158" class="anchor">⚓</a>
+          </div>
+
+          <!-- FIXME: Some sort of visual indication for the block. -->
+
+          <section class="body-section">
+
+            <h1>Example:</h1>
+
+            <p>The following example shows the use of this mechanism to implement a new class metaobject class, <code>ordered-class</code> and class option <code>:slot-order</code>. This option provides control over the allocation of slot locations. In this simple example implementation, the <code>:slot-order</code> option is not inherited by subclasses; it controls only instances of the class itself.</p>
+
+            <div class="scroll">
+              <pre>
+(defclass ordered-class (standard-class)
+  ((slot-order :initform ()
+               :initarg :slot-order
+               :reader class-slot-order)))
+
+(defmethod compute-slots ((class ordered-class))
+  (let ((order (class-slot-order class)))
+    (sort (copy-list (call-next-method))
+          #'(lambda (a b)
+              (&lt; (position (slot-definition-name a) order)
+                 (position (slot-definition-name <span class="amop-typo" data-original="a">b</span>) order))))))
+              </pre>
+            </div>
+
+            <p>Following is the source code the user of this extension would write. Note that because the code above doesn't implement inheritance of the <code>:slot-order</code> option, the function <code>distance</code> must not be called on instances of subclasses of <code>point</code>; it can only be called on instances of <code>point</code> itself.</p>
+
+            <div class="scroll">
+              <pre>
+(defclass point ()
+     ((x :initform 0)
+      (y :initform 0))
+  (:metaclass ordered-class)
+  (:slot-order x y))
+
+(defun distance (point)
+  (sqrt (/ (+ (expt (standard-instance-access point 0) 2)
+              (expt (standard-instance-access point 1) 2))
+           2.0)))
+              </pre>
+            </div>
+
+            <p>In more realistic uses of this mechanism, the calls to the low-level instance structure accessors would not actually appear textually in the source program, but rather would be generated by a meta-level analysis program run during the process of compiling the source program.</p>
+
+          </section>
+
+        </section>
+
+        <section id="funcallable-instances">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#funcallable-instances" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#subprotocols">Subprotocols</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.5.4</span> Funcallable Instances</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/funcallable-instances.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <div class="page" id="page-159">
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/159.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">159</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-159" class="anchor">⚓</a>
+          </div>
+
+          <p>Instances of classes which are themselves instances of <a href="../classes/#funcallable-standard-class" class="body-link class">funcallable-standard-class</a> or one of its subclasses are called <i>funcallable instances</i>. Funcallable instances can only be created by <a href="../generic-functions-and-methods/#allocate-instance_funcallable-standard-class" class="body-link method">allocate-instance (<var>class</var> funcallable-standard-class)</a>.</p>
+
+          <p>Like standard instances, funcallable instances have slots with the normal behavior. They differ from standard instances in that they can be used as functions as well; that is, they can be passed to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_funcal.htm#funcall" class="body-link clhs">funcall</a> and <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_apply.htm#apply" class="body-link clhs">apply</a>, and they can be stored as the definition of a function name. Associated with each funcallable instance is the function which it runs when it is called. This function can be changed with <a href="../generic-functions-and-methods/#set-funcallable-instance-function" class="body-link function">set-funcallable-instance-function</a>.</p>
+
+          <!-- FIXME: Some sort of visual indication for the block. -->
+
+          <section class="body-section">
+
+            <h1>Example:</h1>
+
+            <p>The following simple example shows the use of funcallable instances to create a simple, <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defstr.htm#defstruct" class="body-link clhs">defstruct</a>-like facility. (Funcallable instances are useful when a program needs to construct and maintain a set of functions and information about those functions. They make it possible to maintain both as the same object rather than two separate objects linked, for example, by hash tables.)</p>
+
+            <div class="scroll">
+              <pre>
+(defclass constructor ()
+     ((name :initarg :name :accessor constructor-name)
+      (fields :initarg :fields :accessor constructor-fields))
+  (:metaclass funcallable-standard-class))
+
+(defmethod initialize-instance :after ((c constructor) <span class="lambda-keyword">&amp;key</span>)
+  (with-slots (name fields) c
+    (set-funcallable-instance-function
+      c
+      #'(lambda ()
+          (let ((new (make-array (1+ (length fields)))))
+            (setf (aref new 0) name)
+            new)))))
+
+(setq c1 (make-instance 'constructor
+                        :name 'position :fields '(x y)))
+#&lt;CONSTRUCTOR 262437&gt;
+
+(setq p1 (funcall c1))
+#&lt;ARRAY 3 263674&gt;
+              </pre>
+            </div>
+
+          </section>
+
+        </section>
+
+        <section id="generic-function-invocation-protocol">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#generic-function-invocation-protocol" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#subprotocols">Subprotocols</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.5.5</span> Generic function invocation protocol</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/generic-function-invocation-protocol.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <div class="page" id="page-160">
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/160.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">160</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-160" class="anchor">⚓</a>
+          </div>
+
+          <p>Associated with each generic function is its discriminating function. Each time the generic function is called, the discriminating function is called to provide the behavior of the generic function. The discriminating function receives the full set of arguments received by the generic function. It must lookup and execute the appropriate methods, and return the appropriate values.</p>
+
+          <p>The discriminating function is computed by the highest layer of the generic function invocation protocol, <a href="../generic-functions-and-methods/#compute-discriminating-function" class="body-link generic-function">compute-discriminating-function</a>. Whenever a generic function metaobject is initialized, reinitialized, or a method is added or removed, the discriminating function is recomputed. The new discriminating function is then stored with <a href="../generic-functions-and-methods/#set-funcallable-instance-function" class="body-link function">set-funcallable-instance-function</a>.</p>
+
+          <p>Discriminating functions call <a href="../generic-functions-and-methods/#compute-applicable-methods" class="body-link generic-function">compute-applicable-methods</a> and <a href="../generic-functions-and-methods/#compute-applicable-methods-using-classes" class="body-link generic-function">compute-applicable-methods-using-classes</a> to compute the methods applicable to the generic <span class="amop-typo maybe">functions</span> arguments. Applicable methods are combined by <a href="../generic-functions-and-methods/#compute-effective-method" class="body-link generic-function">compute-effective-method</a> to produce an <i>effective method</i>. Provisions are made to allow memoization of the method applicability and effective methods computations. (See the description of <a href="../generic-functions-and-methods/#compute-discriminating-function" class="body-link generic-function">compute-discriminating-function</a> for details.)</p>
+
+          <p>The body of method definitions are processed by <a href="../generic-functions-and-methods/#make-method-lambda" class="body-link generic-function">make-method-lambda</a>. The result of this generic function is a lambda expression which is processed by either <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_cmp.htm#compile" class="body-link clhs">compile</a> or the file compiler to produce a <i>method function</i>. The arguments received by the method function are controlled by the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_call_m.htm#call-method" class="body-link clhs">call-method</a> forms appearing in the effective methods. By default, method functions accept two arguments: a list of arguments to the generic function, and a list of next methods. The list of next methods corresponds to the next methods argument to <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_call_m.htm#call-method" class="body-link clhs">call-method</a>. If <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_call_m.htm#call-method" class="body-link clhs">call-method</a> appears with additional arguments, these will be passed to the method functions as well; in these cases, <a href="../generic-functions-and-methods/#make-method-lambda" class="body-link generic-function">make-method-lambda</a> must have created the method lambdas to expect additional arguments.</p>
+
+        </section>
+
+        <section id="dependent-maintenance-protocol">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#dependent-maintenance-protocol" class="anchor">⚓</a>
+            </span>
+            <div class="breadcrumbs">
+              <a href="../">MOP</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Concepts</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#subprotocols">Subprotocols</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><span class="extra prefix section-number">5.5.6</span> Dependent maintenance protocol</a></span>
+            </div>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/dependent-maintenance-protocol.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <p>It is convenient for portable metaobjects to be able to memoize information about other metaobjects, portable or otherwise. Because class and generic function metaobjects can be reinitialized, and generic function metaobjects can be modified by adding and removing methods, a means must be provided to update this memoized information.</p>
+
+          <p>The dependent maintenance protocol supports this by providing a way to register an object which should be notified whenever a class or generic function is modified. An object which has been registered this way is called a <i>dependent</i> of the class or generic function metaobject. The dependents of class and generic function metaobjects are maintained with <a href="../generic-functions-and-methods/#add-dependent" class="body-link generic-function">add-dependent</a> and <a href="../generic-functions-and-methods/#remove-dependent" class="body-link generic-function">remove-dependent</a>. The dependents of a class <span class="mid-paragraph-transition-mark" id="160-161-page-transition"></span> or generic function metaobject can be accessed with <a href="../generic-functions-and-methods/#map-dependents" class="body-link generic-function">map-dependents</a>. Dependents are notified about a modification by calling <a href="../generic-functions-and-methods/#update-dependent" class="body-link generic-function">update-dependent</a>. (See the specification of <a href="../generic-functions-and-methods/#update-dependent" class="body-link generic-function">update-dependent</a> for detailed description of the circumstances under which it is called.)</p>
+
+          <div class="page approximate" id="page-161">
+            <a href="#160-161-page-transition" class="transition">↳</a>
+            <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/161.png" target="_blank" class="page-number">
+              <span class="hide">[Page </span>
+              <span class="page-number">161</span>
+              <span class="hide">]</span>
+            </a>
+            <a href="#page-161" class="anchor">⚓</a>
+          </div>
+
+          <p>To prevent conflicts between two portable programs, or between portable programs and the implementation, portable code must not register metaobjects themselves as dependents. Instead, portable programs which need to record a metaobject as a dependent, should encapsulate that metaobject in some other kind of object, and record that object as the dependent. The results are undefined if this restriction is violated.</p>
+
+          <!-- FIXME: Some sort of visual indication for the block. -->
+
+          <section class="body-section">
+
+            <h1>Example:</h1>
+
+            <p>This example shows a general facility for encapsulating metaobjects before recording them as dependents. The facility defines a basic kind of encapsulating object: an updater. Specializations of the basic class can be defined with appropriate special updating behavior. In this way, information about the updating required is associated with each updater rather than with the metaobject being updated.</p>
+
+            <p>Updaters are used to encapsulate any metaobject which requires updating when a given class or generic function is modified. The function <b>record-updater</b> is called to both create an updater and add it to the dependents of the class or generic function. Methods on the generic function <a href="../generic-functions-and-methods/#update-dependent" class="body-link generic-function">update-dependent</a>, specialized to the specific class of updater do the appropriate update work.</p>
+
+            <div class="scroll">
+              <pre>
+(defclass updater ()
+     ((dependent :initarg :dependent :reader dependent)))
+
+(defun record-updater (class dependee dependent <span class="lambda-keyword">&amp;rest</span> initargs)
+  (let ((updater (apply #'make-instance class :dependent dependent
+                                              initargs)))
+    (add-dependent dependee updater)
+    updater))
+              </pre>
+            </div>
+
+            <p>A <code>flush-cache-updater</code> simply flushes the cache of the dependent when it is updated.</p>
+
+            <div class="scroll">
+              <pre>
+(defclass flush-cache-updater (updater) ())
+
+(defmethod update-dependent (dependee (updater flush-cache-updater)
+                             <span class="lambda-keyword">&amp;rest</span> args)
+  (declare (ignore args))
+  (flush-cache (dependent updater)))
+              </pre>
+            </div>
+
+          </section>
+
+        </section>
+
+        <nav class="end-of-section-indicator">
+          <a href="#subprotocols">
+            "<span>Subprotocols</span>" end.
+          </a>
+        </nav>
+
+      </section>
+
+    </main>
+
+    <footer id="footer">
+      <div class="back-to-top left">
+        <a href="#">⬆</a>
+      </div>
+      <div class="main">
+        <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fclos-mop.hexstreamsoft.com%2Fconcepts%2F">✔ HTML5</a>
+        <a href="https://clos-mop.hexstreamsoft.com/README">✔ Public Domain</a>
+        <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fclos-mop.hexstreamsoft.com%2Fconcepts%2F">✔ CSS3</a>
+        <a>✔ Mobile-friendly</a>
+      </div>
+      <div class="back-to-top right">
+        <a href="#">⬆</a>
+      </div>
+    </footer>
+
+  </body>
+</html>

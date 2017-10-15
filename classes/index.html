@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="license" href="https://clos-mop.hexstreamsoft.com/UNLICENSE" />
+    <meta name="description" content="Fancy version of Robert Strandh's work describing all the classes mentioned in the CLOS MOP specification." />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Classes (Non-normative) | CLOS MOP specification</title>
+    <link href="../css/global.css" rel="stylesheet" type="text/css" />
+    <link href="../css/definitions.css" rel="stylesheet" type="text/css" />
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <script src="https://global.hexstreamsoft.com/scripts/global.js"></script>
+    <script src="../scripts/global.js"></script>
+  </head>
+
+  <body>
+
+    <nav id="top-nav">
+
+      <div class="main">
+
+        <div class="breadcrumbs">
+          <a href="https://www.hexstreamsoft.com/">HexstreamSoft</a>
+          <span class="crumb"><span class="s"> » </span><a href="https://www.hexstreamsoft.com/articles/">Articles</a></span>
+          <span class="crumb"><span class="s"> » </span><a href="../">CLOS MOP</a></span>
+          <span class="crumb"><span class="s"> » </span><a class="here">Classes</a></span>
+        </div>
+
+        <nav id="meta-nav">
+          <a href="https://clos-mop.hexstreamsoft.com/classes/">
+            <abbr title="Canonical">C</abbr>
+          </a>
+          <a href="https://github.com/Hexstream/clos-mop.hexstreamsoft.com/blob/master/classes/index.html">
+            <abbr title="Source">S</abbr>
+          </a>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="../concepts/">Concepts</a></li>
+            <li><a href="../generic-functions-and-methods/">Generic Functions and Methods</a></li>
+            <li><a class="here">Classes</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="../preferences/">Preferences</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <p id="last-updated"><span>This page was last updated on </span><time datetime="2017-10-15">15 october 2017</time><span>.</span></p>
+
+    </nav>
+
+    <main>
+
+      <header id="page-header">
+        <h1>Classes</h1>
+        <p class="description">This section, <strong>not</strong> part of the CLOS MOP specification,<br />is a direct adaptation of Robert Strandh's work.</p>
+      </header>
+
+      <nav class="hanging-menu">
+        <ul>
+          <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/list-of-classes.html">RS</a></li>
+        </ul>
+      </nav>
+
+      <section id="class-graph-section">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#class-graph-section" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">Class graph</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/graph.png">RS</a></li>
+          </ul>
+        </nav>
+
+        <div id="class-graph-wrapper">
+          <div id="class-graph">
+            <svg viewBox="0 0 80 35">
+              <defs>
+                <marker id="cg_arrow-head"
+                        markerUnits="userSpaceOnUse"
+                        markerWidth="1.25" markerHeight="1.5"
+                        viewBox="0 0 2 2" preserveAspectRatio="none"
+                        refX="2" refY="1"
+                        orient="auto"
+                        overflow="visible">
+                  <path d="M 0 0 L 2 1 L 0 2" fill="none" stroke="black"/>
+                </marker>
+              </defs>
+              <g transform="translate(40 1.25)">
+                <svg class="hierarchy" width="80" height="35" viewBox="0 0 200 70" preserveAspectRatio="none" overflow="visible" marker-end="url(#cg_arrow-head)">
+                  <path data-start="standard-object"
+                        data-end="t"
+                        d="M 0 10 l 0 -5"/>
+                  <g data-start="function"
+                     data-end="t">
+                    <path d="M -50 10 l 0 -2.5 50 0 l 0 -2.5"/>
+                    <path d="M -25 7.5 l 0.625 0" class="cont right"/>
+                  </g>
+                  <path data-start="metaobject"
+                        data-end="standard-object"
+                        d="M 0 20 l 0 -5"/>
+                  <g data-start="funcallable-standard-object"
+                     data-end="function standard-object">
+                    <path d="M -80 20 l 0 -2.5 L -50 17.5 l 0 -2.5"/>
+                    <path d="M -50 17.5 L 0 17.5 l 0 -2.5"/>
+                    <path d="M -25 17.5 l 0.625 0" class="cont right"/>
+                    <path d="M -65 17.5 l 0.625 0" class="cont right"/>
+                  </g>
+                  <path data-start="slot-definition"
+                        data-end="metaobject"
+                        d="M 0 30 l 0 -5"/>
+                  <g data-start="generic-function"
+                     data-end="funcallable-standard-object metaobject">
+                    <path d="M -80 30 l 0 -5"/>
+                    <path d="M -80 27.5 L 0 27.5 l 0 -2.5"/>
+                    <path d="M -25 27.5 l 0.625 0" class="cont right"/>
+                    <path d="M -65 27.5 l 0.625 0" class="cont right"/>
+                  </g>
+                  <path data-start="method"
+                        data-end="metaobject"
+                        d="M -50 30 l 0 -2.5 L 0 27.5 l 0 -2.5"/>
+                  <path data-start="standard-generic-function"
+                        data-end="generic-function"
+                        d="M -80 40 l 0 -5"/>
+                  <path data-start="standard-method"
+                        data-end="method"
+                        d="M -50 40 l 0 -5"/>
+                  <path data-start="standard-accessor-method"
+                        data-end="standard-method"
+                        d="M -50 50 l 0 -5"/>
+                  <g data-start="standard-reader-method"
+                     data-end="standard-accessor-method">
+                    <path d="M -65 60 l 0 -2.5 L -50 57.5 l 0 -2.5"/>
+                    <path d="M -57.5 57.5 l 0.625 0" class="cont right"/>
+                  </g>
+                  <g data-start="standard-writer-method"
+                     data-end="standard-accessor-method">
+                    <path d="M -35 60 l 0 -2.5 L -50 57.5 l 0 -2.5"/>
+                    <path d="M -42.5 57.5 l -0.625 0" class="cont left"/>
+                  </g>
+                  <path data-start="standard-slot-definition"
+                        data-end="slot-definition"
+                        d="M 0 40 l 0 -5"/>
+                  <g data-start="direct-slot-definition"
+                     data-end="slot-definition">
+                    <path d="M -25 40 l 0 -2.5 l 25 0 l 0 -2.5"/>
+                    <path d="M -12.5 37.5 l 0.625 0" class="cont right"/>
+                  </g>
+                  <g data-start="effective-slot-definition"
+                     data-end="slot-definition">
+                    <path d="M 26.5 40 l 0 -2.5 l -26.5 0 l 0 -2.5"/>
+                    <path d="M 13.25 37.5 l -0.625 0" class="cont left"/>
+                  </g>
+                  <g data-start="standard-direct-slot-definition"
+                     data-end="direct-slot-definition standard-slot-definition">
+                    <path d="M -17 50 l 0 -2.5 L -25 47.5 l 0 -2.5"/>
+                    <path d="M -17 47.5 L 0 47.5 l 0 -2.5"/>
+                    <path d="M -8.5 47.5 l 0.625 0" class="cont right"/>
+                  </g>
+                  <g data-start="standard-effective-slot-definition"
+                     data-end="effective-slot-definition standard-slot-definition">
+                    <path d="M 17 50 l 0 -2.5 L 26.5 47.5 l 0 -2.5"/>
+                    <path d="M 17 47.5 L 0 47.5 l 0 -2.5"/>
+                    <path d="M 8.5 47.5 l -0.625 0" class="cont left"/>
+                  </g>
+                  <g data-start="method-combination"
+                     data-end="metaobject">
+                    <path d="M 35 30 l 0 -2.5 L 0 27.5 l 0 -2.5"/>
+                    <path d="M 17.5 27.5 l -0.625 0" class="cont left"/>
+                  </g>
+                  <g data-start="specializer"
+                     data-end="metaobject">
+                    <path d="M 70 30 l 0 -2.5 L 0 27.5 l 0 -2.5"/>
+                    <path d="M 52.5 27.5 l -0.625 0" class="cont left"/>
+                  </g>
+                  <g data-start="eql-specializer"
+                     data-end="specializer">
+                    <path d="M 80 40 l 0 -2.5 L 70 37.5 l 0 -2.5"/>
+                    <path d="M 75 37.5 l -0.625 0" class="cont left"/>
+                  </g>
+                  <g data-start="class"
+                     data-end="specializer">
+                    <path d="M 60 40 l 0 -2.5 L 70 37.5 l 0 -2.5"/>
+                    <path d="M 65 37.5 l 0.625 0" class="cont right"/>
+                  </g>
+                  <g data-start="standard-class"
+                     data-end="class">
+                    <path d="M 00 60 l 0 -2.5 L 60 57.5 l 0 -12.5"/>
+                    <path d="M 12.5 57.5 l 0.625 0" class="cont right"/>
+                  </g>
+                  <g data-start="funcallable-standard-class"
+                     data-end="class">
+                    <path d="M 25 60 l 0 -2.5 L 60 57.5 l 0 -12.5"/>
+                    <path d="M 37.5 57.5 l 0.625 0" class="cont right"/>
+                  </g>
+                  <g data-start="built-in-class"
+                     data-end="class">
+                    <path d="M 50 60 l 0 -2.5 L 60 57.5 l 0 -12.5"/>
+                    <path d="M 55 57.5 l 0.625 0" class="cont right"/>
+                  </g>
+                  <g data-start="forward-referenced-class"
+                     data-end="class">
+                    <path d="M 75 60 l 0 -2.5 L 60 57.5 l 0 -12.5"/>
+                    <path d="M 67.5 57.5 l -0.625 0" class="cont left"/>
+                  </g>
+                </svg>
+              </g>
+            </svg>
+            <p id="cg_credits">HTML/CSS/SVG remake by Jean-Philippe Paradis,<br />derived from Robert Strandh's original.</p>
+            <div class="row">
+              <div class="item">
+                <a href="#t" id="cg_t" class="standard middle"><span>T</span></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="item">
+                <a href="#function" id="cg_function" class="standard middle-left"><span>function</span></a>
+              </div>
+              <div class="item">
+                <a href="#standard-object" id="cg_standard-object" class="standard middle"><span>standard-object</span></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="item">
+                <a href="#funcallable-standard-object" id="cg_funcallable-standard-object" class="left"><span>funcallable-standard-object</span></a>
+              </div>
+              <div class="item">
+                <a href="#metaobject" id="cg_metaobject" class="abstract middle"><span>metaobject</span></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="item">
+                <a href="#generic-function" id="cg_generic-function" class="standard left"><span>generic-function</span></a>
+              </div>
+              <div class="item">
+                <a href="#method" id="cg_method" class="standard abstract middle-left"><span>method</span></a>
+              </div>
+              <div class="item">
+                <a href="#slot-definition" id="cg_slot-definition" class="abstract"><span>slot-definition</span></a>
+              </div>
+              <div class="item">
+                <a href="#method-combination" id="cg_method-combination" class="abstract"><span>method-combination</span></a>
+              </div>
+              <div class="item">
+                <a href="#specializer" id="cg_specializer" class="abstract"><span>specializer</span></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="item">
+                <a href="#standard-generic-function" id="cg_standard-generic-function" class="standard left"><span>standard-generic-function</span></a>
+              </div>
+              <div class="item">
+                <a href="#standard-method" id="cg_standard-method" class="standard middle-left"><span>standard-method</span></a>
+              </div>
+              <div class="item">
+                <a href="#direct-slot-definition" id="cg_direct-slot-definition" class="abstract"><span>direct-slot-definition</span></a>
+              </div>
+              <div class="item">
+                <a href="#standard-slot-definition" id="cg_standard-slot-definition" class="abstract"><span>standard-slot-definition</span></a>
+              </div>
+              <div class="item">
+                <a href="#effective-slot-definition" id="cg_effective-slot-definition" class="abstract"><span>effective-slot-definition</span></a>
+              </div>
+              <div class="item">
+                <a href="#class" id="cg_class" class="standard abstract"><span>class</span></a>
+              </div>
+              <div class="item">
+                <a href="#eql-specializer" id="cg_eql-specializer"><span>eql-specializer</span></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="item">
+                <a href="#standard-accessor-method" id="cg_standard-accessor-method" class="abstract middle-left"><span>standard-accessor-method</span></a>
+              </div>
+              <div class="item">
+                <a href="#standard-direct-slot-definition" id="cg_standard-direct-slot-definition"><span>standard-direct-slot-definition</span></a>
+              </div>
+              <div class="item">
+                <a href="#standard-effective-slot-definition" id="cg_standard-effective-slot-definition"><span>standard-effective-slot-definition</span></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="item">
+                <a href="#standard-reader-method" id="cg_standard-reader-method"><span>standard-reader-method</span></a>
+              </div>
+              <div class="item">
+                <a href="#standard-writer-method" id="cg_standard-writer-method"><span>standard-writer-method</span></a>
+              </div>
+              <div class="item">
+                <a href="#standard-class" id="cg_standard-class" class="standard"><span>standard-class</span></a>
+              </div>
+              <div class="item">
+                <a href="#funcallable-standard-class" id="cg_funcallable-standard-class"><span>funcallable-standard-class</span></a>
+              </div>
+              <div class="item">
+                <a href="#built-in-class" id="cg_built-in-class" class="standard"><span>built-in-class</span></a>
+              </div>
+              <div class="item">
+                <a href="#forward-referenced-class" id="cg_forward-referenced-class"><span>forward-referenced-class</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="t">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#t" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">t</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-t.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">t</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p>None</p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#built-in-class" class="body-link class">built-in-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The root of the class graph.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_t.htm" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="function">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#function" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">function</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-function.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">function</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#t" class="body-link class">t</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#built-in-class" class="body-link class">built-in-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class represents objects that can be executed.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_fn.htm" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="standard-object">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#standard-object" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">standard-object</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-standard-object.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">standard-object</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#t" class="body-link class">t</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is the default direct superclass of the class <a href="#standard-class" class="body-link class">standard-class</a>. When an instance of the class <a href="#standard-class" class="body-link class">standard-class</a> is created, and no direct superclasses are explicitly specified, it defaults to this class. In this way, any behavior associated with this class will be inherited, directly or indirectly, by all instances of the class <a href="#standard-class" class="body-link class">standard-class</a>. A subclass of <a href="#standard-class" class="body-link class">standard-class</a> may have a different class as its default direct superclass, but that class must be a subclass of this class.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_std_ob.htm#standard-object" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="funcallable-standard-object">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#funcallable-standard-object" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">funcallable-standard-object</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-funcallable-standard-object.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">funcallable-standard-object</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#function" class="body-link class">function</a> <a href="#standard-object" class="body-link class">standard-object</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is the default direct superclass of the class <a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a>. When an instance of the class <a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a> is created, and no direct superclasses are explicitly specified, it defaults to this class. In this way, any behavior associated with this class will be inherited, directly or indirectly, by all instances of the class <a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a>. A subclass of <a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a> may have a different class as its default direct superclass, but that class must be a subclass of this class.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="metaobject">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#metaobject" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">metaobject</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-metaobject.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">metaobject</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#standard-object" class="body-link class">standard-object</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The superclass of all metaobject classes.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="generic-function">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#generic-function" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">generic-function</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-generic-function.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">generic-function</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#funcallable-standard-object" class="body-link class">funcallable-standard-object</a> <a href="#metaobject" class="body-link class">metaobject</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The root class of all generic functions.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_generi.htm#generic-function" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="standard-generic-function">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#standard-generic-function" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">standard-generic-function</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-standard-generic-function.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">standard-generic-function</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#generic-function" class="body-link class">generic-function</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is a <em>standard metaobject class</em>. This is the class that the macro <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defgen.htm#defgeneric" class="body-link clhs">defgeneric</a> uses by default. This is also a class on which user specializations are normally based.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_std_ge.htm#standard-generic-function" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="method">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#method" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">method</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-method.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">method</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#metaobject" class="body-link class">metaobject</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The superclass of all method metaobject classes.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_method.htm#method" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="standard-method">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#standard-method" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">standard-method</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-standard-method.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">standard-method</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#method" class="body-link class">method</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is a <em>standard metaobject class</em>. This is the class that the macro <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> uses by default. This is also a class on which user specializations are normally based.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_std_me.htm#standard-method" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="standard-accessor-method">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#standard-accessor-method" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">standard-accessor-method</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-standard-accessor-method.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">standard-accessor-method</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#standard-method" class="body-link class">standard-method</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The superclass of all standard accessor method classes.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="standard-reader-method">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#standard-reader-method" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">standard-reader-method</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-standard-reader-method.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">standard-reader-method</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#standard-accessor-method" class="body-link class">standard-accessor-method</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is a <em>standard metaobject class</em>. This is the class that is returned by the method <a href="../generic-functions-and-methods/#reader-method-class_standard-class_standard-direct-slot-definition" class="body-link method"><span class="name">reader-method-class</span> (<var>class</var> standard-class) (<var>direct-slot</var> standard-direct-slot-definition) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a> and the method <a href="../generic-functions-and-methods/#reader-method-class_funcallable-standard-class_standard-direct-slot-definition" class="body-link method"><span class="name">reader-method-class</span> (<var>class</var> funcallable-standard-class) (<var>direct-slot</var> standard-direct-slot-definition) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a>. This is also a class on which user specializations are normally based.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="standard-writer-method">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#standard-writer-method" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">standard-writer-method</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-standard-writer-method.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">standard-writer-method</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#standard-accessor-method" class="body-link class">standard-accessor-method</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is a <em>standard metaobject class</em>. This is the class that is returned by the method <a href="../generic-functions-and-methods/#writer-method-class_standard-class_standard-direct-slot-definition" class="body-link method"><span class="name">writer-method-class</span> (<var>class</var> standard-class) (<var>direct-slot</var> standard-direct-slot-definition) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a> and the method <a href="../generic-functions-and-methods/#writer-method-class_funcallable-standard-class_standard-direct-slot-definition" class="body-link method"><span class="name">writer-method-class</span> (<var>class</var> funcallable-standard-class) (<var>direct-slot</var> standard-direct-slot-definition) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a>. This is also a class on which user specializations are normally based.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="slot-definition">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#slot-definition" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">slot-definition</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-slot-definition.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">slot-definition</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#metaobject" class="body-link class">metaobject</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The superclass of all slot-definition metaobject classes.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="direct-slot-definition">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#direct-slot-definition" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">direct-slot-definition</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-direct-slot-definition.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">direct-slot-definition</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#slot-definition" class="body-link class">slot-definition</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The superclass of all direct-slot-definition metaobject classes.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="effective-slot-definition">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#effective-slot-definition" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">effective-slot-definition</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-effective-slot-definition.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">effective-slot-definition</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#slot-definition" class="body-link class">slot-definition</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The superclass of all effective-slot-definition metaobject classes.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="standard-slot-definition">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#standard-slot-definition" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">standard-slot-definition</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-standard-slot-definition.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">standard-slot-definition</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#slot-definition" class="body-link class">slot-definition</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The superclass of all standard-slot-definition metaobject classes.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="standard-direct-slot-definition">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#standard-direct-slot-definition" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">standard-direct-slot-definition</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-standard-direct-slot-definition.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">standard-direct-slot-definition</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#direct-slot-definition" class="body-link class">direct-slot-definition</a> <a href="#standard-slot-definition" class="body-link class">standard-slot-definition</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is a <em>standard metaobject class</em>. This is the class that is returned by the method <a href="../generic-functions-and-methods/#direct-slot-definition-class_standard-class" class="body-link method"><span class="name">direct-slot-definition-class</span> (<var>class</var> standard-class) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a> and the method <a href="../generic-functions-and-methods/#direct-slot-definition-class_funcallable-standard-class" class="body-link method"><span class="name">direct-slot-definition-class</span> (<var>class</var> funcallable-standard-class) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a>. This is also a class on which user specializations are normally based.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="standard-effective-slot-definition">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#standard-effective-slot-definition" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">standard-effective-slot-definition</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-standard-effective-slot-definition.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">standard-effective-slot-definition</span></h1>
+
+          <section class="effective-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#effective-slot-definition" class="body-link class">effective-slot-definition</a> <a href="#standard-slot-definition" class="body-link class">standard-slot-definition</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is a <em>standard metaobject class</em>. This is the class that is returned by the method <a href="../generic-functions-and-methods/#effective-slot-definition-class_standard-class" class="body-link method"><span class="name">effective-slot-definition-class</span> (<var>class</var> standard-class) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a> and the method <a href="../generic-functions-and-methods/#effective-slot-definition-class_funcallable-standard-class" class="body-link method"><span class="name">effective-slot-definition-class</span> (<var>class</var> funcallable-standard-class) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a>. This is also a class on which user specializations are normally based.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="method-combination">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#method-combination" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">method-combination</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-method-combination.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">method-combination</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#metaobject" class="body-link class">metaobject</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The superclass of all method-combination metaobject classes.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="specializer">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#specializer" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">specializer</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-specializer.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">specializer</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#metaobject" class="body-link class">metaobject</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The superclass of all specializer metaobject classes.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="class">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#class" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">class</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-class.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">class</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#specializer" class="body-link class">specializer</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>The superclass of all class metaobject classes.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_class.htm#class" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="eql-specializer">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#eql-specializer" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">eql-specializer</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-eql-specializer.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">eql-specializer</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#specializer" class="body-link class">specializer</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is used for <code>eql</code> specializers.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="standard-class">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#standard-class" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">standard-class</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-standard-class.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">standard-class</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#class" class="body-link class">class</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is a <em>standard metaobject class</em>. This is the class that the macro <a href="file:///home/hexstream/quicklisp/HyperSpec/Body/m_defcla.htm" class="body-link clhs">defclass</a> uses by default. This is also a class on which user specializations are normally based.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_std_cl.htm#standard-class" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="funcallable-standard-class">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#funcallable-standard-class" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">funcallable-standard-class</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-funcallable-standard-class.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">funcallable-standard-class</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#class" class="body-link class">class</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is a <em>special-purpose class metaobject class</em>. Instances of this class are called <em><a href="../concepts/#funcallable-instances" class="body-link chapter5">funcallable instances</a></em>.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="built-in-class">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#built-in-class" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">built-in-class</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-built-in-class.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">built-in-class</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#class" class="body-link class">class</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is a <em>special-purpose class metaobject class</em>. Instances of this class are called <em>built-in classes</em>.</p>
+          </section>
+
+          <section class="comments-and-remarks">
+            <h1>Comments and remarks</h1>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_built_.htm#built-in-class" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+      <section id="forward-referenced-class">
+
+        <h1 class="breadcrumbs-bar">
+          <span class="section-relative-nav">
+            <a href="#forward-referenced-class" class="anchor">⚓</a>
+          </span>
+          <div class="breadcrumbs">
+            <a href="../">MOP</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Classes</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">forward-referenced-class</a></span>
+          </div>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/class-forward-referenced-class.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <article class="class definition">
+
+          <h1><span class="type">Class</span> <span class="name self">forward-referenced-class</span></h1>
+
+          <section class="direct-superclasses">
+            <h1>Direct superclasses</h1>
+            <p><a href="#class" class="body-link class">class</a></p>
+          </section>
+
+          <section class="metaclass">
+            <h1>Metaclass</h1>
+            <p><a href="#standard-class" class="body-link class">standard-class</a></p>
+          </section>
+
+          <section class="description">
+            <h1>Description</h1>
+            <p>This class is a <em>special-purpose class metaobject class</em>. When the definition of a class references another class which has not yet been defined, an instance of this class is used as a stand-in until the class is actually defined.</p>
+          </section>
+
+        </article>
+
+      </section>
+
+    </main>
+
+    <footer id="footer">
+      <div class="back-to-top left">
+        <a href="#">⬆</a>
+      </div>
+      <div class="main">
+        <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fclos-mop.hexstreamsoft.com%2Fclasses%2F">✔ HTML5</a>
+        <a href="https://clos-mop.hexstreamsoft.com/README">✔ Public Domain</a>
+        <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fclos-mop.hexstreamsoft.com%2Fclasses%2F">✔ CSS3</a>
+        <a>✔ Mobile-friendly</a>
+      </div>
+      <div class="back-to-top right">
+        <a href="#">⬆</a>
+      </div>
+    </footer>
+
+  </body>
+</html>

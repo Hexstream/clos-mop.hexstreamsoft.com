@@ -1,0 +1,26 @@
+#page-header h1 {
+    font-size: 4em;
+}
+
+#page-header .description {
+    margin-top: 0.25em;
+    line-height: 1.4em;
+}
+
+.navlist section > a {
+    padding: 0.75em 1em;
+}
+
+.navlist h1 {
+    font-size: x-large;
+    letter-spacing: initial;
+    word-spacing: initial;
+}
+
+main .tabs {
+    margin-top: 2em;
+}
+
+main .tabs ul {
+    border-width: 0.15em;
+}

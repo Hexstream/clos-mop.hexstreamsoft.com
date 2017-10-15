@@ -1,0 +1,190 @@
+article.definition > section h1 {
+    margin-bottom: -0.5em;
+}
+
+#class-graph-wrapper {
+    display: flex;
+    flex-flow: row;
+    overflow: auto;
+}
+
+#class-graph {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    white-space: nowrap;
+    min-width: 80em;
+    max-width: 80em;
+    border: thin solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#class-graph > .row {
+    position: relative;
+    height: 2.5em;
+    margin: 1.25em 0;
+}
+
+#class-graph > .row > .item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-flow: row;
+    align-items: stretch;
+    justify-content: center;
+}
+
+#class-graph > .row > .item > a {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    border: 0.1em solid black;
+    text-align: center;
+    text-decoration: none;
+    min-width: 6em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    z-index: 2;
+}
+
+#class-graph > .row > .item > a:hover {
+    text-decoration: underline;
+}
+
+#class-graph > .row > .item > a.standard {
+    border-color: blue;
+}
+
+#class-graph > .row > .item > a.abstract {
+    border-style: dashed;
+}
+
+
+#class-graph .middle {
+    margin-left: 0;
+}
+
+#class-graph .middle-left {
+    margin-left: -50%;
+}
+
+#class-graph .left {
+    margin-left: -80%;
+}
+
+#cg_credits {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.25em 0.3em;
+    line-height: 1.3em;
+    text-align: right;
+    font-style: italic;
+}
+
+#cg_standard-reader-method {
+    margin-left: -65%;
+}
+
+#cg_standard-writer-method {
+    margin-left: -35%;
+}
+
+#cg_slot-definition
+{
+    margin-left: 0;
+}
+
+
+#cg_standard-slot-definition
+{
+    margin-left: 0;
+}
+
+#cg_direct-slot-definition {
+    margin-left: -25%;
+}
+
+#cg_effective-slot-definition {
+    margin-left: 26.5%;
+}
+
+
+#cg_standard-direct-slot-definition {
+    margin-left: -17%;
+}
+
+#cg_standard-effective-slot-definition {
+    margin-left: 17%;
+}
+
+#cg_method-combination {
+    margin-left: 35%;
+}
+
+#cg_specializer {
+    margin-left: 70%;
+}
+
+#cg_class {
+    margin-left: 60%;
+}
+
+#cg_eql-specializer {
+    margin-left: 80%;
+}
+
+#cg_standard-class {
+    margin-left: 0%;
+}
+
+#cg_funcallable-standard-class {
+    margin-left: 25%;
+}
+
+#cg_built-in-class {
+    margin-left: 50%;
+}
+
+#cg_forward-referenced-class {
+    margin-left: 75%;
+}
+
+
+#class-graph svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+#class-graph svg .hierarchy > path,
+#class-graph svg .hierarchy > g {
+    stroke: black;
+    fill: none;
+    stroke-width: 0.3;
+    z-index: 1;
+}
+
+#class-graph svg .cont {
+    stroke-width: 0;
+}
+
+#class-graph svg #cg_arrow-head {
+    stroke-width: 0.3;
+}
+
+
+#class-graph svg path.highlight {
+    stroke: green;
+    z-index: 2;
+}
