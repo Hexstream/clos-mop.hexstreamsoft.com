@@ -1229,11 +1229,11 @@
             </article>
           </section>
 
-          <section class="comments-and-remarks">
-            <h1>Comments and remarks</h1>
+          <article class="remark" data-author="Robert Strandh">
+            <p><b>Robert Strandh remarks:</b></p>
             <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_alloca.htm#allocate-instance" class="body-link clhs">description of this function in the Common Lisp HyperSpec</a>.</p>
             <p>The description above suggests that <span class="name self generic-function">allocate-instance</span> checks to see whether the class is finalized and if not, calls <a href="#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a>. However, the <var>initargs</var> passed to <span class="name self generic-function">allocate-instance</span> should be the defaulted initargs, and computing those initargs requires the class to be finalized. Therefore, <a href="#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> must be called <em>before</em> <span class="name self generic-function">allocate-instance</span> is called. Peeking at PCL source confirms that <a href="#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> is called from <a href="#make-instance" class="body-link generic-function">make-instance</a> before <span class="name self generic-function">allocate-instance</span> is called.</p>
-          </section>
+          </article>
 
         </article>
 
@@ -2537,10 +2537,9 @@
             </ol>
           </div>
 
-          <section class="body-section">
-            <h1>Comments and remarks</h1>
-            <p>It is not clear what is meant by the phrase <q>Each entry in the table indicates a method on one of the reader generic functions</q> above. It clearly does not mean that each number represents one method, because the same number appears in different rows of the table. One interpretation is that there are exactly 30 methods, but this can not be the case because the specification does not mention a common superclass for <a href="../classes/#standard-class" class="body-link class">standard-class</a> and <a href="../classes/#funcallable-standard-class" class="body-link class">funcallable-standard-class</a>, so there can not be a single method for the two. Another interpretation, then, is that there are exactly 40 methods. However, in other parts of the document, there is mention of a single method specialized for <a href="../classes/#class" class="body-link class">class</a> that does not correspond to the table above.</p>
-          </section>
+          <article class="remark" data-author="Robert Strandh">
+            <p><b>Robert Strandh remarks:</b> It is not clear what is meant by the phrase <q>Each entry in the table indicates a method on one of the reader generic functions</q> above. It clearly does not mean that each number represents one method, because the same number appears in different rows of the table. One interpretation is that there are exactly 30 methods, but this can not be the case because the specification does not mention a common superclass for <a href="../classes/#standard-class" class="body-link class">standard-class</a> and <a href="../classes/#funcallable-standard-class" class="body-link class">funcallable-standard-class</a>, so there can not be a single method for the two. Another interpretation, then, is that there are exactly 40 methods. However, in other parts of the document, there is mention of a single method specialized for <a href="../classes/#class" class="body-link class">class</a> that does not correspond to the table above.</p>
+          </article>
 
         </section>
 
@@ -2933,10 +2932,9 @@
                 <p>These methods can be overridden.</p>
               </section>
 
-              <section class="comments-and-remarks">
-                <h1>Comments and remarks</h1>
-                <p>How can <var>class</var> be a forward referenced class?</p>
-              </section>
+              <article class="remark" data-author="Robert Strandh">
+                <p><b>Robert Strandh remarks:</b> How can <var>class</var> be a forward referenced class?</p>
+              </article>
 
             </article>
 
@@ -3043,10 +3041,9 @@
             </article>
           </section>
 
-          <section class="remarks">
-            <h1>Comments and remarks</h1>
-            <p>Since client code is not allowed to define methods on <a href="#compute-applicable-methods" class="body-link generic-function">compute-applicable-methods</a> specialized to <a href="../classes/#standard-generic-function" class="body-link class">standard-generic-function</a>, it can be argued that for <a href="../classes/#standard-generic-function" class="body-link class">standard-generic-function</a>, <a href="#compute-applicable-methods" class="body-link generic-function">compute-applicable-methods</a> does not have to be called. By relaxing the description of <a href="#compute-discriminating-function" class="body-link generic-function">compute-discriminating-function</a> this way, the implementation may also cache results when <a href="#compute-applicable-methods-using-classes" class="body-link generic-function">compute-applicable-methods-using-classes</a> returns <a href="http://www.lispworks.com/documentation/HyperSpec/Body/v_nil.htm" class="body-link clhs constant nil">nil</a> in its second argument. More generally, whenever some behavior is defined for generic functions when called with only standard classes, since client code is not allowed to alter this behavior in any way, the implementation is often free to choose whatever appropriate implementation technique that has the same affect as the one specified. Notice, however, that any behavior that diverges from what is specified, must not be inherited by client-defined subclasses. Only when arguments are direct instances of specified classes can the implementation arbitrarily choose some other technique. -- Robert Strandh 2017-01-23.</p>
-          </section>
+          <article class="remark" data-author="Robert Strandh">
+            <p><b>Robert Strandh remarks:</b> Since client code is not allowed to define methods on <a href="#compute-applicable-methods" class="body-link generic-function">compute-applicable-methods</a> specialized to <a href="../classes/#standard-generic-function" class="body-link class">standard-generic-function</a>, it can be argued that for <a href="../classes/#standard-generic-function" class="body-link class">standard-generic-function</a>, <a href="#compute-applicable-methods" class="body-link generic-function">compute-applicable-methods</a> does not have to be called. By relaxing the description of <a href="#compute-discriminating-function" class="body-link generic-function">compute-discriminating-function</a> this way, the implementation may also cache results when <a href="#compute-applicable-methods-using-classes" class="body-link generic-function">compute-applicable-methods-using-classes</a> returns <a href="http://www.lispworks.com/documentation/HyperSpec/Body/v_nil.htm" class="body-link clhs constant nil">nil</a> in its second argument. More generally, whenever some behavior is defined for generic functions when called with only standard classes, since client code is not allowed to alter this behavior in any way, the implementation is often free to choose whatever appropriate implementation technique that has the same affect as the one specified. Notice, however, that any behavior that diverges from what is specified, must not be inherited by client-defined subclasses. Only when arguments are direct instances of specified classes can the implementation arbitrarily choose some other technique. -- Robert Strandh 2017-01-23.</p>
+          </article>
 
         </article>
 
@@ -3887,10 +3884,9 @@
             <p>The second argument is <var>function-name</var>. The remaining arguments are the complete <span class="amop-typo" data-original="set">list</span> of keyword arguments received by <span class="name self function">ensure-generic-function</span>.</p>
           </section>
 
-          <section class="comments-and-remarks">
-            <h1>Comments and remarks</h1>
-            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_ensure.htm#ensure-generic-function" class="body-link clhs">description of this function in the Common Lisp HyperSpec</a>.</p>
-          </section>
+          <article class="remark" data-author="Robert Strandh">
+            <p><b>Robert Strandh remarks:</b> See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_ensure.htm#ensure-generic-function" class="body-link clhs">description of this function in the Common Lisp HyperSpec</a>.</p>
+          </article>
 
         </article>
 
@@ -4144,10 +4140,9 @@
             </pre>
           </section>
 
-          <section class="comments-and-remarks">
-            <h1>Comments and remarks</h1>
-            <p>The last example in the previous section is surprising, because there is no explanation for it.</p>
-          </section>
+          <article class="remark" data-author="Robert Strandh">
+            <p><b>Robert Strandh remarks:</b> The last example in the previous section is surprising, because there is no explanation for it.</p>
+          </article>
 
         </article>
 
@@ -5587,10 +5582,9 @@
 
           </section>
 
-          <section class="body-section">
-            <h1>Comments and remarks</h1>
-            <p>This section is named <I>Initialization of Class Metaobjects</I> and appears in Chapter 6 (Generic functions and methods) of the original text. There is <a href="../concepts/#initialization-of-class-metaobjects" class="body-link chapter5">a section with the same name in Chapter 5 (Concepts) of the original text.</a> When sections are referred to in the text, it is not specified which one.</p>
-          </section>
+          <article class="remark" data-author="Robert Strandh">
+            <p><b>Robert Strandh remarks:</b> This section is named <I>Initialization of Class Metaobjects</I> and appears in Chapter 6 (Generic functions and methods) of the original text. There is <a href="../concepts/#initialization-of-class-metaobjects" class="body-link chapter5">a section with the same name in Chapter 5 (Concepts) of the original text.</a> When sections are referred to in the text, it is not specified which one.</p>
+          </article>
 
         </section>
 
@@ -6956,10 +6950,9 @@
             </article>
           </section>
 
-          <section class="remarks">
-            <h1>Remarks</h1>
-            <p>See also <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_mk_ins.htm#make-instance" class="body-link clhs">the entry in the Common Lisp HyperSpec</a> for this function.</p>
-          </section>
+          <article class="remark" data-author="Robert Strandh">
+            <p><b>Robert Strandh remarks:</b> See also <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_mk_ins.htm#make-instance" class="body-link clhs">the entry in the Common Lisp HyperSpec</a> for this function.</p>
+          </article>
 
         </article>
 

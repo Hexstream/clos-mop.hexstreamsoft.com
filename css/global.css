@@ -198,7 +198,13 @@ var.keyword-initarg, var.environment-initarg {
     font-weight: bold;
 }
 
-.meta-extra {
+article.remark {
+    display: table;
+    padding: 0.1em 0;
+    border: thin solid black;
+    border-radius: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
     background-color: #E3DAC9;
 }
 
