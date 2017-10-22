@@ -1,6 +1,12 @@
+#page-header-wrapper {
+    position: relative;
+}
+
 #navigation {
     font-size: larger;
     margin-top: 1em;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 #navigation section > .body {
@@ -19,6 +25,8 @@
     align-items: stretch;
     background-color: #FFCC99;
     border: medium solid black;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
 #navigation ul.operator-and-methods + ul.operator-and-methods {
@@ -35,10 +43,6 @@
     display: table-cell;
     padding: 0.175em 0.25em;
     white-space: nowrap;
-}
-
-#navigation ul.operator-and-methods {
-    margin: 0;
 }
 
 #navigation ul.operator-and-methods li + li {
