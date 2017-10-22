@@ -185,6 +185,10 @@ a.body-link, .self {
     white-space: nowrap;
 }
 
+a.body-link.long {
+    white-space: initial;
+}
+
 .fixme {
     color: red;
 }
