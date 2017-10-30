@@ -65,9 +65,8 @@ var preferencesSchema = (function () {
 
 var preferences = new HexstreamSoft.StateDomain(preferencesSchema);
 
-HexstreamSoft.EventBinding.bind({
-    combine: "=",
-    endpoints:
+HexstreamSoft.EventBinding.bind(
+    "=",
     [
         {
             type: "storage",
@@ -78,14 +77,15 @@ HexstreamSoft.EventBinding.bind({
             storage: preferences
         }
     ],
-    source:
     {
-        keys: preferences.schema.keys
+        source:
+        {
+            keys: preferences.schema.keys
+        }
     }
-});
-HexstreamSoft.EventBinding.bind({
-    combine: "=",
-    endpoints:
+);
+HexstreamSoft.EventBinding.bind(
+    "=",
     [
         {
             type: "storage",
@@ -96,11 +96,9 @@ HexstreamSoft.EventBinding.bind({
             document: document.documentElement,
             stateDomainName: "site-prefs"
         }
-    ]
-});
-HexstreamSoft.EventBinding.bind({
-    combine: ">",
-    endpoints:
+    ]);
+HexstreamSoft.EventBinding.bind(
+    ">",
     [
         {
             type: "storage",
@@ -109,13 +107,11 @@ HexstreamSoft.EventBinding.bind({
         },
         {
             type: "classList",
-            document: document.documentElement
+            node: document.documentElement
         }
-    ]
-});
-HexstreamSoft.EventBinding.bind({
-    combine: "=",
-    endpoints:
+    ]);
+HexstreamSoft.EventBinding.bind(
+    "=",
     [
         {
             type: "storage",
@@ -126,5 +122,4 @@ HexstreamSoft.EventBinding.bind({
             document: document.documentElement,
             stateDomainName: "page-prefs"
         }
-    ]
-});
+    ]);
