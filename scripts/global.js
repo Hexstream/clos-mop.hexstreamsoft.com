@@ -110,16 +110,3 @@ HexstreamSoft.EventBinding.bind(
             node: document.documentElement
         }
     ]);
-HexstreamSoft.EventBinding.bind(
-    "=",
-    [
-        {
-            type: "storage",
-            storage: localStorage
-        },
-        {
-            type: "document",
-            document: document.documentElement,
-            stateDomainName: "page-prefs"
-        }
-    ]);
