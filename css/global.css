@@ -1,20 +1,16 @@
 @import "https://global.hexstreamsoft.com/css/global.css";
 @import "prefs.css";
 
+main section > .body-list > li {
+    overflow-x: initial;
+}
+
 .scroll {
     max-width: 100%;
 }
 
 .no-sidenav main {
     margin-left: 6em;
-}
-
-.no-sidenav main ~ #footer > div {
-    margin-left: 6em;
-}
-
-.no-sidenav main ~ #footer .back-to-top {
-    width: 4.5em;
 }
 
 #page-header .description a {
@@ -43,7 +39,11 @@ section.body-section {
 
 section.body-section h1 {
     font-size: medium;
-    margin: 0 1em -1em 1em;
+    margin: 0 0 -1em 0;
+}
+
+.body-list section.body-section h1 {
+    margin-left: 1em;
 }
 
 div.page {
@@ -204,11 +204,10 @@ var.keyword-initarg, var.environment-initarg {
 
 article.remark {
     display: table;
-    padding: 0.1em 0;
+    padding: 0.1em 1em;
+    margin: 1em 0;
     border: thin solid black;
     border-radius: 1em;
-    margin-left: 1em;
-    margin-right: 1em;
     background-color: #E3DAC9;
 }
 
@@ -241,9 +240,17 @@ section h1.breadcrumbs .ellipsis sub {
 
 .body-list {
     list-style-type: none;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0;
+    margin-right: 0;
     counter-reset: index;
+}
+
+.body-list .body-list {
+    margin-left: 2em;
+}
+
+.body-list p, .body-list pre {
+    margin-left: 1em;
 }
 
 .body-list li {
@@ -290,7 +297,7 @@ section h1.breadcrumbs .ellipsis sub {
 }
 
 .body-list div.page {
-    margin-right: 2em;
+    margin-right: 1em;
 }
 
 .body-list .body-list div.page {

@@ -5,8 +5,8 @@
 #navigation {
     font-size: larger;
     margin-top: 1em;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: var(--main_padding-left);
+    margin-right: var(--main_padding-right);
 }
 
 #navigation section > .body {
@@ -25,8 +25,8 @@
     align-items: stretch;
     background-color: #FFCC99;
     border: medium solid black;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 #navigation ul.operator-and-methods + ul.operator-and-methods {
@@ -72,7 +72,7 @@
     flex-flow: row wrap;
 }
 
-@media (min-width: 84.5em) {
+@media (min-width: 74.125em) {
     #navigation_metaobjects p {
         text-align: center;
     }
@@ -84,6 +84,7 @@
 
 #navigation_metaobjects .wrapper section {
     margin: 1em;
+    margin-left: 0;
 }
 
 #navigation_metaobjects .wrapper section h1 {
