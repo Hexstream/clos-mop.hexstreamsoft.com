@@ -6,21 +6,39 @@ html.arguments-and-values\=separate main section.arguments-and-values
 }
 
 
-html.diff\.visibility\=hide main .boilerplate-diff
-{
-    padding: 0;
-    border: none;
-    border-radius: initial;
-    background-color: transparent;
+.boilerplate-diff,
+html.diff\.visibility\=show .boilerplate-diff {
+    --prefs_boilerplate-diff_padding: 0 0.3em 0.05em;
+    --prefs_boilerplate-diff_border: thin solid;
+    --prefs_boilerplate-diff_border-radius: 1.55em;
 }
 
-html.diff\.visibility\=hide main del.boilerplate-diff,
-html.diff\.removed\.visibility\=hide main del.boilerplate-diff
+html.diff\.visibility\=hide .boilerplate-diff {
+    --prefs_boilerplate-diff_padding: 0;
+    --prefs_boilerplate-diff_border: none;
+    --prefs_boilerplate-diff_border-radius: initial;
+    --prefs_boilerplate-diff_background-color: transparent;
+}
+
+ins.boilerplate-diff,
+html.diff\.visibility\=show ins.boilerplate-diff {
+    --prefs_boilerplate-diff_background-color: rgba(128, 255, 128, 1);
+    --prefs_boilerplate-diff_border-color: rgba(128, 255, 128, 1);
+}
+
+ins.boilerplate-diff,
+html.diff\.visibility\=show del.boilerplate-diff {
+    --prefs_boilerplate-diff_background-color: rgba(255, 128, 128, 1);
+    --prefs_boilerplate-diff_border-color: rgba(255, 128, 128, 1);
+}
+
+html.diff\.visibility\=hide del.boilerplate-diff,
+html.diff\.removed\.visibility\=hide del.boilerplate-diff
 {
     display: none;
 }
 
-html.diff\.removed\.strikethrough\=strike main del.boilerplate-diff {
+html.diff\.removed\.strikethrough\=strike del.boilerplate-diff {
     text-decoration: line-through;
 }
 
@@ -34,11 +52,15 @@ html.\/book\/pages\/mid-paragraph-transition-marks\.visibility\=hide .mid-paragr
     display: none;
 }
 
-html.\/book\/pages\/mid-paragraph-transition-marks\.type\=‸ .mid-paragraph-transition-mark {
-    margin-left: -0.55em;
-    margin-top: -0.05em;
+html .mid-paragraph-transition-mark,
+html.\/book\/pages\/mid-paragraph-transition-marks\.type\=⁁ .mid-paragraph-transition-mark {
+    --prefs_mid-paragraph-transition-mark_content: "⁁";
+    --prefs_mid-paragraph-transition-mark_margin-left: -0.3em;
+    --prefs_mid-paragraph-transition-mark_margin-top: 0;
 }
 
-html.\/book\/pages\/mid-paragraph-transition-marks\.type\=‸ .mid-paragraph-transition-mark:before {
-    content: "‸";
+html.\/book\/pages\/mid-paragraph-transition-marks\.type\=‸ .mid-paragraph-transition-mark {
+    --prefs_mid-paragraph-transition-mark_content: "‸";
+    --prefs_mid-paragraph-transition-mark_margin-left: -0.55em;
+    --prefs_mid-paragraph-transition-mark_margin-top: -0.05em;
 }

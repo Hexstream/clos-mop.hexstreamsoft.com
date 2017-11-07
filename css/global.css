@@ -303,11 +303,12 @@ section h1.breadcrumbs .ellipsis sub {
 
 .mid-paragraph-transition-mark {
     position: absolute;
-    margin-left: -0.3em;
+    margin-left: var(--prefs_mid-paragraph-transition-mark_margin-left);
+    margin-top: var(--prefs_mid-paragraph-transition-mark_margin-top);
 }
 
 .mid-paragraph-transition-mark:before {
-    content: "⁁";
+    content: var(--prefs_mid-paragraph-transition-mark_content);
     font-weight: bold;
     color: green;
     font-size: 1.25em;
@@ -315,29 +316,20 @@ section h1.breadcrumbs .ellipsis sub {
 
 
 .boilerplate-diff {
-    border-radius: 1.55em;
-    padding: 0 0.3em 0.05em;
-    border: thin solid;
+    padding: var(--prefs_boilerplate-diff_padding);
+    border: var(--prefs_boilerplate-diff_border);
+    border-radius: var(--prefs_boilerplate-diff_border-radius);
+    background-color: var(--prefs_boilerplate-diff_background-color);
+    border-color: var(--prefs_boilerplate-diff_border-color);
+    text-decoration: none;
 }
 
 .boilerplate-diff .boilerplate-diff {
     border-color: black;
 }
 
-ins.boilerplate-diff {
-    background-color: rgba(128, 255, 128, 1);
-    text-decoration: none;
-    border-color: rgba(128, 255, 128, 1);
-}
-
 ins.boilerplate-diff a {
     text-decoration: underline;
-}
-
-del.boilerplate-diff {
-    background-color: rgba(255, 128, 128, 1);
-    text-decoration: none;
-    border-color: rgba(255, 128, 128, 1);
 }
 
 .tabs.split + .tabs.split {
