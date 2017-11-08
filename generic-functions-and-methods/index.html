@@ -177,10 +177,10 @@
           <thead>
             <tr>
               <th class="chomp top left"></th>
-              <th>Classes</th>
-              <th>Generic functions</th>
-              <th>Methods</th>
-              <th>Slot definitions</th>
+              <th><span>Classes</span></th>
+              <th><span>Generic functions</span></th>
+              <th><span>Methods</span></th>
+              <th><span>Slot definitions</span></th>
             </tr>
           </thead>
           <tbody>
@@ -1235,7 +1235,7 @@
 
           <article class="remark" data-author="Robert Strandh">
             <p><b>Robert Strandh remarks:</b></p>
-            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_alloca.htm#allocate-instance" class="body-link clhs">description of this function in the Common Lisp HyperSpec</a>.</p>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_alloca.htm#allocate-instance" class="body-link clhs long">description of this function in the Common Lisp HyperSpec</a>.</p>
             <p>The description above suggests that <span class="name self generic-function">allocate-instance</span> checks to see whether the class is finalized and if not, calls <a href="#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a>. However, the <var>initargs</var> passed to <span class="name self generic-function">allocate-instance</span> should be the defaulted initargs, and computing those initargs requires the class to be finalized. Therefore, <a href="#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> must be called <em>before</em> <span class="name self generic-function">allocate-instance</span> is called. Peeking at PCL source confirms that <a href="#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> is called from <a href="#make-instance" class="body-link generic-function">make-instance</a> before <span class="name self generic-function">allocate-instance</span> is called.</p>
           </article>
 
@@ -1267,10 +1267,10 @@
             <thead>
               <tr>
                 <th class="chomp top left"></th>
-                <th>Classes</th>
-                <th>Generic functions</th>
-                <th>Methods</th>
-                <th>Slot definitions</th>
+                <th><span>Classes</span></th>
+                <th><span>Generic functions</span></th>
+                <th><span>Methods</span></th>
+                <th><span>Slot definitions</span></th>
               </tr>
             </thead>
             <tbody>
@@ -1309,11 +1309,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left toggle">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-class-metaobjects_introduction">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -1340,12 +1347,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-class-metaobjects_introduction">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
           <div class="page" id="page-212">
@@ -1393,11 +1394,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left toggle">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-class-metaobjects_initargs">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -1424,12 +1432,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-class-metaobjects_initargs">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
           <nav class="tabs readers split">
@@ -2371,11 +2373,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-class-metaobjects_methods">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -2402,12 +2411,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-class-metaobjects_methods">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
           <div class="page" id="page-215">
@@ -3889,7 +3892,7 @@
           </section>
 
           <article class="remark" data-author="Robert Strandh">
-            <p><b>Robert Strandh remarks:</b> See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_ensure.htm#ensure-generic-function" class="body-link clhs">description of this function in the Common Lisp HyperSpec</a>.</p>
+            <p><b>Robert Strandh remarks:</b> See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_ensure.htm#ensure-generic-function" class="body-link clhs long">description of this function in the Common Lisp HyperSpec</a>.</p>
           </article>
 
         </article>
@@ -4495,10 +4498,10 @@
             <thead>
               <tr>
                 <th class="chomp top left"></th>
-                <th>Classes</th>
-                <th>Generic functions</th>
-                <th>Methods</th>
-                <th>Slot definitions</th>
+                <th><span>Classes</span></th>
+                <th><span>Generic functions</span></th>
+                <th><span>Methods</span></th>
+                <th><span>Slot definitions</span></th>
               </tr>
             </thead>
             <tbody>
@@ -4537,11 +4540,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-generic-function-metaobjects_introduction">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -4568,12 +4578,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-generic-function-metaobjects_introduction">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
           <div class="page" id="page-216">
@@ -4625,11 +4629,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-generic-function-metaobjects_initargs">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -4656,12 +4667,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-generic-function-metaobjects_initargs">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
           <nav class="tabs readers split">
@@ -5074,11 +5079,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-generic-function-metaobjects_methods">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -5105,12 +5117,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-generic-function-metaobjects_methods">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
 
@@ -5249,10 +5255,10 @@
               <thead>
                 <tr>
                   <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -5291,11 +5297,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-class-metaobjects_introduction">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -5322,12 +5335,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-class-metaobjects_introduction">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <div class="page" id="page-193">
@@ -5372,11 +5379,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-class-metaobjects_readers">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -5403,12 +5417,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-class-metaobjects_readers">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <nav class="tabs initargs">
@@ -5543,11 +5551,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-class-metaobjects_methods">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -5574,12 +5589,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-class-metaobjects_methods">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <p>It is not specified which methods provide the initialization <ins class="boilerplate-diff">and reinitialization</ins> behavior described above. Instead, the information needed to allow portable programs to specialize <span class="mid-paragraph-transition-mark" id="195-196-page-transition"></span> this behavior is presented as a set of restrictions on the methods a portable program can define. The model is that portable initialization methods have access to the <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic-function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot-definition</a></del> metaobject when either all or none of the specified initialization has taken effect.</p>
@@ -5622,7 +5631,7 @@
           </section>
 
           <article class="remark" data-author="Robert Strandh">
-            <p><b>Robert Strandh remarks:</b> This section is named <I>Initialization of Class Metaobjects</I> and appears in Chapter 6 (Generic functions and methods) of the original text. There is <a href="../concepts/#initialization-of-class-metaobjects" class="body-link chapter5">a section with the same name in Chapter 5 (Concepts) of the original text.</a> When sections are referred to in the text, it is not specified which one.</p>
+            <p><b>Robert Strandh remarks:</b> This section is named <I>Initialization of Class Metaobjects</I> and appears in Chapter 6 (Generic functions and methods) of the original text. There is <a href="../concepts/#initialization-of-class-metaobjects" class="body-link chapter5 long">a section with the same name in Chapter 5 (Concepts) of the original text.</a> When sections are referred to in the text, it is not specified which one.</p>
           </article>
 
         </section>
@@ -5651,10 +5660,10 @@
               <thead>
                 <tr>
                   <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -5693,11 +5702,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-generic-function-metaobjects_introduction">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -5724,12 +5740,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-generic-function-metaobjects_introduction">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <div class="page" id="page-197">
@@ -5774,11 +5784,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-generic-function-metaobjects_readers">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -5805,12 +5822,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-generic-function-metaobjects_readers">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <nav class="tabs initargs">
@@ -5956,11 +5967,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-generic-function-metaobjects_methods">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -5987,12 +6005,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-generic-function-metaobjects_methods">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <p>It is not specified which methods provide the initialization <ins class="boilerplate-diff">and reinitialization</ins> behavior described above. Instead, the information needed to allow portable programs to specialize this behavior is presented as a set of restrictions on the methods a portable program can define. The model is that portable initialization methods have access to the <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <ins class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic-function</a></ins> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot-definition</a></del> metaobject when either all or none of the specified initialization has taken effect.</p>
@@ -6062,10 +6074,10 @@
               <thead>
                 <tr>
                   <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -6104,11 +6116,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-method-metaobjects_introduction">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -6135,12 +6154,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-method-metaobjects_introduction">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <div class="page" id="page-200">
@@ -6185,11 +6198,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-method-metaobjects_readers">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -6216,12 +6236,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-method-metaobjects_readers">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <nav class="tabs initargs">
@@ -6332,11 +6346,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-method-metaobjects_methods">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -6363,12 +6384,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-method-metaobjects_methods">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <p>It is not specified which methods provide the initialization <del class="boilerplate-diff">and reinitialization</del> behavior described above. Instead, the information needed to allow portable programs to specialize this behavior is presented <span class="amop-typo" data-original="in"></span> as a set of restrictions on the methods a portable program can define. The model is that portable initialization methods have access to the <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic-function</a></del> <ins class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></ins> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot-definition</a></del> metaobject when either all or none of the specified initialization has taken effect.</p>
@@ -6442,10 +6457,10 @@
               <thead>
                 <tr>
                   <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -6484,11 +6499,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-slot-definition-metaobjects_introduction">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -6515,12 +6537,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-slot-definition-metaobjects_introduction">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <div class="page" id="page-203">
@@ -6565,11 +6581,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-slot-definition-metaobjects_readers">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -6596,12 +6619,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-slot-definition-metaobjects_readers">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <nav class="tabs initargs">
@@ -6746,11 +6763,18 @@
               <table class="navtable">
                 <thead>
                   <tr>
-                    <th class="chomp top left"></th>
-                    <th>Classes</th>
-                    <th>Generic functions</th>
-                    <th>Methods</th>
-                    <th>Slot definitions</th>
+                    <th class="chomp top left">
+                      <div class="tabs init-readers-toggle">
+                        <ul>
+                          <li><a class="here">Init</a></li>
+                          <li><a href="#readers-for-slot-definition-metaobjects_methods">Readers</a></li>
+                        </ul>
+                      </div>
+                    </th>
+                    <th><span>Classes</span></th>
+                    <th><span>Generic functions</span></th>
+                    <th><span>Methods</span></th>
+                    <th><span>Slot definitions</span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -6777,12 +6801,6 @@
                   </tr>
                 </tbody>
               </table>
-              <nav class="tabs init-readers-toggle">
-                <ul>
-                  <li><a class="here">Initialization</a></li>
-                  <li><a href="#readers-for-slot-definition-metaobjects_methods">Readers</a></li>
-                </ul>
-              </nav>
             </nav>
 
             <p>It is not specified which methods provide the initialization <ins class="boilerplate-diff">and reinitialization</ins> behavior described above. Instead, the information needed to allow portable programs to specialize this behavior is presented as a set of restrictions on the methods a portable program can define. The model is that portable initialization methods have access to the <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic-function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <ins class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot-definition</a></ins> metaobject when either all or none of the specified initialization has taken effect.</p>
@@ -7297,10 +7315,10 @@
             <thead>
               <tr>
                 <th class="chomp top left"></th>
-                <th>Classes</th>
-                <th>Generic functions</th>
-                <th>Methods</th>
-                <th>Slot definitions</th>
+                <th><span>Classes</span></th>
+                <th><span>Generic functions</span></th>
+                <th><span>Methods</span></th>
+                <th><span>Slot definitions</span></th>
               </tr>
             </thead>
             <tbody>
@@ -7339,11 +7357,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-method-metaobjects_introduction">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -7370,12 +7395,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-method-metaobjects_introduction">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
           <div class="page" id="page-218-bottom">
@@ -7432,11 +7451,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-method-metaobjects_initargs">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -7463,12 +7489,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-method-metaobjects_initargs">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
           <nav class="tabs readers">
@@ -7823,11 +7843,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-method-metaobjects_methods">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -7854,12 +7881,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-method-metaobjects_methods">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
           <p>The specified methods for the method metaobject readers are presented below.</p>
@@ -8928,10 +8949,10 @@
             <thead>
               <tr>
                 <th class="chomp top left"></th>
-                <th>Classes</th>
-                <th>Generic functions</th>
-                <th>Methods</th>
-                <th>Slot definitions</th>
+                <th><span>Classes</span></th>
+                <th><span>Generic functions</span></th>
+                <th><span>Methods</span></th>
+                <th><span>Slot definitions</span></th>
               </tr>
             </thead>
             <tbody>
@@ -8970,11 +8991,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-slot-definition-metaobjects_introduction">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -9001,12 +9029,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-slot-definition-metaobjects_introduction">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
           <div class="page" id="page-221">
@@ -9054,11 +9076,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-slot-definition-metaobjects_initargs">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -9085,12 +9114,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-slot-definition-metaobjects_initargs">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
           <nav class="tabs readers split">
@@ -9452,11 +9475,18 @@
             <table class="navtable">
               <thead>
                 <tr>
-                  <th class="chomp top left"></th>
-                  <th>Classes</th>
-                  <th>Generic functions</th>
-                  <th>Methods</th>
-                  <th>Slot definitions</th>
+                  <th class="chomp top left">
+                    <div class="tabs init-readers-toggle">
+                      <ul>
+                        <li><a href="#initialization-of-slot-definition-metaobjects_methods">Init</a></li>
+                        <li><a class="here">Readers</a></li>
+                      </ul>
+                    </div>
+                  </th>
+                  <th><span>Classes</span></th>
+                  <th><span>Generic functions</span></th>
+                  <th><span>Methods</span></th>
+                  <th><span>Slot definitions</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -9483,12 +9513,6 @@
                 </tr>
               </tbody>
             </table>
-            <nav class="tabs init-readers-toggle">
-              <ul>
-                <li><a href="#initialization-of-slot-definition-metaobjects_methods">Initialization</a></li>
-                <li><a class="here">Readers</a></li>
-              </ul>
-            </nav>
           </nav>
 
 
