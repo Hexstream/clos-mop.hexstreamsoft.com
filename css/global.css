@@ -9,8 +9,8 @@ main section > .body-list > li {
     max-width: 100%;
 }
 
-.no-sidenav main {
-    margin-left: 6em;
+.sidebar main {
+    margin-left: 5em;
 }
 
 #page-header .description a {
@@ -71,9 +71,15 @@ div.page.approximate.starts-midpage:before {
 
 div.on.page:before {
     content: "On";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-bottom: 0.15em;
 }
 
-div.page.approximate:before, div.on.page:before, div.page.approximate a.transition {
+div.page.approximate:before, div.page.approximate a.transition {
     position: absolute;
     right: 100%;
     top: 0%;

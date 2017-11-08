@@ -250,7 +250,7 @@ p.args-and-retvals + .or + p.args-and-retvals {
     top: 50%;
     margin-top: -0.5em;
     right: 100%;
-    margin-right: -0.95em;
+    margin-right: -1em;
     transform: rotate(-90deg);
     font-size: 2em;
 }
