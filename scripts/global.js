@@ -2,26 +2,26 @@
 
 HexstreamSoft.modules.ensure("HexstreamSoft.StateDomain", "HexstreamSoft.EventBinding");
 
-var preferencesSchema = (function () {
-    var show_hide = {
+const preferencesSchema = (function () {
+    const showHide = {
         possibleValues: ["show", "hide"],
         defaultValue: "show"
     };
-    var diff_options = Object.create(show_hide);
-    diff_options.computeRelevance = function (preferences) {
+    const diffOptions = Object.create(showHide);
+    diffOptions.computeRelevance = function (preferences) {
         return preferences["diff.visibility"] === "show";
     };
-    var mid_paragraph_transition_marks_options = Object.create(show_hide);
-    mid_paragraph_transition_marks_options.computeRelevance = function (preferences) {
+    const midParagraphTransitionMarksOptions = Object.create(showHide);
+    midParagraphTransitionMarksOptions.computeRelevance = function (preferences) {
         return preferences["/book/pages/references.visibility"] === "show";
     };
     return new HexstreamSoft.StateDomainSchema(
     {
         "/prefs/hints.visibility":
-        show_hide,
+        showHide,
 
         "/prefs/preview.visibility":
-        show_hide,
+        showHide,
 
         "arguments-and-values":
         {
@@ -30,40 +30,40 @@ var preferencesSchema = (function () {
         },
 
         "diff.visibility":
-        show_hide,
+        showHide,
 
         "diff.removed.visibility":
-        diff_options,
+        diffOptions,
 
         "diff.removed.strikethrough":
         {
             possibleValues: ["strike", "no-strike"],
             defaultValue: "no-strike",
             computeRelevance: function (preferences) {
-                return diff_options.computeRelevance(preferences)
+                return diffOptions.computeRelevance(preferences)
                     && preferences["diff.removed.visibility"] === "show";
             }
         },
 
         "/book/pages/references.visibility":
-        show_hide,
+        showHide,
 
         "/book/pages/mid-paragraph-transition-marks.visibility":
-        mid_paragraph_transition_marks_options,
+        midParagraphTransitionMarksOptions,
 
         "/book/pages/mid-paragraph-transition-marks.type":
         {
             possibleValues: ["⁁", "‸"],
             defaultValue: "⁁",
             computeRelevance: function (preferences) {
-                return mid_paragraph_transition_marks_options.computeRelevance(preferences)
+                return midParagraphTransitionMarksOptions.computeRelevance(preferences)
                     && preferences["/book/pages/mid-paragraph-transition-marks.visibility"] === "show";
             }
         }
     });
 })();
 
-var preferences = new HexstreamSoft.StateDomain(preferencesSchema);
+const preferences = new HexstreamSoft.StateDomain(preferencesSchema);
 
 HexstreamSoft.EventBinding.bind(
     "=",
