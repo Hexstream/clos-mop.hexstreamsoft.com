@@ -1,5 +1,50 @@
-article.definition > section h1 {
+article.definition > section > h1 {
     margin-bottom: -0.5em;
+}
+
+article.definition > section.mentions > h1 {
+    margin-bottom: 0;
+}
+
+article.definition > section.mentions p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+article.definition > section.mentions.none p {
+    font-style: italic;
+}
+
+article.definition > section.mentions .mention {
+    background-color: yellow;
+}
+
+article.definition > section.mentions .ellipsis {
+}
+
+article.definition > section.mentions article {
+    position: relative;
+    padding: 0.25em 0.5em;
+    left: -0.5em;
+    border: thin dotted black;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    max-width: max-content;
+    background: linen;
+}
+
+article.definition > section.mentions article > blockquote {
+    margin-bottom: -0.5em;
+}
+
+article.definition > section.mentions article > blockquote > .scroll:first-child {
+    margin-top: 0.5em;
+}
+
+
+article.definition > section.mentions article > h1 {
+    font-size: 1em;
+    margin-top: 0;
 }
 
 #class-graph-wrapper {

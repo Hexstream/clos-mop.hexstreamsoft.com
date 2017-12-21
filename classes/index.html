@@ -53,7 +53,7 @@
 
       </div>
 
-      <p id="last-updated"><span>This page was last updated on </span><time datetime="2017-10-15">15 october 2017</time><span>.</span></p>
+      <p id="last-updated"><span>This page was last updated on </span><time datetime="2017-12-21">21 december 2017</time><span>.</span></p>
 
     </nav>
 
@@ -364,6 +364,22 @@
             <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_t.htm" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
           </section>
 
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <div class="notice note">
+              <b>ℹ</b>
+              <div>
+                <p>Note that all "Mentions" sections on this page never take into account any mentions in <a href="../concepts/#table-5.1_figure">Table 5.1</a>, since that table mentions all CLOS MOP related classes.</p>
+              </div>
+            </div>
+            <article>
+              <h1><a href="../concepts/#instance-structure-protocol">5.5.3 Instance Structure Protocol</a></h1>
+              <blockquote>
+                <p>In particular, portable programs can control the implementation of, and obtain direct access to, slots with allocation <code>:instance</code> and type <a href="#t" class="body-link class t mention">t</a>. These are called <i>directly accessible slots</i>.</p>
+              </blockquote>
+            </article>
+          </section>
+
         </article>
 
       </section>
@@ -409,6 +425,11 @@
           <section class="comments-and-remarks">
             <h1>Comments and remarks</h1>
             <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_fn.htm" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+          <section class="mentions none">
+            <h1>Mentions</h1>
+            <p>None in chapter 5, aside from <a href="../concepts/#table-5.1_figure">Table 5.1</a>.</p>
           </section>
 
         </article>
@@ -458,6 +479,16 @@
             <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_std_ob.htm#standard-object" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
           </section>
 
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The class <a href="#standard-object" class="body-link class mention">standard-object</a> is the <i>default direct superclass</i> of the class <a href="#standard-class" class="body-link class">standard-class</a>. When an instance of the class <a href="#standard-class" class="body-link class">standard-class</a> is created, and no direct superclasses are explicitly specified, it defaults to the class <a href="#standard-object" class="body-link class mention">standard-object</a>. In this way, any behavior associated with the class <a href="#standard-object" class="body-link class mention">standard-object</a> will be inherited, directly or indirectly, by all instances of the class <a href="#standard-class" class="body-link class">standard-class</a>. A subclass of <a href="#standard-class" class="body-link class">standard-class</a> may have a different class as its default direct superclass, but that class must be a subclass of the class <a href="#standard-object" class="body-link class mention">standard-object</a>.</p>
+              </blockquote>
+            </article>
+          </section>
+
         </article>
 
       </section>
@@ -498,6 +529,16 @@
           <section class="description">
             <h1>Description</h1>
             <p>This class is the default direct superclass of the class <a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a>. When an instance of the class <a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a> is created, and no direct superclasses are explicitly specified, it defaults to this class. In this way, any behavior associated with this class will be inherited, directly or indirectly, by all instances of the class <a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a>. A subclass of <a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a> may have a different class as its default direct superclass, but that class must be a subclass of this class.</p>
+          </section>
+
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The same is true for <a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a> and <a href="#funcallable-standard-object" class="body-link class mention">funcallable-standard-object</a>.</p>
+              </blockquote>
+            </article>
           </section>
 
         </article>
@@ -547,6 +588,11 @@
             <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
           </section>
 
+          <section class="mentions none">
+            <h1>Mentions</h1>
+            <p>None in chapter 5, aside from <a href="../concepts/#table-5.1_figure">Table 5.1</a>.</p>
+          </section>
+
         </article>
 
       </section>
@@ -594,6 +640,16 @@
             <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_generi.htm#generic-function" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
           </section>
 
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#metaobjects">5.2 Metaobjects</a></h1>
+              <blockquote>
+                <p>For each kind of program element there is a corresponding <i>basic metaobject class</i>. These are the classes: <a href="#class" class="body-link class">class</a>, <a href="#slot-definition" class="body-link class">slot-definition</a>, <a href="#generic-function" class="body-link class mention">generic-function</a>, <a href="#method" class="body-link class">method</a>, and <a href="#method-combination" class="body-link class">method-combination</a>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
+          </section>
+
         </article>
 
       </section>
@@ -639,6 +695,26 @@
           <section class="comments-and-remarks">
             <h1>Comments and remarks</h1>
             <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_std_ge.htm#standard-generic-function" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The classes <a href="#standard-class" class="body-link class">standard-class</a>, <a href="#standard-direct-slot-definition" class="body-link class">standard-direct-slot-definition</a>, <a href="#standard-effective-slot-definition" class="body-link class">standard-effective-slot-definition</a>, <a href="#standard-method" class="body-link class">standard-method</a>, <a href="#standard-reader-method" class="body-link class">standard-reader-method</a>, <a href="#standard-writer-method" class="body-link class">standard-writer-method</a>, and <a href="#standard-generic-function" class="body-link class mention">standard-generic-function</a> are called <i>standard metaobject classes</i>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
+            <article>
+              <h1><a href="../concepts/#initialization-of-generic-function-and-method-metaobjects">5.5.1 » Initialization of generic function and method metaobjects</a></h1>
+              <blockquote>
+                <div class="scroll">
+              <pre>
+(let* ((gf (make-instance '<span class="mention">standard-generic-function</span>
+              </pre>
+            </div>
+              </blockquote>
+            </article>
           </section>
 
         </article>
@@ -689,6 +765,16 @@
             <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_method.htm#method" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
           </section>
 
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#metaobjects">5.2 Metaobjects</a></h1>
+              <blockquote>
+                <p>For each kind of program element there is a corresponding <i>basic metaobject class</i>. These are the classes: <a href="#class" class="body-link class">class</a>, <a href="#slot-definition" class="body-link class">slot-definition</a>, <a href="#generic-function" class="body-link class">generic-function</a>, <a href="#method" class="body-link class mention">method</a>, and <a href="#method-combination" class="body-link class">method-combination</a>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
+          </section>
+
         </article>
 
       </section>
@@ -734,6 +820,16 @@
           <section class="comments-and-remarks">
             <h1>Comments and remarks</h1>
             <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_std_me.htm#standard-method" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
+          </section>
+
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The classes <a href="#standard-class" class="body-link class">standard-class</a>, <a href="#standard-direct-slot-definition" class="body-link class">standard-direct-slot-definition</a>, <a href="#standard-effective-slot-definition" class="body-link class">standard-effective-slot-definition</a>, <a href="#standard-method" class="body-link class mention">standard-method</a>, <a href="#standard-reader-method" class="body-link class">standard-reader-method</a>, <a href="#standard-writer-method" class="body-link class">standard-writer-method</a>, and <a href="#standard-generic-function" class="body-link class">standard-generic-function</a> are called <i>standard metaobject classes</i>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
           </section>
 
         </article>
@@ -783,6 +879,11 @@
             <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
           </section>
 
+          <section class="mentions none">
+            <h1>Mentions</h1>
+            <p>None in chapter 5, aside from <a href="../concepts/#table-5.1_figure">Table 5.1</a>.</p>
+          </section>
+
         </article>
 
       </section>
@@ -825,6 +926,16 @@
             <p>This class is a <em>standard metaobject class</em>. This is the class that is returned by the method <a href="../generic-functions-and-methods/#reader-method-class_standard-class_standard-direct-slot-definition" class="body-link method"><span class="name">reader-method-class</span> (<var>class</var> standard-class) (<var>direct-slot</var> standard-direct-slot-definition) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a> and the method <a href="../generic-functions-and-methods/#reader-method-class_funcallable-standard-class_standard-direct-slot-definition" class="body-link method"><span class="name">reader-method-class</span> (<var>class</var> funcallable-standard-class) (<var>direct-slot</var> standard-direct-slot-definition) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a>. This is also a class on which user specializations are normally based.</p>
           </section>
 
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The classes <a href="#standard-class" class="body-link class">standard-class</a>, <a href="#standard-direct-slot-definition" class="body-link class">standard-direct-slot-definition</a>, <a href="#standard-effective-slot-definition" class="body-link class">standard-effective-slot-definition</a>, <a href="#standard-method" class="body-link class">standard-method</a>, <a href="#standard-reader-method" class="body-link class mention">standard-reader-method</a>, <a href="#standard-writer-method" class="body-link class">standard-writer-method</a>, and <a href="#standard-generic-function" class="body-link class">standard-generic-function</a> are called <i>standard metaobject classes</i>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
+          </section>
+
         </article>
 
       </section>
@@ -865,6 +976,16 @@
           <section class="description">
             <h1>Description</h1>
             <p>This class is a <em>standard metaobject class</em>. This is the class that is returned by the method <a href="../generic-functions-and-methods/#writer-method-class_standard-class_standard-direct-slot-definition" class="body-link method"><span class="name">writer-method-class</span> (<var>class</var> standard-class) (<var>direct-slot</var> standard-direct-slot-definition) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a> and the method <a href="../generic-functions-and-methods/#writer-method-class_funcallable-standard-class_standard-direct-slot-definition" class="body-link method"><span class="name">writer-method-class</span> (<var>class</var> funcallable-standard-class) (<var>direct-slot</var> standard-direct-slot-definition) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a>. This is also a class on which user specializations are normally based.</p>
+          </section>
+
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The classes <a href="#standard-class" class="body-link class">standard-class</a>, <a href="#standard-direct-slot-definition" class="body-link class">standard-direct-slot-definition</a>, <a href="#standard-effective-slot-definition" class="body-link class">standard-effective-slot-definition</a>, <a href="#standard-method" class="body-link class">standard-method</a>, <a href="#standard-reader-method" class="body-link class">standard-reader-method</a>, <a href="#standard-writer-method" class="body-link class mention">standard-writer-method</a>, and <a href="#standard-generic-function" class="body-link class">standard-generic-function</a> are called <i>standard metaobject classes</i>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
           </section>
 
         </article>
@@ -914,6 +1035,16 @@
             <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
           </section>
 
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#metaobjects">5.2 Metaobjects</a></h1>
+              <blockquote>
+                <p>For each kind of program element there is a corresponding <i>basic metaobject class</i>. These are the classes: <a href="#class" class="body-link class">class</a>, <a href="#slot-definition" class="body-link class mention">slot-definition</a>, <a href="#generic-function" class="body-link class">generic-function</a>, <a href="#method" class="body-link class">method</a>, and <a href="#method-combination" class="body-link class">method-combination</a>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
+          </section>
+
         </article>
 
       </section>
@@ -959,6 +1090,11 @@
           <section class="comments-and-remarks">
             <h1>Comments and remarks</h1>
             <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+          </section>
+
+          <section class="mentions none">
+            <h1>Mentions</h1>
+            <p>None in chapter 5, aside from <a href="../concepts/#table-5.1_figure">Table 5.1</a>.</p>
           </section>
 
         </article>
@@ -1008,6 +1144,11 @@
             <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
           </section>
 
+          <section class="mentions none">
+            <h1>Mentions</h1>
+            <p>None in chapter 5, aside from <a href="../concepts/#table-5.1_figure">Table 5.1</a>.</p>
+          </section>
+
         </article>
 
       </section>
@@ -1055,6 +1196,11 @@
             <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
           </section>
 
+          <section class="mentions none">
+            <h1>Mentions</h1>
+            <p>None in chapter 5, aside from <a href="../concepts/#table-5.1_figure">Table 5.1</a>.</p>
+          </section>
+
         </article>
 
       </section>
@@ -1097,6 +1243,16 @@
             <p>This class is a <em>standard metaobject class</em>. This is the class that is returned by the method <a href="../generic-functions-and-methods/#direct-slot-definition-class_standard-class" class="body-link method"><span class="name">direct-slot-definition-class</span> (<var>class</var> standard-class) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a> and the method <a href="../generic-functions-and-methods/#direct-slot-definition-class_funcallable-standard-class" class="body-link method"><span class="name">direct-slot-definition-class</span> (<var>class</var> funcallable-standard-class) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a>. This is also a class on which user specializations are normally based.</p>
           </section>
 
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The classes <a href="#standard-class" class="body-link class">standard-class</a>, <a href="#standard-direct-slot-definition" class="body-link class mention">standard-direct-slot-definition</a>, <a href="#standard-effective-slot-definition" class="body-link class">standard-effective-slot-definition</a>, <a href="#standard-method" class="body-link class">standard-method</a>, <a href="#standard-reader-method" class="body-link class">standard-reader-method</a>, <a href="#standard-writer-method" class="body-link class">standard-writer-method</a>, and <a href="#standard-generic-function" class="body-link class">standard-generic-function</a> are called <i>standard metaobject classes</i>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
+          </section>
+
         </article>
 
       </section>
@@ -1137,6 +1293,16 @@
           <section class="description">
             <h1>Description</h1>
             <p>This class is a <em>standard metaobject class</em>. This is the class that is returned by the method <a href="../generic-functions-and-methods/#effective-slot-definition-class_standard-class" class="body-link method"><span class="name">effective-slot-definition-class</span> (<var>class</var> standard-class) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a> and the method <a href="../generic-functions-and-methods/#effective-slot-definition-class_funcallable-standard-class" class="body-link method"><span class="name">effective-slot-definition-class</span> (<var>class</var> funcallable-standard-class) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a>. This is also a class on which user specializations are normally based.</p>
+          </section>
+
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The classes <a href="#standard-class" class="body-link class">standard-class</a>, <a href="#standard-direct-slot-definition" class="body-link class">standard-direct-slot-definition</a>, <a href="#standard-effective-slot-definition" class="body-link class mention">standard-effective-slot-definition</a>, <a href="#standard-method" class="body-link class">standard-method</a>, <a href="#standard-reader-method" class="body-link class">standard-reader-method</a>, <a href="#standard-writer-method" class="body-link class">standard-writer-method</a>, and <a href="#standard-generic-function" class="body-link class">standard-generic-function</a> are called <i>standard metaobject classes</i>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
           </section>
 
         </article>
@@ -1186,6 +1352,16 @@
             <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
           </section>
 
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#metaobjects">5.2 Metaobjects</a></h1>
+              <blockquote>
+                <p>For each kind of program element there is a corresponding <i>basic metaobject class</i>. These are the classes: <a href="#class" class="body-link class">class</a>, <a href="#slot-definition" class="body-link class">slot-definition</a>, <a href="#generic-function" class="body-link class">generic-function</a>, <a href="#method" class="body-link class">method</a>, and <a href="#method-combination" class="body-link class mention">method-combination</a>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
+          </section>
+
         </article>
 
       </section>
@@ -1231,6 +1407,16 @@
           <section class="comments-and-remarks">
             <h1>Comments and remarks</h1>
             <p>This class is an <em>abstract class</em> and is not intended to be instantiated. The results are undefined if an attempt is made to make an instance of this class with <a href="../generic-functions-and-methods/#make-instance" class="body-link generic-function">make-instance</a>.</p>
+          </section>
+
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The class <a href="#specializer" class="body-link class mention">specializer</a> captures only the most basic behavior of method specializers, and is not itself intended to be instantiated. The class <a href="#class" class="body-link class">class</a> is a direct subclass of <a href="#specializer" class="body-link class mention">specializer</a> reflecting the property that classes by themselves can be used as method specializers. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
           </section>
 
         </article>
@@ -1281,6 +1467,22 @@
             <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_class.htm#class" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
           </section>
 
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#metaobjects">5.2 Metaobjects</a></h1>
+              <blockquote>
+                <p>For each kind of program element there is a corresponding <i>basic metaobject class</i>. These are the classes: <a href="#class" class="body-link class mention">class</a>, <a href="#slot-definition" class="body-link class">slot-definition</a>, <a href="#generic-function" class="body-link class">generic-function</a>, <a href="#method" class="body-link class">method</a>, and <a href="#method-combination" class="body-link class">method-combination</a>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p><span class="ellipsis">[...]</span> The class <a href="#class" class="body-link class mention">class</a> is a direct subclass of <a href="#specializer" class="body-link class">specializer</a> reflecting the property that classes by themselves can be used as method specializers. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
+          </section>
+
         </article>
 
       </section>
@@ -1321,6 +1523,22 @@
           <section class="description">
             <h1>Description</h1>
             <p>This class is used for <code>eql</code> specializers.</p>
+          </section>
+
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p><span class="ellipsis">[...]</span> The class <a href="#eql-specializer" class="body-link class mention">eql-specializer</a> is used for <code>eql</code> specializers.</p>
+              </blockquote>
+            </article>
+            <article>
+              <h1><a href="../concepts/#the-defmethod-macro">5.4.3 The <code>defmethod</code> macro</a></h1>
+              <blockquote>
+                <p><span class="ellipsis">[...]</span> In the case of <code>eql</code> specializers, it will be an <a href="#eql-specializer" class="body-link class mention">eql-specializer</a> metaobject obtained by calling <a href="../generic-functions-and-methods/#intern-eql-specializer" class="body-link function">intern-eql-specializer</a> on the result of evaluating the <code>eql</code> specializer form in the lexical environment of the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form.</p>
+              </blockquote>
+            </article>
           </section>
 
         </article>
@@ -1370,6 +1588,51 @@
             <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_std_cl.htm#standard-class" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
           </section>
 
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The classes <a href="#standard-class" class="body-link class mention">standard-class</a>, <a href="#standard-direct-slot-definition" class="body-link class">standard-direct-slot-definition</a>, <a href="#standard-effective-slot-definition" class="body-link class">standard-effective-slot-definition</a>, <a href="#standard-method" class="body-link class">standard-method</a>, <a href="#standard-reader-method" class="body-link class">standard-reader-method</a>, <a href="#standard-writer-method" class="body-link class">standard-writer-method</a>, and <a href="#standard-generic-function" class="body-link class">standard-generic-function</a> are called <i>standard metaobject classes</i>. <span class="ellipsis">[...]</span></p>
+
+                <p class="ellipsis">[...]</p>
+
+                <p>The class <a href="#standard-object" class="body-link class">standard-object</a> is the <i>default direct superclass</i> of the class <a href="#standard-class" class="body-link class mention">standard-class</a>. When an instance of the class <a href="#standard-class" class="body-link class mention">standard-class</a> is created, and no direct superclasses are explicitly specified, it defaults to the class <a href="#standard-object" class="body-link class">standard-object</a>. In this way, any behavior associated with the class <a href="#standard-object" class="body-link class">standard-object</a> will be inherited, directly or indirectly, by all instances of the class <a href="#standard-class" class="body-link class mention">standard-class</a>. A subclass of <a href="#standard-class" class="body-link class mention">standard-class</a> may have a different class as its default direct superclass, but that class must be a subclass of the class <a href="#standard-object" class="body-link class">standard-object</a>.</p>
+              </blockquote>
+            </article>
+            <article>
+              <h1><a href="../concepts/#initialization-of-class-metaobjects">5.5.1 » Initialization of Class Metaobjects</a></h1>
+              <blockquote>
+                <div class="scroll">
+                  <pre>
+<span class="ellipsis">[...]</span>
+  (make-instance '<span class="mention">standard-class</span>
+<span class="ellipsis">[...]</span>
+                  </pre>
+                </div>
+              </blockquote>
+            </article>
+            <article>
+              <h1><a href="../concepts/#class-finalization-protocol">5.5.2 Class finalization protocol</a></h1>
+              <blockquote>
+                <p><span class="ellipsis">[...]</span> The exact point at which <a href="../generic-functions-and-methods/#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> is called depends on the class of the class metaobject; for <a href="#standard-class" class="body-link class mention">standard-class</a> it is called sometime after all the <span class="amop-typo" data-original="classes">class'</span> superclasses are defined, but no later than when the first instance of the class is allocated (by <a href="../generic-functions-and-methods/#allocate-instance" class="body-link generic-function">allocate-instance</a>).</p>
+              </blockquote>
+            </article>
+            <article>
+              <h1><a href="../concepts/#instance-structure-protocol">5.5.3 Instance Structure Protocol</a></h1>
+              <blockquote>
+                <p>Given the location of a directly accessible slot, the value of that slot in an instance can be accessed with the appropriate accessor. For <a href="#standard-class" class="body-link class mention">standard-class</a>, this accessor is the function <a href="../generic-functions-and-methods/#standard-instance-access" class="body-link function">standard-instance-access</a>. <span class="ellipsis">[...]</span></p>
+                <p class="ellipsis">[...]</p>
+                <div class="scroll">
+                  <pre>
+(defclass ordered-class (<span class="mention">standard-class</span>)
+<span class="ellipsis">[...]</span>
+                  </pre>
+                </div>
+              </blockquote>
+            </article>
+          </section>
+
         </article>
 
       </section>
@@ -1410,6 +1673,41 @@
           <section class="description">
             <h1>Description</h1>
             <p>This class is a <em>special-purpose class metaobject class</em>. Instances of this class are called <em><a href="../concepts/#funcallable-instances" class="body-link chapter5">funcallable instances</a></em>.</p>
+          </section>
+
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The classes <a href="#built-in-class" class="body-link class">built-in-class</a>, <a href="#funcallable-standard-class" class="body-link class mention">funcallable-standard-class</a> and <a href="#forward-referenced-class" class="body-link class">forward-referenced-class</a> are special-purpose class metaobject classes. <span class="ellipsis">[...]</span> The class <a href="#funcallable-standard-class" class="body-link class mention">funcallable-standard-class</a> provides a special kind of instances described in the section called <q><a href="../concepts/#funcallable-instances" class="body-link">Funcallable Instances</a><!-- Original: "." inside --></q>. <span class="ellipsis">[...]</span></p>
+                <p class="ellipsis">[...]</p>
+                <p>The same is true for <a href="#funcallable-standard-class" class="body-link class mention">funcallable-standard-class</a> and <a href="#funcallable-standard-object" class="body-link class">funcallable-standard-object</a>.</p>
+              </blockquote>
+            </article>
+            <article>
+              <h1><a href="../concepts/#instance-structure-protocol">5.5.3 Instance Structure Protocol</a></h1>
+              <blockquote>
+                <p>Given the location of a directly accessible slot, the value of that slot in an instance can be accessed with the appropriate accessor. <span class="ellipsis">[...]</span> For <a href="#funcallable-standard-class" class="body-link class mention">funcallable-standard-class</a>, this accessor is the function <a href="../generic-functions-and-methods/#funcallable-standard-instance-access" class="body-link function">funcallable-standard-instance-access</a>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
+            <article>
+              <h1><a href="../concepts/#funcallable-instances">5.5.4 Funcallable Instances</a></h1>
+              <blockquote>
+                <p>Instances of classes which are themselves instances of <a href="#funcallable-standard-class" class="body-link class mention">funcallable-standard-class</a> or one of its subclasses are called <i>funcallable instances</i>. Funcallable instances can only be created by <a href="../generic-functions-and-methods/#allocate-instance_funcallable-standard-class" class="body-link method">allocate-instance (<var>class</var> <span class="mention">funcallable-standard-class</span>)</a>.</p>
+                <p class="ellipsis">[...]</p>
+                <div class="scroll">
+                  <pre>
+(defclass constructor ()
+     ((name :initarg :name :accessor constructor-name)
+      (fields :initarg :fields :accessor constructor-fields))
+  (:metaclass <span class="mention">funcallable-standard-class</span>))
+
+<span class="ellipsis">[...]</span>
+                  </pre>
+                </div>
+              </blockquote>
+            </article>
           </section>
 
         </article>
@@ -1459,6 +1757,16 @@
             <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_built_.htm#built-in-class" class="body-link clhs">entry in the Common Lisp HyperSpec</a> for this class.</p>
           </section>
 
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The classes <a href="#built-in-class" class="body-link class mention">built-in-class</a>, <a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a> and <a href="#forward-referenced-class" class="body-link class">forward-referenced-class</a> are special-purpose class metaobject classes. Built-in classes are instances of the class <a href="#built-in-class" class="body-link class mention">built-in-class</a>. <span class="ellipsis">[...]</span></p>
+              </blockquote>
+            </article>
+          </section>
+
         </article>
 
       </section>
@@ -1499,6 +1807,16 @@
           <section class="description">
             <h1>Description</h1>
             <p>This class is a <em>special-purpose class metaobject class</em>. When the definition of a class references another class which has not yet been defined, an instance of this class is used as a stand-in until the class is actually defined.</p>
+          </section>
+
+          <section class="mentions">
+            <h1>Mentions</h1>
+            <article>
+              <h1><a href="../concepts/#inheritance-structure-of-metaobject-classes">5.3 Inheritance structure of metaobject classes</a></h1>
+              <blockquote>
+                <p>The classes <a href="#built-in-class" class="body-link class">built-in-class</a>, <a href="#funcallable-standard-class" class="body-link class">funcallable-standard-class</a> and <a href="#forward-referenced-class" class="body-link class mention">forward-referenced-class</a> are special-purpose class metaobject classes. <span class="ellipsis">[...]</span> When the definition of a class references another class which has not yet been defined, an instance of <a href="#forward-referenced-class" class="body-link class mention">forward-referenced-class</a> is used as a stand-in until the class is actually defined.</p>
+              </blockquote>
+            </article>
           </section>
 
         </article>
