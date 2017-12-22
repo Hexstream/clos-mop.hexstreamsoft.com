@@ -2808,7 +2808,7 @@
           <section class="description">
             <h1>Description</h1>
             <p>This generic-function is called to determine the class precedence list of a class.</p>
-            <p>The result is a list which contains each of <var>class</var> and its superclasses once and only once. The first element of the list is <var>class</var> and the last element is the class named <a href="../classes/#t" class="body-link class">t</a>.</p>
+            <p>The result is a list which contains each of <var>class</var> and its superclasses once and only once. The first element of the list is <var>class</var> and the last element is the class named <a href="../classes/#t" class="body-link class">T</a>.</p>
             <p>All methods on this generic function must compute the class precedence list as a function of the ordered direct superclasses of the superclasses of <var>class</var>. The results are undefined if the rules used to compute the class precedence list depend on any other factors.</p>
             <p>When a class is finalized, <a href="#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> calls this generic function and associates the returned value with the class metaobject. The value can then be accessed by calling <a href="#class-precedence-list" class="body-link generic-function">class-precedence-list</a>.</p>
             <p>The list returned by this generic function will not be mutated by the implementation. The results are undefined if a portable program mutates the list returned by this generic function.</p>
@@ -4201,7 +4201,7 @@
           <section class="description">
             <h1>Description</h1>
             <p>This function takes a specialized lambda list and returns its specializer names. This is a non-destructive operation. Whether the result shares structure with the argument is unspecified. The results are undefined if the result of this function is modified.</p>
-            <p>The result of this function will be a list with a number of elements equal to the number of required arguments in <var>specialized-lambda-list</var>. Specializers are defaulted to the symbol <a href="../classes/#t" class="body-link class symbol specializer">t</a>.</p>
+            <p>The result of this function will be a list with a number of elements equal to the number of required arguments in <var>specialized-lambda-list</var>. Specializers are defaulted to the symbol <a href="../classes/#t" class="body-link class symbol specializer">T</a>.</p>
             <p>If the <var>specialized-lambda-list</var> argument does not have legal syntax, an error is signaled. This syntax checking does not check the syntax of the actual specializer names, only the syntax of the lambda list and where the specializers appear.</p>
           </section>
 
@@ -6658,7 +6658,7 @@
               </li>
 
               <li id="initialization-of-slot-definition-metaobjects_initargs_type">
-                <p>The <var class="keyword-initarg">:type</var> argument is a type specifier name. An error is signaled otherwise. The <var class="keyword-initarg">:type</var> argument defaults to the symbol <a href="../classes/#t" class="body-link class symbol type-specifier">t</a>.</p>
+                <p>The <var class="keyword-initarg">:type</var> argument is a type specifier name. An error is signaled otherwise. The <var class="keyword-initarg">:type</var> argument defaults to the symbol <a href="../classes/#t" class="body-link class symbol type-specifier">T</a>.</p>
               </li>
 
               <li id="initialization-of-slot-definition-metaobjects_initargs_allocation">
@@ -10389,7 +10389,7 @@
                 <!-- Semantically I'd prefer not to use <p>'s but I don't want to handle that in the CSS just for here. -->
                 <ol class="body-list paren-roman">
                   <li>
-                    <p>If the <var>superclass</var> argument is the class named <a href="../classes/#t" class="body-link class">t</a>,</p>
+                    <p>If the <var>superclass</var> argument is the class named <a href="../classes/#t" class="body-link class">T</a>,</p>
                   </li>
                   <li>
                     <p>if the class of the <var>class</var> argument is the same as the class of the <var>superclass</var> argument or</p>

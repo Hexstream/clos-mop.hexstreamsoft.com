@@ -480,7 +480,7 @@
         <figure id="table-5.1_figure">
           <figcaption>
             <p>Table 5.1</p>
-            <p>Direct superclass relationships among the specified metaobject classes. The class of every class shown is <a href="../classes/#standard-class" class="body-link class">standard-class</a> except for the class <a href="../classes/#t" class="body-link class t">t</a> which is an instance of the class <a href="../classes/#built-in-class" class="body-link class">built-in-class</a> and the classes <a href="../classes/#generic-function" class="body-link class">generic-function</a> and <a href="../classes/#standard-generic-function" class="body-link class">standard-generic-function</a> which are instances of the class <a href="../classes/#funcallable-standard-class" class="body-link class">funcallable-standard-class</a>.</p>
+            <p>Direct superclass relationships among the specified metaobject classes. The class of every class shown is <a href="../classes/#standard-class" class="body-link class">standard-class</a> except for the class <a href="../classes/#t" class="body-link class t">T</a> which is an instance of the class <a href="../classes/#built-in-class" class="body-link class">built-in-class</a> and the classes <a href="../classes/#generic-function" class="body-link class">generic-function</a> and <a href="../classes/#standard-generic-function" class="body-link class">standard-generic-function</a> which are instances of the class <a href="../classes/#funcallable-standard-class" class="body-link class">funcallable-standard-class</a>.</p>
           </figcaption>
           <div class="scroll">
             <table id="table-5.1">
@@ -497,7 +497,7 @@
                   <a href="../classes/#standard-object" class="body-link class">standard-object</a>
                 </td>
                 <td>
-                  <code>(<a href="../classes/#t" class="body-link class">t</a>)</code>
+                  <code>(<a href="../classes/#t" class="body-link class t">T</a>)</code>
                 </td>
               </tr>
               <tr>
@@ -1821,7 +1821,7 @@
 
           <p>At the lowest level, the instance structure protocol provides only limited mechanisms for portable programs to control the implementation of instances and to directly access the storage associated with instances without going through the indirection of slot access. This is done to allow portable programs to perform certain commonly requested slot access optimizations.</p>
 
-          <p>In particular, portable programs can control the implementation of, and obtain direct access to, slots with allocation <code>:instance</code> and type <a href="../classes/#t" class="body-link class t">t</a>. These are called <i>directly accessible slots</i>.</p>
+          <p>In particular, portable programs can control the implementation of, and obtain direct access to, slots with allocation <code>:instance</code> and type <a href="../classes/#t" class="body-link class t">T</a>. These are called <i>directly accessible slots</i>.</p>
 
           <p>The relevant specified around-method on <a href="../generic-functions-and-methods/#compute-slots" class="body-link generic-function">compute-slots</a> determines the implementation of instances by deciding how each slot in the instance will be stored. For each directly accessible slot, this method allocates a <i>location</i> and associates it with the effective slot definition metaobject. The location can be accessed by calling the <a href="../generic-functions-and-methods/#slot-definition-location" class="body-link generic-function">slot-definition-location</a> generic function. Locations are non-negative integers. For a given class, the locations increase consecutively, in the order that the directly accessible slots appear in the list of effective slots. (Note that here, the next paragraph, and the specification of this around-method are the only places where the value returned by <a href="../generic-functions-and-methods/#compute-slots" class="body-link generic-function">compute-slots</a> is described as a list rather than a set.)</p>
 
