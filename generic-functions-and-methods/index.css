@@ -125,20 +125,38 @@
     text-decoration: underline;
 }
 
-#navigation_metaobjects ul li.setfable {
+#navigation_metaobjects ul li.setfable,
+.tabs ul li.setfable {
     display: flex;
     flex-flow: row;
     justify-content: stretch;
 }
 
-#navigation_metaobjects ul li.setfable .reader {
+#navigation_metaobjects ul li.setfable .reader,
+.tabs ul li.setfable .reader {
     flex: 1 0;
 }
 
-#navigation_metaobjects ul li.setfable .writer {
+#navigation_metaobjects ul li.setfable .writer,
+.tabs ul li.setfable .writer {
     flex: none;
     text-align: right;
+}
+
+#navigation_metaobjects ul li.setfable .writer {
     opacity: 0.5;
+}
+
+.tabs ul li.setfable {
+    flex: none;
+}
+
+.tabs ul li.setfable .reader {
+    padding-right: 0.2em;
+}
+
+.tabs ul li.setfable .writer {
+    padding-left: 0.2em;
 }
 
 #navigation_metaobjects ul li.setfable .writer:hover,
