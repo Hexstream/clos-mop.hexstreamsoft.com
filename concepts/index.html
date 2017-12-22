@@ -1714,6 +1714,13 @@
             </ul>
           </nav>
 
+          <nav class="tabs related">
+            <ul>
+              <li><a class="here">Chapter 5</a></li>
+              <li><a href="../generic-functions-and-methods/#navigation_protocols_class-finalization-protocol">Chapter 6</a></li>
+            </ul>
+          </nav>
+
           <p>Class <i>finalization</i> is the process of computing the information a class inherits from its superclasses and preparing to actually allocate instances of the class. The class finalization process includes computing the class' class precedence list, the full set of slots accessible in instances of the class and the full set of default initialization arguments for the class. These values are associated with the class metaobject and can be accessed by calling the appropriate reader. In addition, the class finalization process makes decisions about how instances of the class will be implemented.</p>
 
           <p>To support forward-referenced superclasses, and to account for the fact that not all classes are actually instantiated, class finalization is not done as part of the initialization <span class="mid-paragraph-transition-mark" id="155-156-page-transition"></span> of the class metaobject. Instead, finalization is done as a separate protocol, invoked by calling the generic function <a href="../generic-functions-and-methods/#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a>. The exact point at which <a href="../generic-functions-and-methods/#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> is called depends on the class of the class metaobject; for <a href="../classes/#standard-class" class="body-link class">standard-class</a> it is called sometime after all the <span class="amop-typo" data-original="classes">class'</span> superclasses are defined, but no later than when the first instance of the class is allocated (by <a href="../generic-functions-and-methods/#allocate-instance" class="body-link generic-function">allocate-instance</a>).</p>
@@ -1759,6 +1766,13 @@
           <nav class="hanging-menu">
             <ul>
               <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/instance-structure-protocol.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <nav class="tabs related">
+            <ul>
+              <li><a class="here">Chapter 5</a></li>
+              <li><a href="../generic-functions-and-methods/#navigation_protocols_instance-structure-protocol">Chapter 6</a></li>
             </ul>
           </nav>
 
@@ -1976,6 +1990,13 @@
             </ul>
           </nav>
 
+          <nav class="tabs related">
+            <ul>
+              <li><a class="here">Chapter 5</a></li>
+              <li><a href="../generic-functions-and-methods/#navigation_protocols_generic-function-invocation-protocol">Chapter 6</a></li>
+            </ul>
+          </nav>
+
           <div class="page" id="page-160">
             <a href="https://misc.clos-mop.hexstreamsoft.com/scans/pages/160.png" target="_blank" class="page-number">
               <span class="hide">[Page </span>
@@ -2012,6 +2033,13 @@
           <nav class="hanging-menu">
             <ul>
               <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/dependent-maintenance-protocol.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <nav class="tabs related">
+            <ul>
+              <li><a class="here">Chapter 5</a></li>
+              <li><a href="../generic-functions-and-methods/#navigation_protocols_dependent-maintenance-protocol">Chapter 6</a></li>
             </ul>
           </nav>
 
