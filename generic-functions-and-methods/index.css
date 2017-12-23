@@ -63,9 +63,10 @@
     text-align: right;
 }
 
-#navigation ul.operator-and-methods .name, #navigation ul.operator-and-methods .specializer {
+#navigation ul.operator-and-methods .name {
     font-weight: bold;
 }
+
 
 #navigation_metaobjects .wrapper {
     display: flex;
