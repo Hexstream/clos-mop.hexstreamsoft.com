@@ -278,21 +278,6 @@ section h1.breadcrumbs .here .extra.prefix {
     background-color: #ECECEC;
 }
 
-section h1.breadcrumbs .ellipsis {
-    position: relative;
-}
-
-section h1.breadcrumbs .ellipsis sub {
-    position: absolute;
-    font-size: medium;
-    left: 0;
-    right: 0;
-    text-align: center;
-
-    top: 0;
-    margin-top: 0.25em;
-}
-
 
 .body-list {
     list-style-type: none;
