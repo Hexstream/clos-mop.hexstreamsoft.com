@@ -8,6 +8,11 @@
     }
 }
 
+.breadcrumbs .chapter-toggle a.toggle:hover:after,
+.breadcrumbs .chapter-toggle a.toggle:focus:after {
+    content: "Go to section of the same name in Chapter 5.";
+}
+
 #navigation {
     font-size: larger;
     margin-top: 1em;

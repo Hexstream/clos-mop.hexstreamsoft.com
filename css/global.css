@@ -17,6 +17,41 @@ main section > .body-list > li {
     text-decoration: none;
 }
 
+.breadcrumbs .chapter-toggle {
+    padding-left: 0;
+}
+
+.breadcrumbs .chapter-toggle .here {
+    border-color: transparent;
+    padding-left: var(--breadcrumbs-link-horizontal-padding);
+    padding-right: var(--breadcrumbs-link-horizontal-padding);
+}
+
+.breadcrumbs .chapter-toggle .toggle {
+    font-size: smaller;
+    line-height: 1em;
+    align-self: center;
+    padding: 0.1em 0.2em;
+}
+
+.breadcrumbs .chapter-toggle a.toggle:hover:after,
+.breadcrumbs .chapter-toggle a.toggle:focus:after {
+    position: absolute;
+    display: table;
+    top: 100%;
+    left: 50%;
+    margin-left: -9.90625em;
+    text-align: center;
+    font-size: smaller;
+    font-weight: normal;
+    font-style: italic;
+    padding: 0.2em 0.3em;
+    border: solid thin gray;
+    color: black;
+    background: #ECECEC;
+}
+
+
 ul, ol {
     list-style-type: initial;
 }

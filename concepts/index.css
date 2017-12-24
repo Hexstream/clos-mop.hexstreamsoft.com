@@ -1,0 +1,4 @@
+.breadcrumbs .chapter-toggle a.toggle:hover:after,
+.breadcrumbs .chapter-toggle a.toggle:focus:after {
+    content: "Go to section of the same name in Chapter 6.";
+}
