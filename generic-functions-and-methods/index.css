@@ -2,6 +2,12 @@
     position: relative;
 }
 
+@media (max-width: 39em) {
+    table th {
+        white-space: initial;
+    }
+}
+
 #navigation {
     font-size: larger;
     margin-top: 1em;
@@ -232,8 +238,7 @@ p.args-and-retvals + .or + p.args-and-retvals {
 
 .init-and-or-readers-nav table {
     font-size: medium;
-    margin-top: 0;
-    margin-bottom: 1em;
+    margin: 0 0 1em;
 }
 
 @media (max-width: 28.4em) {
@@ -249,6 +254,7 @@ p.args-and-retvals + .or + p.args-and-retvals {
     }
 }
 
+.init-and-or-readers-nav table th,
 .init-and-or-readers-nav table td {
     text-align: center;
 }
