@@ -17,6 +17,7 @@ main section > .body-list > li {
     text-decoration: none;
 }
 
+
 .breadcrumbs .chapter-toggle {
     padding-left: 0;
 }
@@ -37,18 +38,33 @@ main section > .body-list > li {
 .breadcrumbs .chapter-toggle a.toggle:hover:after,
 .breadcrumbs .chapter-toggle a.toggle:focus:after {
     position: absolute;
-    display: table;
-    top: 100%;
-    left: 50%;
-    margin-left: -9.90625em;
-    text-align: center;
     font-size: smaller;
     font-weight: normal;
     font-style: italic;
-    padding: 0.2em 0.3em;
-    border: solid thin gray;
+    width: 19.8125em;
+    border: thin solid transparent;
+    margin-left: 0.75em;
     color: black;
-    background: #ECECEC;
+}
+
+/* Viewport wide enough to fit tooltip in the rest of the breadcrumbs bar without wrapping. */
+@media (max-width: 81.5625em) {
+    .breadcrumbs .chapter-toggle {
+        position: initial;
+    }
+
+    .breadcrumbs .chapter-toggle a.toggle:hover:after,
+    .breadcrumbs .chapter-toggle a.toggle:focus:after {
+        display: table;
+        top: 100%;
+        left: 50%;
+        width: auto;
+        margin-left: -9.90625em;
+        text-align: center;
+        padding: 0.2em 0.3em;
+        border: solid thin gray;
+        background: #ECECEC;
+    }
 }
 
 
