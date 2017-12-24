@@ -267,7 +267,7 @@ article.remark {
     background-color: #E3DAC9;
 }
 
-section h1.breadcrumbs .here .extra.prefix {
+section h1.breadcrumbs-bar .here .hoisted {
     position: absolute;
     font-size: 1rem;
     bottom: 100%;
