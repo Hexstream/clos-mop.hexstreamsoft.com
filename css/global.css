@@ -9,6 +9,10 @@ main section > .body-list > li {
     max-width: 100%;
 }
 
+.scroll > table {
+    margin-bottom: 1em;
+}
+
 .sidebar main {
     margin-left: 5em;
 }
@@ -219,19 +223,21 @@ var, .lambda-keyword {
 figure {
     display: flex;
     flex-flow: column;
-    align-items: flex-start;
-    padding: 0.7em;
-    padding-bottom: 0.5em;
+    padding: 0.2em 0.7em 0;
     border: thin solid lightgray;
     /*background: linen;*/
-    max-width: max-content;
+    max-width: min-content;
 }
 
-figcaption {
+figure figcaption {
     flex: 1 1 auto;
-    max-width: fit-content;
     text-align: center;
-    margin-top: 0.2em;
+    margin-bottom: -0.5em;
+}
+
+figure figcaption p {
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
 }
 
 figure table {

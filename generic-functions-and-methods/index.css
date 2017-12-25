@@ -341,6 +341,7 @@ p.args-and-retvals + .or + p.args-and-retvals {
     flex: none;
     margin-top: 0;
     margin-right: 0.75em;
+    margin-left: 0.1em;
 }
 
 #readers-for-class-metaobjects_methods_table-and-descriptions table thead th,

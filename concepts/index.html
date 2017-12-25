@@ -1789,47 +1789,55 @@
 
           <p>The correspondences between slot access function and underlying slot access generic function are as follows:</p>
 
-          <div class="scroll">
-            <table>
-              <!-- The original capitalized the first letter of all words of these headers, but I like Robert Strandh's capitalization better. -->
-              <tr>
-                <th>Slot access function</th>
-                <th>Corresponding slot access generic function</th>
-              </tr>
-              <tr>
-                <td>
-                  <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_bo.htm#slot-boundp" class="body-link clhs">slot-boundp</a>
-                </td>
-                <td>
-                  <a href="../generic-functions-and-methods/#slot-boundp-using-class" class="body-link generic-function">slot-boundp-using-class</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_ma.htm#slot-makunbound" class="body-link clhs">slot-makunbound</a>
-                </td>
-                <td>
-                  <a href="../generic-functions-and-methods/#slot-makunbound-using-class" class="body-link generic-function">slot-makunbound-using-class</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_va.htm#slot-value" class="body-link clhs">slot-value</a>
-                </td>
-                <td>
-                  <a href="../generic-functions-and-methods/#slot-value-using-class" class="body-link generic-function">slot-value-using-class</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_va.htm#slot-value" class="body-link clhs">(setf slot-value)</a>
-                </td>
-                <td>
-                  <a href="../generic-functions-and-methods/#setf_slot-value-using-class" class="body-link generic-function">(setf slot-value-using-class)</a>
-                </td>
-              </tr>
-            </table>
-          </div>
+          <figure id="table-5.2_figure">
+
+            <figcaption>
+              <p>[Table 5.2]</p>
+            </figcaption>
+
+            <div class="scroll">
+              <table id="table-5.2">
+                <!-- The original capitalized the first letter of all words of these headers, but I like Robert Strandh's capitalization better. -->
+                <tr>
+                  <th>Slot access function</th>
+                  <th>Corresponding slot access generic function</th>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_bo.htm#slot-boundp" class="body-link clhs">slot-boundp</a>
+                  </td>
+                  <td>
+                    <a href="../generic-functions-and-methods/#slot-boundp-using-class" class="body-link generic-function">slot-boundp-using-class</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_ma.htm#slot-makunbound" class="body-link clhs">slot-makunbound</a>
+                  </td>
+                  <td>
+                    <a href="../generic-functions-and-methods/#slot-makunbound-using-class" class="body-link generic-function">slot-makunbound-using-class</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_va.htm#slot-value" class="body-link clhs">slot-value</a>
+                  </td>
+                  <td>
+                    <a href="../generic-functions-and-methods/#slot-value-using-class" class="body-link generic-function">slot-value-using-class</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_slt_va.htm#slot-value" class="body-link clhs">(setf slot-value)</a>
+                  </td>
+                  <td>
+                    <a href="../generic-functions-and-methods/#setf_slot-value-using-class" class="body-link generic-function">(setf slot-value-using-class)</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+          </figure>
 
           <p>At the lowest level, the instance structure protocol provides only limited mechanisms for portable programs to control the implementation of instances and to directly access the storage associated with instances without going through the indirection of slot access. This is done to allow portable programs to perform certain commonly requested slot access optimizations.</p>
 
