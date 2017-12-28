@@ -39,7 +39,7 @@
     overflow-x: auto;
 }
 
-#navigation p, #navigation #navigation_protocols .tabs {
+#navigation p {
     font-size: medium;
 }
 
@@ -199,6 +199,10 @@
 .horizontally-aligned-titles-and-tabs ul li.setfable .writer:hover,
 .horizontally-aligned-titles-and-tabs ul li.setfable .writer:focus {
     opacity: 1;
+}
+
+#navigation_protocols #navigation_protocols_summary_dependent-maintenance-protocol {
+    align-items: stretch;
 }
 
 

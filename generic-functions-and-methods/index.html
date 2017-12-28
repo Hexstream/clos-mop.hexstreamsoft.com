@@ -53,7 +53,7 @@
 
       </div>
 
-      <p id="last-updated"><span>This page was last updated on </span><time datetime="2017-12-24">24 december 2017</time><span>.</span></p>
+      <p id="last-updated"><span>This page was last updated on </span><time datetime="2017-12-28">28 december 2017</time><span>.</span></p>
 
     </nav>
 
@@ -309,14 +309,57 @@
           </span>
         </h1>
 
-        <nav class="tabs">
-          <ul>
-            <li><a href="#navigation_protocols_class-finalization-protocol">Class finalization protocol</a></li>
-            <li><a href="#navigation_protocols_instance-structure-protocol">Instance structure protocol</a></li>
-            <li><a href="#navigation_protocols_generic-function-invocation-protocol">Generic function invocation protocol</a></li>
-            <li><a href="#navigation_protocols_dependent-maintenance-protocol">Dependent maintenance protocol</a></li>
-          </ul>
-        </nav>
+        <div class="horizontally-aligned-titles-and-tabs">
+
+          <nav class="tabs contains-title column">
+            <h1><a href="#navigation_protocols_class-finalization-protocol">Class finalization protocol</a></h1>
+            <ul>
+              <li><a href="#navigation_protocols_class-finalization-protocol_finalize-inheritance">finalize-inheritance</a></li>
+              <li><a href="#navigation_protocols_class-finalization-protocol_compute-class-precedence-list">compute-class-precedence-list</a></li>
+              <li><a href="#navigation_protocols_class-finalization-protocol_compute-slots">compute-slots</a></li>
+              <li><a href="#navigation_protocols_class-finalization-protocol_effective-slot-definition-class">effective-slot-definition-class</a></li>
+              <li><a href="#navigation_protocols_class-finalization-protocol_compute-effective-slot-definition">compute-effective-slot-definition</a></li>
+              <li><a href="#navigation_protocols_class-finalization-protocol_compute-default-initargs">compute-default-initargs</a></li>
+            </ul>
+          </nav>
+
+          <nav class="tabs contains-title column">
+            <h1><a href="#navigation_protocols_instance-structure-protocol">Instance structure protocol</a></h1>
+            <ul>
+              <li><a href="#navigation_protocols_instance-structure-protocol_slot-boundp-using-class">slot-boundp-using-class</a></li>
+              <li><a href="#navigation_protocols_instance-structure-protocol_slot-makunbound-using-class">slot-makunbound-using-class</a></li>
+              <li class="setfable">
+                <a href="#navigation_protocols_instance-structure-protocol_slot-value-using-class" class="reader">slot-value-using-class</a>
+                <a href="#navigation_protocols_instance-structure-protocol_setf_slot-value-using-class" class="writer">(setfable)</a>
+              </li>
+              <li><a href="#navigation_protocols_instance-structure-protocol_standard-instance-access">standard-instance-access</a></li>
+              <li><a href="#navigation_protocols_instance-structure-protocol_funcallable-standard-instance-access">funcallable-standard-instance-access</a></li>
+            </ul>
+          </nav>
+
+          <nav class="tabs contains-title column">
+            <h1><a href="#navigation_protocols_generic-function-invocation-protocol">Generic function invocation protocol</a></h1>
+            <ul>
+              <li><a href="#navigation_protocols_generic-function-invocation-protocol_compute-discriminating-function">compute-discriminating-function</a></li>
+              <li><a href="#navigation_protocols_generic-function-invocation-protocol_set-funcallable-instance-function">set-funcallable-instance-function</a></li>
+              <li><a href="#navigation_protocols_generic-function-invocation-protocol_compute-applicable-methods">compute-applicable-methods</a></li>
+              <li><a href="#navigation_protocols_generic-function-invocation-protocol_compute-applicable-methods-using-classes">compute-applicable-methods-using-classes</a></li>
+              <li><a href="#navigation_protocols_generic-function-invocation-protocol_compute-effective-method">compute-effective-method</a></li>
+              <li><a href="#navigation_protocols_generic-function-invocation-protocol_make-method-lambda">make-method-lambda</a></li>
+            </ul>
+          </nav>
+
+          <nav class="tabs contains-title column" id="navigation_protocols_summary_dependent-maintenance-protocol">
+            <h1><a href="#navigation_protocols_dependent-maintenance-protocol">Dependent maintenance protocol</a></h1>
+            <ul>
+              <li><a href="#navigation_protocols_dependent-maintenance-protocol_add-dependent">add-dependent</a></li>
+              <li><a href="#navigation_protocols_dependent-maintenance-protocol_remove-dependent">remove-dependent</a></li>
+              <li><a href="#navigation_protocols_dependent-maintenance-protocol_map-dependents">map-dependents</a></li>
+              <li><a href="#navigation_protocols_dependent-maintenance-protocol_update-dependent">update-dependent</a></li>
+            </ul>
+          </nav>
+
+        </div>
 
         <section id="navigation_protocols_class-finalization-protocol">
 
@@ -340,19 +383,19 @@
 
           <div class="body">
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_class-finalization-protocol_finalize-inheritance">
               <li class="operator"><span class="type">Generic Function</span> <a href="#finalize-inheritance" class="name">finalize-inheritance</a> <var>class</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#finalize-inheritance_standard-class" class="name">finalize-inheritance</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#finalize-inheritance_funcallable-standard-class" class="name">finalize-inheritance</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#finalize-inheritance_forward-referenced-class" class="name">finalize-inheritance</a> <span class="arg">(<var>class</var> <a href="../classes/#forward-referenced-class" class="specializer">forward-referenced-class</a>)</span> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_class-finalization-protocol_compute-class-precedence-list">
               <li class="operator"><span class="type">Generic Function</span> <a href="#compute-class-precedence-list" class="name">compute-class-precedence-list</a> <var>class</var> <span class="retvals">=&gt; <var>precedence-list</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#compute-class-precedence-list_class" class="name">compute-class-precedence-list</a> <span class="arg">(<var>class</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_class-finalization-protocol_compute-slots">
               <li class="operator"><span class="type">Generic Function</span> <a href="#compute-slots" class="name">compute-slots</a> <var>class</var> <span class="retvals">=&gt; <var>effective-slot-definitions</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#compute-slots_standard-class" class="name">compute-slots</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#compute-slots_funcallable-standard-class" class="name">compute-slots</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="retvals"></span></li>
@@ -360,19 +403,19 @@
               <li class="method"><span class="type">Around-Method</span> <a href="#compute-slots_around_funcallable-standard-class" class="name">compute-slots</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_class-finalization-protocol_effective-slot-definition-class">
               <li class="operator"><span class="type">Generic Function</span> <a href="#effective-slot-definition-class" class="name">effective-slot-definition-class</a> <var>class</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>slot-definition-class</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#effective-slot-definition-class_standard-class" class="name">effective-slot-definition-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#effective-slot-definition-class_funcallable-standard-class" class="name">effective-slot-definition-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_class-finalization-protocol_compute-effective-slot-definition">
               <li class="operator"><span class="type">Generic Function</span> <a href="#compute-effective-slot-definition" class="name">compute-effective-slot-definition</a> <var>class</var> <var>name</var> <var>direct-slot-definitions</var> <span class="retvals">=&gt; <var>effective-slot-definition</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#compute-effective-slot-definition_standard-class" class="name">compute-effective-slot-definition</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <var>name</var> <var>direct-slot-definitions</var> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#compute-effective-slot-definition_funcallable-standard-class" class="name">compute-effective-slot-definition</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <var>name</var> <var>direct-slot-definitions</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_class-finalization-protocol_compute-default-initargs">
               <li class="operator"><span class="type">Generic Function</span> <a href="#compute-default-initargs" class="name">compute-default-initargs</a> <var>class</var> <span class="retvals">=&gt; <var>initargs</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#compute-default-initargs_standard-class" class="name">compute-default-initargs</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#compute-default-initargs_funcallable-standard-class" class="name">compute-default-initargs</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="retvals"></span></li>
@@ -403,40 +446,39 @@
           </h1>
 
           <div class="body">
-
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_instance-structure-protocol_slot-boundp-using-class">
               <li class="operator"><span class="type">Generic Function</span> <a href="#slot-boundp-using-class" class="name">slot-boundp-using-class</a> <var>class</var> <var>object</var> <var>slot</var> <span class="retvals">=&gt; <var>generalized-boolean</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#slot-boundp-using-class_standard-class_t_standard-effective-slot-definition" class="name">slot-boundp-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <var>object</var> <span class="arg">(<var>slot</var> <a href="../classes/#standard-effective-slot-definition" class="specializer">standard-effective-slot-definition</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#slot-boundp-using-class_funcallable-standard-class_t_standard-effective-slot-definition" class="name">slot-boundp-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <var>object</var> <span class="arg">(<var>slot</var> <a href="../classes/#standard-effective-slot-definition" class="specializer">standard-effective-slot-definition</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#slot-boundp-using-class_built-in-class" class="name">slot-boundp-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#built-in-class" class="specializer">built-in-class</a>)</span> <var>object</var> <var>slot</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_instance-structure-protocol_slot-makunbound-using-class">
               <li class="operator"><span class="type">Generic Function</span> <a href="#slot-makunbound-using-class" class="name">slot-makunbound-using-class</a> <var>class</var> <var>object</var> <var>slot</var> <span class="retvals">=&gt; <var>object</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#slot-makunbound-using-class_standard-class_t_standard-effective-slot-definition" class="name">slot-makunbound-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <var>object</var> <span class="arg">(<var>slot</var> <a href="../classes/#standard-effective-slot-definition" class="specializer">standard-effective-slot-definition</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#slot-makunbound-using-class_funcallable-standard-class_t_standard-effective-slot-definition" class="name">slot-makunbound-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <var>object</var> <span class="arg">(<var>slot</var> <a href="../classes/#standard-effective-slot-definition" class="specializer">standard-effective-slot-definition</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#slot-makunbound-using-class_built-in-class" class="name">slot-makunbound-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#built-in-class" class="specializer">built-in-class</a>)</span> <var>object</var> <var>slot</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_instance-structure-protocol_slot-value-using-class">
               <li class="operator"><span class="type">Generic Function</span> <a href="#slot-value-using-class" class="name">slot-value-using-class</a> <var>class</var> <var>object</var> <var>slot</var> <span class="retvals">=&gt; <var>value</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#slot-value-using-class_standard-class_t_standard-effective-slot-definition" class="name">slot-value-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <var>object</var> <span class="arg">(<var>slot</var> <a href="../classes/#standard-effective-slot-definition" class="specializer">standard-effective-slot-definition</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#slot-value-using-class_funcallable-standard-class_t_standard-effective-slot-definition" class="name">slot-value-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <var>object</var> <span class="arg">(<var>slot</var> <a href="../classes/#standard-effective-slot-definition" class="specializer">standard-effective-slot-definition</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#slot-value-using-class_built-in-class" class="name">slot-value-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#built-in-class" class="specializer">built-in-class</a>)</span> <var>object</var> <var>slot</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_instance-structure-protocol_setf_slot-value-using-class">
               <li class="operator"><span class="type">Generic Function</span> <a href="#setf_slot-value-using-class" class="name">(setf slot-value-using-class)</a> <var>new-value</var> <var>class</var> <var>object</var> <var>slot</var> <span class="retvals">=&gt; <var>new-value</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#setf_slot-value-using-class_t_standard-class_t_standard-effective-slot-definition" class="name">(setf slot-value-using-class)</a> <var>new-value</var> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <var>object</var> <span class="arg">(<var>slot</var> <a href="../classes/#standard-effective-slot-definition" class="specializer">standard-effective-slot-definition</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#setf_slot-value-using-class_t_funcallable-standard-class_t_standard-effective-slot-definition" class="name">(setf slot-value-using-class)</a> <var>new-value</var> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <var>object</var> <span class="arg">(<var>slot</var> <a href="../classes/#standard-effective-slot-definition" class="specializer">standard-effective-slot-definition</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#setf_slot-value-using-class_t_built-in-class" class="name">(setf slot-value-using-class)</a> <var>new-value</var> <span class="arg">(<var>class</var> <a href="../classes/#built-in-class" class="specializer">built-in-class</a>)</span> <var>object</var> <var>slot</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_instance-structure-protocol_standard-instance-access">
               <li class="operator"><span class="type">Function</span> <a href="#standard-instance-access" class="name">standard-instance-access</a> <var>instance</var> <var>location</var> <span class="retvals">=&gt; <var>object</var></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_instance-structure-protocol_funcallable-standard-instance-access">
               <li class="operator"><span class="type">Function</span> <a href="#funcallable-standard-instance-access" class="name">funcallable-standard-instance-access</a> <var>instance</var> <var>location</var> <span class="retvals">=&gt; <var>object</var></span></li>
             </ul>
 
@@ -465,32 +507,31 @@
           </h1>
 
           <div class="body">
-
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_generic-function-invocation-protocol_compute-discriminating-function">
               <li class="operator"><span class="type">Generic Function</span> <a href="#compute-discriminating-function" class="name">compute-discriminating-function</a> <var>generic-function</var> <span class="retvals">=&gt; <var>function</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#compute-discriminating-function_standard-generic-function" class="name">compute-discriminating-function</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_generic-function-invocation-protocol_set-funcallable-instance-function">
               <li class="operator"><span class="type">Function</span> <a href="#set-funcallable-instance-function" class="name">set-funcallable-instance-function</a> <var>funcallable-instance</var> <var>function</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_generic-function-invocation-protocol_compute-applicable-methods">
               <li class="operator"><span class="type">Generic Function</span> <a href="#compute-applicable-methods" class="name">compute-applicable-methods</a> <var>generic-function</var> <var>arguments</var> <span class="retvals">=&gt; <var>methods</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#compute-applicable-methods_standard-generic-function" class="name">compute-applicable-methods</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <var>arguments</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_generic-function-invocation-protocol_compute-applicable-methods-using-classes">
               <li class="operator"><span class="type">Generic Function</span> <a href="#compute-applicable-methods-using-classes" class="name">compute-applicable-methods-using-classes</a> <var>generic-function</var> <var>classes</var> <span class="retvals">=&gt; <var>methods</var> <var>ok</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#compute-applicable-methods-using-classes_standard-generic-function" class="name">compute-applicable-methods-using-classes</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <var>classes</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_generic-function-invocation-protocol_compute-effective-method">
               <li class="operator"><span class="type">Generic Function</span> <a href="#compute-effective-method" class="name">compute-effective-method</a> <var>generic-function</var> <var>method-combination</var> <var>methods</var> <span class="retvals">=&gt; <var>effective-method</var> <var>options</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#compute-effective-method_standard-generic-function" class="name">compute-effective-method</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <var>method-combination</var> <var>methods</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_generic-function-invocation-protocol_make-method-lambda">
               <li class="operator"><span class="type">Generic Function</span> <a href="#make-method-lambda" class="name">make-method-lambda</a> <var>generic-function</var> <var>method</var> <var>lambda-expression</var> <var>environment</var> <span class="retvals">=&gt; <var>resulting-lambda-expression</var> <var>initargs</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#make-method-lambda_standard-generic-function_standard-method" class="name">make-method-lambda</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#standard-method" class="specializer">standard-method</a>)</span> <var>lambda-expression</var> <var>environment</var> <span class="retvals"></span></li>
             </ul>
@@ -520,29 +561,28 @@
           </h1>
 
           <div class="body">
-
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_dependent-maintenance-protocol_add-dependent">
               <li class="operator"><span class="type">Generic Function</span> <a href="#add-dependent" class="name">add-dependent</a> <var>metaobject</var> <var>dependent</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#add-dependent_standard-class" class="name">add-dependent</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <var class="arg">dependent</var> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#add-dependent_funcallable-standard-class" class="name">add-dependent</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <var class="arg">dependent</var> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#add-dependent_standard-generic-function" class="name">add-dependent</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <var class="arg">dependent</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_dependent-maintenance-protocol_remove-dependent">
               <li class="operator"><span class="type">Generic Function</span> <a href="#remove-dependent" class="name">remove-dependent</a> <var>metaobject</var> <var>dependent</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#remove-dependent_standard-class" class="name">remove-dependent</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <var>dependent</var> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#remove-dependent_funcallable-standard-class" class="name">remove-dependent</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <var>dependent</var> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#remove-dependent_standard-generic-function" class="name">remove-dependent</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <var>dependent</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_dependent-maintenance-protocol_map-dependents">
               <li class="operator"><span class="type">Generic Function</span> <a href="#map-dependents" class="name">map-dependents</a> <var>metaobject</var> <var>function</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#map-dependents_standard-class" class="name">map-dependents</a> <span class="arg">(<var>metaobject</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <var>function</var> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#map-dependents_funcallable-standard-class" class="name">map-dependents</a> <span class="arg">(<var>metaobject</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <var>function</var> <span class="retvals"></span></li>
               <li class="method"><span class="type">Method</span> <a href="#map-dependents_standard-generic-function" class="name">map-dependents</a> <span class="arg">(<var>metaobject</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <var>function</var> <span class="retvals"></span></li>
             </ul>
 
-            <ul class="operator-and-methods">
+            <ul class="operator-and-methods" id="navigation_protocols_dependent-maintenance-protocol_update-dependent">
               <li class="operator"><span class="type">Generic Function</span> <a href="#update-dependent" class="name">update-dependent</a> <var>metaobject</var> <var>dependent</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
             </ul>
 
