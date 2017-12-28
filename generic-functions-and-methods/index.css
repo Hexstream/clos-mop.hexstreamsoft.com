@@ -1,3 +1,17 @@
+.tabs.column {
+    flex-flow: column;
+}
+
+.tabs.column ul {
+    flex-flow: column;
+    border: none;
+}
+
+.tabs.column ul > li {
+    text-align: left;
+}
+
+
 #page-header-wrapper {
     position: relative;
 }
@@ -25,7 +39,7 @@
     overflow-x: auto;
 }
 
-#navigation p, #navigation .tabs {
+#navigation p, #navigation #navigation_protocols .tabs {
     font-size: medium;
 }
 
@@ -83,9 +97,10 @@
     padding-bottom: 0;
 }
 
-#navigation_metaobjects .wrapper {
+.horizontally-aligned-titles-and-tabs {
     display: flex;
     flex-flow: row wrap;
+    align-items: flex-start;
 }
 
 @media (min-width: 74.125em) {
@@ -93,73 +108,79 @@
         text-align: center;
     }
 
-    #navigation_metaobjects .wrapper {
+    .horizontally-aligned-titles-and-tabs {
         justify-content: center;
     }
 }
 
-#navigation_metaobjects .wrapper section {
+.horizontally-aligned-titles-and-tabs .tabs {
     padding: 0;
     margin: 0.75em 1em 0.75em 0;
 }
 
-#navigation_metaobjects .wrapper section h1 {
+.horizontally-aligned-titles-and-tabs .tabs h1 {
     margin: 0 0 0.5rem 0.5em;
+    border: none;
     border-left: medium solid transparent;
+    font-size: inherit;
 }
 
-#navigation_metaobjects .wrapper section h1 a:hover,
-#navigation_metaobjects .wrapper section h1 a:focus {
+.horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a {
+    padding: 0;
+}
+
+.horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a:hover,
+.horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a:focus {
     text-decoration: underline;
 }
 
-#navigation_metaobjects ul {
+.horizontally-aligned-titles-and-tabs ul {
     list-style-type: none;
     margin: 0;
 }
 
-#navigation_metaobjects ul li {
+.horizontally-aligned-titles-and-tabs ul li {
     background-color: #FFCC99;
     border: medium solid black;
 }
 
-#navigation_metaobjects ul li + li {
+.horizontally-aligned-titles-and-tabs ul li + li {
     margin-top: 0;
     border-top: none;
 }
 
-#navigation_metaobjects ul li a {
+.horizontally-aligned-titles-and-tabs ul li a {
     display: block;
     padding: 0.175em 0.5em;
     text-decoration: none;
     background-color: #FFCC99;
 }
 
-#navigation_metaobjects ul li a:hover,
-#navigation_metaobjects ul li a:focus {
+.horizontally-aligned-titles-and-tabs ul li a:hover,
+.horizontally-aligned-titles-and-tabs ul li a:focus {
     background-color: #FFDD99;
     text-decoration: underline;
 }
 
-#navigation_metaobjects ul li.setfable,
+.horizontally-aligned-titles-and-tabs ul li.setfable,
 .tabs ul li.setfable {
     display: flex;
     flex-flow: row;
     justify-content: stretch;
 }
 
-#navigation_metaobjects ul li.setfable .reader,
+.horizontally-aligned-titles-and-tabs ul li.setfable .reader,
 .tabs ul li.setfable .reader {
     flex: 1 0;
 }
 
-#navigation_metaobjects ul li.setfable .writer,
+.horizontally-aligned-titles-and-tabs ul li.setfable .writer,
 .tabs ul li.setfable .writer {
     flex: none;
     text-align: right;
 }
 
-#navigation_metaobjects ul li.setfable .writer {
+.horizontally-aligned-titles-and-tabs ul li.setfable .writer {
     opacity: 0.5;
 }
 
@@ -175,8 +196,8 @@
     padding-left: 0.2em;
 }
 
-#navigation_metaobjects ul li.setfable .writer:hover,
-#navigation_metaobjects ul li.setfable .writer:focus {
+.horizontally-aligned-titles-and-tabs ul li.setfable .writer:hover,
+.horizontally-aligned-titles-and-tabs ul li.setfable .writer:focus {
     opacity: 1;
 }
 
