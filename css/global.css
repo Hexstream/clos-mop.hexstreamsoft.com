@@ -1,6 +1,20 @@
 @import "https://global.hexstreamsoft.com/css/global.css";
 @import "prefs.css";
 
+#page-header-wrapper {
+    position: relative;
+}
+
+#page-header-wrapper + section {
+    margin-left: var(--main_padding-left);
+    margin-right: var(--main_padding-right);
+    margin-bottom: 0;
+}
+
+#page-header-wrapper + section + main {
+    margin-top: 0;
+}
+
 main section > .body-list > li {
     overflow-x: initial;
 }
@@ -72,7 +86,7 @@ main section > .body-list > li {
 }
 
 
-ul, ol {
+main ul, main ol {
     list-style-type: initial;
 }
 

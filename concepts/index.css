@@ -14,7 +14,9 @@ section.body-section {
 
 #table-of-contents {
     font-size: larger;
+    margin-top: 0;
 }
+
 
 #table-of-contents a {
     text-decoration: none;
