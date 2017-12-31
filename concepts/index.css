@@ -1,12 +1,60 @@
-.breadcrumbs .chapter-toggle a.toggle:hover:after,
-.breadcrumbs .chapter-toggle a.toggle:focus:after {
-    content: "Go to section of the same name in Chapter 6.";
-}
-
 section {
     padding-top: 1.5em;
 }
 
 section.body-section {
     padding-top: 0.8em;
+}
+
+.breadcrumbs .chapter-toggle a.toggle:hover:after,
+.breadcrumbs .chapter-toggle a.toggle:focus:after {
+    content: "Go to section of the same name in Chapter 6.";
+}
+
+
+#table-of-contents {
+    font-size: larger;
+}
+
+#table-of-contents a {
+    text-decoration: none;
+}
+
+#table-of-contents a:hover,
+#table-of-contents a:focus
+{
+    text-decoration: underline;
+}
+
+#table-of-contents ol > li.contains-children:hover > a:not(:hover) {
+    color: green;
+}
+
+#table-of-contents ol li, #table-of-contents ol li.contains-children > a {
+    padding: 0 0.6em;
+    margin: 0.5em 0;
+    border: thin solid transparent;
+}
+
+#table-of-contents ol ol {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#table-of-contents ol li.contains-children {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 0;
+    border: none;
+}
+
+#table-of-contents ol li.contains-children > ol {
+    background-color: rgba(0, 0, 0, 0.05);
+    border: thin solid gray;
+}
+
+#table-of-contents > ol > li.contains-children > ol > li.contains-children > ol {
+    margin-left: 0.6em;
+    margin-right: 0.6em;
 }
