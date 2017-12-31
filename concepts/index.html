@@ -183,6 +183,17 @@
           </ul>
         </nav>
 
+        <nav class="tabs">
+          <ul>
+            <li><a href="#classes">Classes</a></li>
+            <li><a href="#slot-definitions">Slot definitions</a></li>
+            <li><a href="#generic-functions">Generic functions</a></li>
+            <li><a href="#methods">Methods</a></li>
+            <li><a href="#specializers">Specializers</a></li>
+            <li><a href="#method-combinations">Method combinations</a></li>
+          </ul>
+        </nav>
+
         <p>For each kind of program element there is a corresponding <i>basic metaobject class</i>. These are the classes: <a href="../classes/#class" class="body-link class">class</a>, <a href="../classes/#slot-definition" class="body-link class">slot-definition</a>, <a href="../classes/#generic-function" class="body-link class">generic-function</a>, <a href="../classes/#method" class="body-link class">method</a>, and <a href="../classes/#method-combination" class="body-link class">method-combination</a>. A <i>metaobject class</i> is a subclass of exactly one of these classes. The results are undefined if an attempt is made to define a class that is a subclass of more than one basic metaobject class. A <i>metaobject</i> is an instance of a metaobject class.</p>
 
         <p>Each metaobject represents one program element. Associated with each metaobject is the information required to serve its role. This includes information that might be provided directly in a user interface macro such as <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defcla.htm#defclass" class="body-link clhs">defclass</a> or <a href="file:///home/hexstream/quicklisp/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a>. It also includes information computed indirectly from other metaobjects such as that computed from class inheritance or the full set of methods associated with a generic function.</p>
@@ -527,6 +538,18 @@
           </ul>
         </nav>
 
+        <nav class="tabs">
+          <ul>
+            <li class="contains-children">
+              <a href="#implementation-and-user-specialization">Implementation and User Specialization</a>
+              <ul>
+                <li><a href="#restrictions-on-implementations">Restrictions on implementations</a></li>
+                <li><a href="#restrictions-on-portable-programs">Restrictions on portable programs</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
         <p>The inheritance structure of the specified metaobject classes is shown in <a href="#table-5.1_figure" class="body-link figure table">Table 5.1</a>.</p>
 
         <div class="on page">
@@ -835,6 +858,13 @@
             </ul>
           </nav>
 
+          <nav class="tabs">
+            <ul>
+              <li><a href="#restrictions-on-implementations">Restrictions on implementations</a></li>
+              <li><a href="#restrictions-on-portable-programs">Restrictions on portable programs</a></li>
+            </ul>
+          </nav>
+
           <p>The purpose of the Metaobject Protocol is to provide users with a powerful mechanism for extending and customizing the basic behavior of the Common Lisp Object System. As an object-oriented description of the basic CLOS behavior, the Metaobject Protocol makes it possible to create these extensions by defining specialized subclasses of existing metaobject classes.</p>
 
           <p>The Metaobject Protocol provides this capability without interfering with the implementor's ability to develop high-performance implementations. This balance between user extensibility and implementor freedom is mediated by placing explicit restrictions on each. Some of these restrictions are general---they apply to the entire class graph and the applicability of all methods. These are presented in this section.</p>
@@ -1040,6 +1070,16 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/processing-of-the-user-interface-macros.html">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="#compile-file-processing-of-the-user-interface-macros">Compile-file processing of the user interface macros</a></li>
+            <li><a href="#the-defclass-macro">The <code>defclass</code> macro</a></li>
+            <li><a href="#the-defmethod-macro">The <code>defmethod</code> macro</a></li>
+            <li><a href="#processing-method-bodies">Processing method bodies</a></li>
+            <li><a href="#the-defgeneric-macro">The <code>defgeneric</code> macro</a></li>
           </ul>
         </nav>
 
@@ -1575,6 +1615,17 @@
           </ul>
         </nav>
 
+        <nav class="tabs">
+          <ul>
+            <li><a href="#metaobject-initialization-protocols">Metaobject initialization protocols</a></li>
+            <li><a href="#class-finalization-protocol">Class finalization protocol</a></li>
+            <li><a href="#instance-structure-protocol">Instance Structure Protocol</a></li>
+            <li><a href="#funcallable-instances">Funcallable Instances</a></li>
+            <li><a href="#generic-function-invocation-protocol">Generic function invocation protocol</a></li>
+            <li><a href="#dependent-maintenance-protocol">Dependent maintenance protocol</a></li>
+          </ul>
+        </nav>
+
         <p>This section provides an overview of the Metaobject Protocols. The detailed behavior of each function, generic function and macro in the Metaobject Protocol is presented in <a href="../generic-functions-and-methods/" class="body-link">Chapter 6</a>. The remainder of this chapter is intended to emphasize connections among the parts of the Metaobject Protocol, and to provide some examples of the kinds of specializations and extensions the protocols are designed to support.</p>
 
         <section id="metaobject-initialization-protocols">
@@ -1594,6 +1645,14 @@
           <nav class="hanging-menu">
             <ul>
               <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/metaobject-initialization-protocols.html">RS</a></li>
+            </ul>
+          </nav>
+
+          <nav class="tabs">
+            <ul>
+              <li><a href="#initialization-of-class-metaobjects">Initialization of Class Metaobjects</a></li>
+              <li><a href="#reinitialization-of-class-metaobjects">Reinitialization of Class Metaobjects</a></li>
+              <li><a href="#initialization-of-generic-function-and-method-metaobjects">Initialization of generic function and method metaobjects</a></li>
             </ul>
           </nav>
 
