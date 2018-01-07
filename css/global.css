@@ -303,18 +303,6 @@ article.remark {
     background-color: #E3DAC9;
 }
 
-section h1.breadcrumbs-bar .here .hoisted {
-    position: absolute;
-    font-size: 1rem;
-    bottom: 100%;
-    padding: 0.1em 0.3em 0;
-    margin-left: -0.3em;
-    border: thin solid gray;
-    border-bottom: thin solid #ECECEC;
-    background-color: #ECECEC;
-}
-
-
 .body-list {
     list-style-type: none;
     margin-left: 0;
