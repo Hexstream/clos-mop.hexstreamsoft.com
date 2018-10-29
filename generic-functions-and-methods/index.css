@@ -199,53 +199,8 @@
 }
 
 
-
-
-article.method.definition section.description h1,
-article.reader.generic-function.definition section.description h1 {
-    display: none;
-}
-
-article.method.definition section.description > *,
-article.reader.generic-function.definition section.description > * {
-    margin-left: 1em;
-}
-
-article.method.see-description-below h1 {
-    margin-top: 0.3em;
-}
-
-
 pre {
     margin-top: 1em;
-}
-
-
-p.args-and-retvals {
-    margin-top: 0.25em;
-    margin-left: 2em;
-}
-
-article.method.definition > p.args-and-retvals {
-    margin-bottom: -0.2em;
-}
-
-p.args-and-retvals + p.args-and-retvals,
-p.args-and-retvals + .or + p.args-and-retvals {
-    margin-top: -0.75em;
-}
-
-.merged-args-and-retvals {
-    position: relative;
-}
-
-.merged-args-and-retvals .or {
-    position: absolute;
-    right: 100%;
-    margin-top: -1.35em;
-    margin-right: -1.5em;
-    font-weight: bold;
-    font-style: italic;
 }
 
 
