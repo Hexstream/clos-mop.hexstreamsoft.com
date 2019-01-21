@@ -33,7 +33,9 @@ html.diff\.visibility\=show del.boilerplate-diff {
 }
 
 html.diff\.visibility\=hide del.boilerplate-diff,
-html.diff\.removed\.visibility\=hide del.boilerplate-diff
+html.diff\.removed\.visibility\=hide del.boilerplate-diff,
+html.diff\.visibility\=hide .dels-before-punctuation,
+html.diff\.removed\.visibility\=hide .dels-before-punctuation
 {
     display: none;
 }
