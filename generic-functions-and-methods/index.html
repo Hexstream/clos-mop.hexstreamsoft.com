@@ -3481,7 +3481,6 @@
             <p>The list returned by this generic function will not be mutated by the implementation. The results are undefined if a portable program mutates the list returned by this generic function.</p>
           </section>
 
-          <!-- Two nice opportunities for merging here. -->
           <section class="methods">
             <h1>Methods</h1>
             <ul class="methods-list introducing">
@@ -3490,26 +3489,25 @@
               <li><a href="#compute-slots_around_standard-class" class="body-link method"><span class="name">compute-slots</span> :around (<var>class</var> standard-class)</a></li>
               <li><a href="#compute-slots_around_funcallable-standard-class" class="body-link method"><span class="name">compute-slots</span> :around (<var>class</var> funcallable-standard-class)</a></li>
             </ul>
-            <article class="method definition" id="compute-slots_standard-class">
+            <div class="fragment-redirect"
+                 id="compute-slots_funcallable-standard-class"
+                 data-target="compute-slots_standard-class">
+            </div>
+            <article class="method definition merged book-didnt-merge" id="compute-slots_standard-class">
 
-              <h1><span class="type">Method</span> <span class="name self">compute-slots</span></h1>
+              <h1><span class="type plural">Method</span> <span class="name self">compute-slots</span></h1>
 
-              <p class="args-and-retvals">(<var>class</var> <a href="../classes/#standard-class" class="body-link class specializer">standard-class</a>) =&gt; <var>effective-slot-definitions</var></p>
+              <div class="merged-args-and-retvals">
 
-              <section class="description">
-                <h1>Description</h1>
-                <p>This method implements the specified behavior of the generic function.</p>
-                <p>This method can be overridden.</p>
-              </section>
+                <p class="args-and-retvals">(<var>class</var> <a href="../classes/#standard-class" class="body-link class specializer">standard-class</a>) =&gt; <var>effective-slot-definitions</var></p>
 
-            </article>
-            <article class="method definition" id="compute-slots_funcallable-standard-class">
+                <span class="or">or</span>
 
-              <h1><span class="type">Method</span> <span class="name self">compute-slots</span></h1>
+                <p class="args-and-retvals">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="body-link class specializer">funcallable-standard-class</a>) =&gt; <var>effective-slot-definitions</var></p>
 
-              <p class="args-and-retvals">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="body-link class specializer">funcallable-standard-class</a>) =&gt; <var>effective-slot-definitions</var></p>
+              </div>
 
-              <section class="description">
+              <section class="description not-rephrased-to-plural">
                 <h1>Description</h1>
                 <p>This method implements the specified behavior of the generic function.</p>
                 <p>This method can be overridden.</p>
@@ -3524,32 +3522,32 @@
               </a>
               <a href="#page-180" class="anchor">⚓</a>
             </div>
-            <article class="method definition" id="compute-slots_around_standard-class">
+            <div class="fragment-redirect"
+                 id="compute-slots_around_funcallable-standard-class"
+                 data-target="compute-slots_around_standard-class">
+            </div>
+            <article class="method definition merged book-didnt-merge" id="compute-slots_around_standard-class">
 
-              <h1><span class="type">Around-Method</span> <span class="name self">compute-slots</span></h1>
+              <h1><span class="type plural">Around-Method</span> <span class="name self">compute-slots</span></h1>
 
-              <p class="args-and-retvals">(<var>class</var> <a href="../classes/#standard-class" class="body-link class specializer">standard-class</a>) =&gt; <var>effective-slot-definitions</var></p>
+              <div class="merged-args-and-retvals">
 
-              <section class="description">
+                <p class="args-and-retvals">(<var>class</var> <a href="../classes/#standard-class" class="body-link class specializer">standard-class</a>) =&gt; <var>effective-slot-definitions</var></p>
+
+                <span class="or">or</span>
+
+                <p class="args-and-retvals">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="body-link class specializer">funcallable-standard-class</a>) =&gt; <var>effective-slot-definitions</var></p>
+
+              </div>
+
+              <section class="description not-rephrased-to-plural">
                 <h1>Description</h1>
                 <p>This method implements the specified behavior of computing and storing slot locations.</p>
                 <p>This method cannot be overridden.</p>
               </section>
 
             </article>
-            <article class="method definition" id="compute-slots_around_funcallable-standard-class">
 
-              <h1><span class="type">Around-Method</span> <span class="name self">compute-slots</span></h1>
-
-              <p class="args-and-retvals">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="body-link class specializer">funcallable-standard-class</a>) =&gt; <var>effective-slot-definitions</var></p>
-
-              <section class="description">
-                <h1>Description</h1>
-                <p>This method implements the specified behavior of computing and storing slot locations.</p>
-                <p>This method cannot be overridden.</p>
-              </section>
-
-            </article>
           </section>
 
         </article>
