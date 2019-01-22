@@ -614,131 +614,241 @@
           </span>
         </h1>
 
-        <div class="body">
+        <div class="horizontally-aligned-titles-and-tabs">
 
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Function</span> <a href="#ensure-class" class="name">ensure-class</a> <var>name</var> <span class="lambda-keyword">&amp;key</span> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals">=&gt; <var>class</var></span></li>
-          </ul>
+          <nav class="tabs contains-title column">
+            <h1><a href="#navigation_misc_classes">Classes</a></h1>
+            <ul>
+              <li><a href="#navigation_misc_classes_ensure-class">ensure-class</a></li>
+              <li><a href="#navigation_misc_classes_ensure-class-using-class">ensure-class-using-class</a></li>
+              <li><a href="#navigation_misc_classes_add-direct-subclass">add-direct-subclass</a></li>
+              <li><a href="#navigation_misc_classes_remove-direct-subclass">remove-direct-subclass</a></li>
+              <li><a href="#navigation_misc_classes_validate-superclass">validate-superclass</a></li>
+              <li><a href="#navigation_misc_classes_direct-slot-definition-class">direct-slot-definition-class</a></li>
+              <li><a href="#navigation_misc_classes_reader-method-class">reader-method-class</a></li>
+              <li><a href="#navigation_misc_classes_writer-method-class">writer-method-class</a></li>
+              <li><a href="#navigation_misc_classes_make-instance">make-instance</a></li>
+              <li><a href="#navigation_misc_classes_allocate-instance">allocate-instance</a></li>
+            </ul>
+          </nav>
 
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#ensure-class-using-class" class="name">ensure-class-using-class</a> <var>class</var> <var>name</var> <span class="lambda-keyword">&amp;key</span> <span class="omitted-keyword-initargs">[many]</span> <span class="spacer"></span> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals">=&gt; <var>resulting-class</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#ensure-class-using-class_class" class="name">ensure-class-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#class" class="specializer">class</a>)</span> <var>name</var> <span class="lambda-keyword">&amp;key</span> <var class="keyword-initarg">:metaclass</var> <var class="keyword-initarg">:direct-superclasses</var> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#ensure-class-using-class_forward-referenced-class" class="name">ensure-class-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#forward-referenced-class" class="specializer">forward-referenced-class</a>)</span> <var>name</var> <span class="lambda-keyword">&amp;key</span> <var class="keyword-initarg">:metaclass</var> <var class="keyword-initarg">:direct-superclasses</var> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#ensure-class-using-class_null" class="name">ensure-class-using-class</a> <span class="arg">(<var>class</var> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_null.htm" class="specializer non-mop clhs">null</a>)</span> <var>name</var> <span class="lambda-keyword">&amp;key</span> <var class="keyword-initarg">:metaclass</var> <var class="keyword-initarg">:direct-superclasses</var> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals"></span></li>
-          </ul>
+          <nav class="tabs contains-title column">
+            <h1><a href="#navigation_misc_generic-functions">Generic functions</a></h1>
+            <ul>
+              <li><a href="#navigation_misc_generic-functions_ensure-generic-function">ensure-generic-function</a></li>
+              <li><a href="#navigation_misc_generic-functions_ensure-generic-function-using-class">ensure-generic-function-using-class</a></li>
+              <li><a href="#navigation_misc_generic-functions_add-method">add-method</a></li>
+              <li><a href="#navigation_misc_generic-functions_remove-method">remove-method</a></li>
+              <li><a href="#navigation_misc_generic-functions_find-method-combination">find-method-combination</a></li>
+            </ul>
+          </nav>
 
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#add-direct-subclass" class="name">add-direct-subclass</a> <var class="arg">superclass</var> <var class="arg">subclass</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#add-direct-subclass_class_class" class="name">add-direct-subclass</a> <span class="arg">(<var>superclass</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="arg">(<var>subclass</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#remove-direct-subclass" class="name">remove-direct-subclass</a> <var>superclass</var> <var>subclass</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#remove-direct-subclass_class_class" class="name">remove-direct-subclass</a> <span class="arg">(<var>superclass</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="arg">(<var>subclass</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#validate-superclass" class="name">validate-superclass</a> <var>class</var> <var>superclass</var> <span class="retvals">=&gt; <var>generalized-boolean</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#validate-superclass_class_class" class="name">validate-superclass</a> <span class="arg">(<var>class</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="arg">(<var>superclass</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#direct-slot-definition-class" class="name">direct-slot-definition-class</a> <var>class</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>slot-definition-class</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#direct-slot-definition-class_standard-class" class="name">direct-slot-definition-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#direct-slot-definition-class_funcallable-standard-class" class="name">direct-slot-definition-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#reader-method-class" class="name">reader-method-class</a> <var>class</var> <var>direct-slot</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>reader-method-class</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#reader-method-class_standard-class_standard-direct-slot-definition" class="name">reader-method-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="arg">(<var>direct-slot</var> <a href="../classes/#standard-direct-slot-definition">standard-direct-slot-definition</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#reader-method-class_funcallable-standard-class_standard-direct-slot-definition" class="name">reader-method-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="arg">(<var>direct-slot</var> <a href="../classes/#standard-direct-slot-definition">standard-direct-slot-definition</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#writer-method-class" class="name">writer-method-class</a> <var>class</var> <var>direct-slot</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>writer-method-class</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#writer-method-class_standard-class_standard-direct-slot-definition" class="name">writer-method-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="arg">(<var>direct-slot</var> <a href="../classes/#standard-direct-slot-definition" class="specializer">standard-direct-slot-definition</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#writer-method-class_funcallable-standard-class_standard-direct-slot-definition" class="name">writer-method-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="arg">(<var>direct-slot</var> <a href="../classes/#standard-direct-slot-definition" class="specializer">standard-direct-slot-definition</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#make-instance" class="name">make-instance</a> <var>class</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>instance</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#make-instance_symbol" class="name">make-instance</a> <span class="arg">(<var>class</var> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_symbol.htm" class="specializer non-mop clhs">symbol</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#make-instance_standard-class" class="name">make-instance</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#make-instance_funcallable-standard-class" class="name">make-instance</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#allocate-instance" class="name">allocate-instance</a> <var>class</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>instance</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#allocate-instance_standard-class" class="name">allocate-instance</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#allocate-instance_funcallable-standard-class" class="name">allocate-instance</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#allocate-instance_built-in-class" class="name">allocate-instance</a> <span class="arg">(<var>class</var> <a href="../classes/#built-in-class" class="specializer">built-in-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Function</span> <a href="#ensure-generic-function" class="name">ensure-generic-function</a> <var>function-name</var> <span class="lambda-keyword">&amp;key</span> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals">=&gt; <var>generic-function</var></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#ensure-generic-function-using-class" class="name">ensure-generic-function-using-class</a> <var>generic-function</var> <var>function-name</var> <span class="lambda-keyword">&amp;key</span> <span class="omitted-keyword-initargs">[many]</span> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals">=&gt; <var>generic-function</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#ensure-generic-function-using-class_generic-function" class="name">ensure-generic-function-using-class</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#generic-function" class="specializer">generic-function</a>)</span> <var>function-name</var> <span class="lambda-keyword">&amp;key</span> <var class="keyword-initarg">:generic-function-class</var> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#ensure-generic-function-using-class_null" class="name">ensure-generic-function-using-class</a> <span class="arg">(<var>generic-function</var> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_null.htm" class="specializer non-mop clhs">null</a>)</span> <var>function-name</var> <span class="lambda-keyword">&amp;key</span> <var class="keyword-initarg">:generic-function-class</var> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#add-method" class="name">add-method</a> <var>generic-function</var> <var>method</var> <span class="retvals">=&gt; <var>generic-function</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#add-method_standard-generic-function_standard-method" class="name">add-method</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#standard-method" class="specializer">standard-method</a>)</span> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#remove-method" class="name">remove-method</a> <var>generic-function</var> <var>method</var> <span class="retvals">=&gt; <var>generic-function</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#remove-method_standard-generic-function_standard-method" class="name">remove-method</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#standard-method" class="specializer">standard-method</a>)</span> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#find-method-combination" class="name">find-method-combination</a> <var>generic-function</var> <var>method-combination-type-name</var> <var>method-combination-options</var> <span class="retvals">=&gt; <var>method-combination</var></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#add-direct-method" class="name">add-direct-method</a> <var class="arg">specializer</var> <var class="arg">method</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#add-direct-method_class_method" class="name">add-direct-method</a> <span class="arg">(<var>specializer</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#method" class="specializer">method</a>)</span> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#add-direct-method_eql-specializer_method" class="name">add-direct-method</a> <span class="arg">(<var>specializer</var> <a href="../classes/#eql-specializer" class="specializer">eql-specializer</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#method" class="specializer">method</a>)</span> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#remove-direct-method" class="name">remove-direct-method</a> <var>specializer</var> <var>method</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#remove-direct-method_class_method" class="name">remove-direct-method</a> <span class="arg">(<var>specializer</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#method" class="specializer">method</a>)</span> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#remove-direct-method_eql-specializer_method" class="name">remove-direct-method</a> <span class="arg">(<var>specializer</var> <a href="../classes/#eql-specializer" class="specializer">eql-specializer</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#method" class="specializer">method</a>)</span> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#specializer-direct-generic-functions" class="name">specializer-direct-generic-functions</a> <var>specializer</var> <span class="retvals">=&gt; <var>generic-functions</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#specializer-direct-generic-functions_class" class="name">specializer-direct-generic-functions</a> <span class="arg">(<var>specializer</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#specializer-direct-generic-functions_eql-specializer" class="name">specializer-direct-generic-functions</a> <span class="arg">(<var>specializer</var> <a href="../classes/#eql-specializer" class="specializer">eql-specializer</a>)</span> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Generic Function</span> <a href="#specializer-direct-methods" class="name">specializer-direct-methods</a> <var>specializer</var> <span class="retvals">=&gt; <var>methods</var></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#specializer-direct-methods_class" class="name">specializer-direct-methods</a> <span class="arg">(<var>specializer</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
-            <li class="method"><span class="type">Method</span> <a href="#specializer-direct-methods_eql-specializer" class="name">specializer-direct-methods</a> <span class="arg">(<var>specializer</var> <a href="../classes/#eql-specializer" class="specializer">eql-specializer</a>)</span> <span class="retvals"></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Function</span> <a href="#extract-lambda-list" class="name">extract-lambda-list</a> <var>specialized-lambda-list</var> <span class="retvals">=&gt; <var>lambda-list</var></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Function</span> <a href="#extract-specializer-names" class="name">extract-specializer-names</a> <var>specialized-lambda-list</var> <span class="retvals">=&gt; <var>specializer-names</var></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Function</span> <a href="#intern-eql-specializer" class="name">intern-eql-specializer</a> <var>object</var> <span class="retvals">=&gt; <var>eql-specializer</var></span></li>
-          </ul>
-
-          <ul class="operator-and-methods">
-            <li class="operator"><span class="type">Function</span> <a href="#eql-specializer-object" class="name">eql-specializer-object</a> <var>eql-specializer</var> <span class="retvals">=&gt; <var>object</var></span></li>
-          </ul>
+          <nav class="tabs contains-title column">
+            <h1><a href="#navigation_misc_specializers">Specializers</a></h1>
+            <ul>
+              <li><a href="#navigation_misc_specializers_add-direct-method">add-direct-method</a></li>
+              <li><a href="#navigation_misc_specializers_remove-direct-method">remove-direct-method</a></li>
+              <li><a href="#navigation_misc_specializers_specializer-direct-generic-functions">specializer-direct-generic-functions</a></li>
+              <li><a href="#navigation_misc_specializers_specializer-direct-methods">specializer-direct-methods</a></li>
+              <li><a href="#navigation_misc_specializers_extract-lambda-list">extract-lambda-list</a></li>
+              <li><a href="#navigation_misc_specializers_extract-specializer-names">extract-specializer-names</a></li>
+              <li><a href="#navigation_misc_specializers_intern-eql-specializer">intern-eql-specializer</a></li>
+              <li><a href="#navigation_misc_specializers_eql-specializer-object">eql-specializer-object</a></li>
+            </ul>
+          </nav>
 
         </div>
+
+        <section id="navigation_misc_classes">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#navigation_misc_classes" class="anchor">⚓</a>
+            </span>
+            <span class="breadcrumbs">
+              <a href="#" class="ellipsis">...<sub>2</sub></a>
+              <span class="crumb"><span class="s"> » </span><a href="#navigation">Navigation</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#navigation_misc">Misc</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here">Classes</a>
+              </span>
+            </span>
+          </h1>
+
+          <div class="body">
+
+            <ul class="operator-and-methods" id="navigation_misc_classes_ensure-class">
+              <li class="operator"><span class="type">Function</span> <a href="#ensure-class" class="name">ensure-class</a> <var>name</var> <span class="lambda-keyword">&amp;key</span> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals">=&gt; <var>class</var></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_classes_ensure-class-using-class">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#ensure-class-using-class" class="name">ensure-class-using-class</a> <var>class</var> <var>name</var> <span class="lambda-keyword">&amp;key</span> <span class="omitted-keyword-initargs">[many]</span> <span class="spacer"></span> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals">=&gt; <var>resulting-class</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#ensure-class-using-class_class" class="name">ensure-class-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#class" class="specializer">class</a>)</span> <var>name</var> <span class="lambda-keyword">&amp;key</span> <var class="keyword-initarg">:metaclass</var> <var class="keyword-initarg">:direct-superclasses</var> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#ensure-class-using-class_forward-referenced-class" class="name">ensure-class-using-class</a> <span class="arg">(<var>class</var> <a href="../classes/#forward-referenced-class" class="specializer">forward-referenced-class</a>)</span> <var>name</var> <span class="lambda-keyword">&amp;key</span> <var class="keyword-initarg">:metaclass</var> <var class="keyword-initarg">:direct-superclasses</var> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#ensure-class-using-class_null" class="name">ensure-class-using-class</a> <span class="arg">(<var>class</var> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_null.htm" class="specializer non-mop clhs">null</a>)</span> <var>name</var> <span class="lambda-keyword">&amp;key</span> <var class="keyword-initarg">:metaclass</var> <var class="keyword-initarg">:direct-superclasses</var> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_classes_add-direct-subclass">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#add-direct-subclass" class="name">add-direct-subclass</a> <var class="arg">superclass</var> <var class="arg">subclass</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#add-direct-subclass_class_class" class="name">add-direct-subclass</a> <span class="arg">(<var>superclass</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="arg">(<var>subclass</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_classes_remove-direct-subclass">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#remove-direct-subclass" class="name">remove-direct-subclass</a> <var>superclass</var> <var>subclass</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#remove-direct-subclass_class_class" class="name">remove-direct-subclass</a> <span class="arg">(<var>superclass</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="arg">(<var>subclass</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_classes_validate-superclass">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#validate-superclass" class="name">validate-superclass</a> <var>class</var> <var>superclass</var> <span class="retvals">=&gt; <var>generalized-boolean</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#validate-superclass_class_class" class="name">validate-superclass</a> <span class="arg">(<var>class</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="arg">(<var>superclass</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_classes_direct-slot-definition-class">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#direct-slot-definition-class" class="name">direct-slot-definition-class</a> <var>class</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>slot-definition-class</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#direct-slot-definition-class_standard-class" class="name">direct-slot-definition-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#direct-slot-definition-class_funcallable-standard-class" class="name">direct-slot-definition-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_classes_reader-method-class">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#reader-method-class" class="name">reader-method-class</a> <var>class</var> <var>direct-slot</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>reader-method-class</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#reader-method-class_standard-class_standard-direct-slot-definition" class="name">reader-method-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="arg">(<var>direct-slot</var> <a href="../classes/#standard-direct-slot-definition">standard-direct-slot-definition</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#reader-method-class_funcallable-standard-class_standard-direct-slot-definition" class="name">reader-method-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="arg">(<var>direct-slot</var> <a href="../classes/#standard-direct-slot-definition">standard-direct-slot-definition</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_classes_writer-method-class">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#writer-method-class" class="name">writer-method-class</a> <var>class</var> <var>direct-slot</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>writer-method-class</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#writer-method-class_standard-class_standard-direct-slot-definition" class="name">writer-method-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="arg">(<var>direct-slot</var> <a href="../classes/#standard-direct-slot-definition" class="specializer">standard-direct-slot-definition</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#writer-method-class_funcallable-standard-class_standard-direct-slot-definition" class="name">writer-method-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="arg">(<var>direct-slot</var> <a href="../classes/#standard-direct-slot-definition" class="specializer">standard-direct-slot-definition</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_classes_make-instance">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#make-instance" class="name">make-instance</a> <var>class</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>instance</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#make-instance_symbol" class="name">make-instance</a> <span class="arg">(<var>class</var> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_symbol.htm" class="specializer non-mop clhs">symbol</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#make-instance_standard-class" class="name">make-instance</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#make-instance_funcallable-standard-class" class="name">make-instance</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_classes_allocate-instance">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#allocate-instance" class="name">allocate-instance</a> <var>class</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>instance</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#allocate-instance_standard-class" class="name">allocate-instance</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#allocate-instance_funcallable-standard-class" class="name">allocate-instance</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#allocate-instance_built-in-class" class="name">allocate-instance</a> <span class="arg">(<var>class</var> <a href="../classes/#built-in-class" class="specializer">built-in-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+            </ul>
+
+          </div>
+
+        </section>
+
+        <section id="navigation_misc_generic-functions">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#navigation_misc_generic-functions" class="anchor">⚓</a>
+            </span>
+            <span class="breadcrumbs">
+              <a href="#" class="ellipsis">...<sub>2</sub></a>
+              <span class="crumb"><span class="s"> » </span><a href="#navigation">Navigation</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#navigation_misc">Misc</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here">Generic functions</a>
+              </span>
+            </span>
+          </h1>
+
+          <div class="body">
+
+            <ul class="operator-and-methods" id="navigation_misc_generic-functions_ensure-generic-function">
+              <li class="operator"><span class="type">Function</span> <a href="#ensure-generic-function" class="name">ensure-generic-function</a> <var>function-name</var> <span class="lambda-keyword">&amp;key</span> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals">=&gt; <var>generic-function</var></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_generic-functions_ensure-generic-function-using-class">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#ensure-generic-function-using-class" class="name">ensure-generic-function-using-class</a> <var>generic-function</var> <var>function-name</var> <span class="lambda-keyword">&amp;key</span> <span class="omitted-keyword-initargs">[many]</span> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals">=&gt; <var>generic-function</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#ensure-generic-function-using-class_generic-function" class="name">ensure-generic-function-using-class</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#generic-function" class="specializer">generic-function</a>)</span> <var>function-name</var> <span class="lambda-keyword">&amp;key</span> <var class="keyword-initarg">:generic-function-class</var> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#ensure-generic-function-using-class_null" class="name">ensure-generic-function-using-class</a> <span class="arg">(<var>generic-function</var> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_null.htm" class="specializer non-mop clhs">null</a>)</span> <var>function-name</var> <span class="lambda-keyword">&amp;key</span> <var class="keyword-initarg">:generic-function-class</var> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_generic-functions_add-method">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#add-method" class="name">add-method</a> <var>generic-function</var> <var>method</var> <span class="retvals">=&gt; <var>generic-function</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#add-method_standard-generic-function_standard-method" class="name">add-method</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#standard-method" class="specializer">standard-method</a>)</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_generic-functions_remove-method">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#remove-method" class="name">remove-method</a> <var>generic-function</var> <var>method</var> <span class="retvals">=&gt; <var>generic-function</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#remove-method_standard-generic-function_standard-method" class="name">remove-method</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#standard-method" class="specializer">standard-method</a>)</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_generic-functions_find-method-combination">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#find-method-combination" class="name">find-method-combination</a> <var>generic-function</var> <var>method-combination-type-name</var> <var>method-combination-options</var> <span class="retvals">=&gt; <var>method-combination</var></span></li>
+            </ul>
+
+          </div>
+
+        </section>
+
+        <section id="navigation_misc_specializers">
+
+          <h1 class="breadcrumbs-bar">
+            <span class="section-relative-nav">
+              <a href="#navigation_misc_specializers" class="anchor">⚓</a>
+            </span>
+            <span class="breadcrumbs">
+              <a href="#" class="ellipsis">...<sub>2</sub></a>
+              <span class="crumb"><span class="s"> » </span><a href="#navigation">Navigation</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#navigation_misc">Misc</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here">Specializers</a>
+              </span>
+            </span>
+          </h1>
+
+          <div class="body">
+
+            <ul class="operator-and-methods" id="navigation_misc_specializers_add-direct-method">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#add-direct-method" class="name">add-direct-method</a> <var class="arg">specializer</var> <var class="arg">method</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#add-direct-method_class_method" class="name">add-direct-method</a> <span class="arg">(<var>specializer</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#method" class="specializer">method</a>)</span> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#add-direct-method_eql-specializer_method" class="name">add-direct-method</a> <span class="arg">(<var>specializer</var> <a href="../classes/#eql-specializer" class="specializer">eql-specializer</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#method" class="specializer">method</a>)</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_specializers_remove-direct-method">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#remove-direct-method" class="name">remove-direct-method</a> <var>specializer</var> <var>method</var> <span class="retvals">=&gt; <var class="unspecified">unspecified</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#remove-direct-method_class_method" class="name">remove-direct-method</a> <span class="arg">(<var>specializer</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#method" class="specializer">method</a>)</span> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#remove-direct-method_eql-specializer_method" class="name">remove-direct-method</a> <span class="arg">(<var>specializer</var> <a href="../classes/#eql-specializer" class="specializer">eql-specializer</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#method" class="specializer">method</a>)</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_specializers_specializer-direct-generic-functions">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#specializer-direct-generic-functions" class="name">specializer-direct-generic-functions</a> <var>specializer</var> <span class="retvals">=&gt; <var>generic-functions</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#specializer-direct-generic-functions_class" class="name">specializer-direct-generic-functions</a> <span class="arg">(<var>specializer</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#specializer-direct-generic-functions_eql-specializer" class="name">specializer-direct-generic-functions</a> <span class="arg">(<var>specializer</var> <a href="../classes/#eql-specializer" class="specializer">eql-specializer</a>)</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_specializers_specializer-direct-methods">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#specializer-direct-methods" class="name">specializer-direct-methods</a> <var>specializer</var> <span class="retvals">=&gt; <var>methods</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#specializer-direct-methods_class" class="name">specializer-direct-methods</a> <span class="arg">(<var>specializer</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#specializer-direct-methods_eql-specializer" class="name">specializer-direct-methods</a> <span class="arg">(<var>specializer</var> <a href="../classes/#eql-specializer" class="specializer">eql-specializer</a>)</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_specializers_extract-lambda-list">
+              <li class="operator"><span class="type">Function</span> <a href="#extract-lambda-list" class="name">extract-lambda-list</a> <var>specialized-lambda-list</var> <span class="retvals">=&gt; <var>lambda-list</var></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_specializers_extract-specializer-names">
+              <li class="operator"><span class="type">Function</span> <a href="#extract-specializer-names" class="name">extract-specializer-names</a> <var>specialized-lambda-list</var> <span class="retvals">=&gt; <var>specializer-names</var></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_specializers_intern-eql-specializer">
+              <li class="operator"><span class="type">Function</span> <a href="#intern-eql-specializer" class="name">intern-eql-specializer</a> <var>object</var> <span class="retvals">=&gt; <var>eql-specializer</var></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_misc_specializers_eql-specializer-object">
+              <li class="operator"><span class="type">Function</span> <a href="#eql-specializer-object" class="name">eql-specializer-object</a> <var>eql-specializer</var> <span class="retvals">=&gt; <var>object</var></span></li>
+            </ul>
+
+          </div>
+
+        </section>
+
+        <nav class="end-of-section-indicator">
+          <a href="#navigation_misc">
+            "<span>Misc</span>" end.
+          </a>
+        </nav>
 
       </section>
 
