@@ -86,7 +86,7 @@
 }
 
 
-#navigation_metaobjects {
+#navigation_readers {
     padding-bottom: 0;
 }
 
@@ -97,7 +97,7 @@
 }
 
 @media (min-width: 74.125em) {
-    #navigation_metaobjects p {
+    #navigation_readers p {
         text-align: center;
     }
 
