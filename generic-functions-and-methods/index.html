@@ -5651,7 +5651,7 @@
   (apply #'make-instance
          (apply #'direct-slot-definition-class
                 class canonicalized-slot)
-                canonicalized-slot))
+         canonicalized-slot))
                 </pre>
                 <p>If the class metaobject is being initialized, this argument defaults to the empty list.</p>
                 <p>Once the direct slot definition metaobjects have been created, the specified reader and writer methods are created. The generic functions <a href="#reader-method-class" class="body-link generic-function">reader-method-class</a> and <a href="#writer-method-class" class="body-link generic-function">writer-method-class</a> are called to determine the classes of the method metaobjects created.</p>
