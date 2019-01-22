@@ -3606,28 +3606,13 @@
             <p>The <var>initargs</var> argument is simply the canonicalized slot specification for the slot.</p>
           </section>
 
-          <!-- Another opportunity for merging here. -->
-
           <section class="methods">
             <h1>Methods</h1>
             <ul class="methods-list introducing">
               <li><a href="#direct-slot-definition-class_standard-class" class="body-link method"><span class="name">direct-slot-definition-class</span> (<var>class</var> standard-class) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a></li>
               <li><a href="#direct-slot-definition-class_funcallable-standard-class" class="body-link method"><span class="name">direct-slot-definition-class</span> (<var>class</var> funcallable-standard-class) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var></a></li>
             </ul>
-            <article class="method definition" id="direct-slot-definition-class_standard-class">
-
-              <h1><span class="type">Method</span> <span class="name self">direct-slot-definition-class</span></h1>
-
-              <p class="args-and-retvals">(<var>class</var> <a href="../classes/#standard-class" class="body-link class specializer">standard-class</a>) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> =&gt; <var>slot-definition-class</var></p>
-
-              <section class="description">
-                <h1>Description</h1>
-                <p>This method returns the class <a href="../classes/#standard-direct-slot-definition" class="body-link class">standard-direct-slot-definition</a>.</p>
-                <p>This method can be overridden.</p>
-              </section>
-
-            </article>
-            <div class="page" id="page-181">
+            <div class="page approximate because-merged" id="page-181">
               <a href="https://non-free.hexstream.xyz/clos-mop.hexstreamsoft.com/scans/181.png" target="_blank" class="page-number">
                 <span class="hide">[Page </span>
                 <span class="page-number">181</span>
@@ -3635,19 +3620,32 @@
               </a>
               <a href="#page-181" class="anchor">⚓</a>
             </div>
-            <article class="method definition" id="direct-slot-definition-class_funcallable-standard-class">
+            <div class="fragment-redirect"
+                 id="direct-slot-definition-class_funcallable-standard-class"
+                 data-target="direct-slot-definition-class_standard-class">
+            </div>
+            <article class="method definition merged book-didnt-merge" id="direct-slot-definition-class_standard-class">
 
-              <h1><span class="type">Method</span> <span class="name self">direct-slot-definition-class</span></h1>
+              <h1><span class="type plural">Method</span> <span class="name self">direct-slot-definition-class</span></h1>
 
-              <p class="args-and-retvals">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="body-link class specializer">funcallable-standard-class</a>) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> =&gt; <var>slot-definition-class</var></p>
+              <div class="merged-args-and-retvals">
 
-              <section class="description">
+                <p class="args-and-retvals">(<var>class</var> <a href="../classes/#standard-class" class="body-link class specializer">standard-class</a>) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> =&gt; <var>slot-definition-class</var></p>
+
+                <span class="or">or</span>
+
+                <p class="args-and-retvals">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="body-link class specializer">funcallable-standard-class</a>) <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> =&gt; <var>slot-definition-class</var></p>
+
+              </div>
+
+              <section class="description not-rephrased-to-plural">
                 <h1>Description</h1>
                 <p>This method returns the class <a href="../classes/#standard-direct-slot-definition" class="body-link class">standard-direct-slot-definition</a>.</p>
                 <p>This method can be overridden.</p>
               </section>
 
             </article>
+
           </section>
 
         </article>
