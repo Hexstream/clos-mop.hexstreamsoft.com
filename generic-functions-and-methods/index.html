@@ -637,9 +637,9 @@
             <ul>
               <li><a href="#navigation_misc_generic-functions_ensure-generic-function">ensure-generic-function</a></li>
               <li><a href="#navigation_misc_generic-functions_ensure-generic-function-using-class">ensure-generic-function-using-class</a></li>
+              <li><a href="#navigation_misc_generic-functions_find-method-combination">find-method-combination</a></li>
               <li><a href="#navigation_misc_generic-functions_add-method">add-method</a></li>
               <li><a href="#navigation_misc_generic-functions_remove-method">remove-method</a></li>
-              <li><a href="#navigation_misc_generic-functions_find-method-combination">find-method-combination</a></li>
             </ul>
           </nav>
 
@@ -765,6 +765,10 @@
               <li class="method"><span class="type">Method</span> <a href="#ensure-generic-function-using-class_null" class="name">ensure-generic-function-using-class</a> <span class="arg">(<var>generic-function</var> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_null.htm" class="specializer non-mop clhs">null</a>)</span> <var>function-name</var> <span class="lambda-keyword">&amp;key</span> <var class="keyword-initarg">:generic-function-class</var> <span class="lambda-keyword">&amp;allow-other-keys</span> <span class="retvals"></span></li>
             </ul>
 
+            <ul class="operator-and-methods" id="navigation_misc_generic-functions_find-method-combination">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#find-method-combination" class="name">find-method-combination</a> <var>generic-function</var> <var>method-combination-type-name</var> <var>method-combination-options</var> <span class="retvals">=&gt; <var>method-combination</var></span></li>
+            </ul>
+
             <ul class="operator-and-methods" id="navigation_misc_generic-functions_add-method">
               <li class="operator"><span class="type">Generic Function</span> <a href="#add-method" class="name">add-method</a> <var>generic-function</var> <var>method</var> <span class="retvals">=&gt; <var>generic-function</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#add-method_standard-generic-function_standard-method" class="name">add-method</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#standard-method" class="specializer">standard-method</a>)</span> <span class="retvals"></span></li>
@@ -773,10 +777,6 @@
             <ul class="operator-and-methods" id="navigation_misc_generic-functions_remove-method">
               <li class="operator"><span class="type">Generic Function</span> <a href="#remove-method" class="name">remove-method</a> <var>generic-function</var> <var>method</var> <span class="retvals">=&gt; <var>generic-function</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#remove-method_standard-generic-function_standard-method" class="name">remove-method</a> <span class="arg">(<var>generic-function</var> <a href="../classes/#standard-generic-function" class="specializer">standard-generic-function</a>)</span> <span class="arg">(<var>method</var> <a href="../classes/#standard-method" class="specializer">standard-method</a>)</span> <span class="retvals"></span></li>
-            </ul>
-
-            <ul class="operator-and-methods" id="navigation_misc_generic-functions_find-method-combination">
-              <li class="operator"><span class="type">Generic Function</span> <a href="#find-method-combination" class="name">find-method-combination</a> <var>generic-function</var> <var>method-combination-type-name</var> <var>method-combination-options</var> <span class="retvals">=&gt; <var>method-combination</var></span></li>
             </ul>
 
           </div>
@@ -1033,6 +1033,14 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc specializers">
+          <h1><a href="#navigation_misc_specializers">Related</a></h1>
+          <ul>
+            <li><a class="here">add-direct-method</a></li>
+            <li><a href="#remove-direct-method">remove-direct-method</a></li>
+          </ul>
+        </nav>
+
         <article class="generic-function definition">
 
           <h1><span class="type">Generic Function</span> <span class="name self">add-direct-method</span></h1>
@@ -1135,6 +1143,15 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc classes">
+          <h1><a href="#navigation_misc_classes">Related</a></h1>
+          <ul>
+            <li><a class="here">add-direct-subclass</a></li>
+            <li><a href="#remove-direct-subclass">remove-direct-subclass</a></li>
+            <li><a href="#validate-superclass">validate-superclass</a></li>
+          </ul>
+        </nav>
+
         <article class="generic-function definition">
 
           <h1><span class="type">Generic Function</span> <span class="name self">add-direct-subclass</span></h1>
@@ -1221,6 +1238,14 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/add-method.html" target="_blank">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title related misc generic-functions">
+          <h1><a href="#navigation_misc_generic-functions">Related</a></h1>
+          <ul>
+            <li><a class="here">add-method</a></li>
+            <li><a href="#remove-method">remove-method</a></li>
           </ul>
         </nav>
 
@@ -1323,6 +1348,14 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/allocate-instance.html" target="_blank">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title related misc classes">
+          <h1><a href="#navigation_misc_classes">Related</a></h1>
+          <ul>
+            <li><a href="#make-instance">make-instance</a></li>
+            <li><a class="here">allocate-instance</a></li>
           </ul>
         </nav>
 
@@ -3687,6 +3720,15 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc classes">
+          <h1><a href="#navigation_misc_classes">Related</a></h1>
+          <ul>
+            <li><a class="here">direct-slot-definition-class</a></li>
+            <li><a href="#reader-method-class">reader-method-class</a></li>
+            <li><a href="#writer-method-class">writer-method-class</a></li>
+          </ul>
+        </nav>
+
         <article class="generic-function definition">
 
           <h1><span class="type">Generic Function</span> <span class="name self">direct-slot-definition-class</span></h1>
@@ -3885,6 +3927,14 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc classes">
+          <h1><a href="#navigation_misc_classes">Related</a></h1>
+          <ul>
+            <li><a class="here">ensure-class</a></li>
+            <li><a href="#ensure-class-using-class">ensure-class-using-class</a></li>
+          </ul>
+        </nav>
+
         <div class="page" id="page-182">
           <a href="https://non-free.hexstream.xyz/clos-mop.hexstreamsoft.com/scans/182.png" target="_blank" class="page-number">
             <span class="hide">[Page </span>
@@ -3956,6 +4006,14 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/ensure-class-using-class.html" target="_blank">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title related misc classes">
+          <h1><a href="#navigation_misc_classes">Related</a></h1>
+          <ul>
+            <li><a href="#ensure-class">ensure-class</a></li>
+            <li><a class="here">ensure-class-using-class</a></li>
           </ul>
         </nav>
 
@@ -4120,6 +4178,15 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc generic-functions">
+          <h1><a href="#navigation_misc_generic-functions">Related</a></h1>
+          <ul>
+            <li><a class="here">ensure-generic-function</a></li>
+            <li><a href="#ensure-generic-function-using-class">ensure-generic-function-using-class</a></li>
+            <li><a href="#find-method-combination">find-method-combination</a></li>
+          </ul>
+        </nav>
+
         <article class="function definition">
 
           <h1><span class="type">Function</span> <span class="name self">ensure-generic-function</span></h1>
@@ -4199,6 +4266,15 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/ensure-generic-function-using-class.html" target="_blank">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title related misc generic-functions">
+          <h1><a href="#navigation_misc_generic-functions">Related</a></h1>
+          <ul>
+            <li><a href="#ensure-generic-function">ensure-generic-function</a></li>
+            <li><a class="here">ensure-generic-function-using-class</a></li>
+            <li><a href="#find-method-combination">find-method-combination</a></li>
           </ul>
         </nav>
 
@@ -4328,6 +4404,14 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc specializers">
+          <h1><a href="#navigation_misc_specializers">Related</a></h1>
+          <ul>
+            <li><a href="#intern-eql-specializer">intern-eql-specializer</a></li>
+            <li><a class="here">eql-specializer-object</a></li>
+          </ul>
+        </nav>
+
         <article class="function definition">
 
           <h1><span class="type">Function</span> <span class="name self">eql-specializer-object</span></h1>
@@ -4378,6 +4462,14 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/extract-lambda-list.html" target="_blank">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title related misc specializers">
+          <h1><a href="#navigation_misc_specializers">Related</a></h1>
+          <ul>
+            <li><a class="here">extract-lambda-list</a></li>
+            <li><a href="#extract-specializer-names">extract-specializer-names</a></li>
           </ul>
         </nav>
 
@@ -4455,6 +4547,14 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/extract-specializer-names.html" target="_blank">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title related misc specializers">
+          <h1><a href="#navigation_misc_specializers">Related</a></h1>
+          <ul>
+            <li><a href="#extract-lambda-list">extract-lambda-list</a></li>
+            <li><a class="here">extract-specializer-names</a></li>
           </ul>
         </nav>
 
@@ -4639,6 +4739,15 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/find-method-combination.html" target="_blank">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title related misc generic-functions">
+          <h1><a href="#navigation_misc_generic-functions">Related</a></h1>
+          <ul>
+            <li><a href="#ensure-generic-function">ensure-generic-function</a></li>
+            <li><a href="#ensure-generic-function-using-class">ensure-generic-function-using-class</a></li>
+            <li><a class="here">find-method-combination</a></li>
           </ul>
         </nav>
 
@@ -7175,6 +7284,14 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc specializers">
+          <h1><a href="#navigation_misc_specializers">Related</a></h1>
+          <ul>
+            <li><a class="here">intern-eql-specializer</a></li>
+            <li><a href="#eql-specializer-object">eql-specializer-object</a></li>
+          </ul>
+        </nav>
+
         <article class="function definition">
 
           <h1><span class="type">Function</span> <span class="name self">intern-eql-specializer</span></h1>
@@ -7229,6 +7346,14 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/#make-instance" target="_blank">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title related misc classes">
+          <h1><a href="#navigation_misc_classes">Related</a></h1>
+          <ul>
+            <li><a class="here">make-instance</a></li>
+            <li><a href="#allocate-instance">allocate-instance</a></li>
           </ul>
         </nav>
 
@@ -8321,6 +8446,15 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc classes">
+          <h1><a href="#navigation_misc_classes">Related</a></h1>
+          <ul>
+            <li><a href="#direct-slot-definition-class">direct-slot-definition-class</a></li>
+            <li><a class="here">reader-method-class</a></li>
+            <li><a href="#writer-method-class">writer-method-class</a></li>
+          </ul>
+        </nav>
+
         <div class="page approximate starts-midpage" id="page-224-bottom">
           <a href="https://non-free.hexstream.xyz/clos-mop.hexstreamsoft.com/scans/224.png" target="_blank" class="page-number">
             <span class="hide">↱[Page </span>
@@ -8569,6 +8703,14 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc specializers">
+          <h1><a href="#navigation_misc_specializers">Related</a></h1>
+          <ul>
+            <li><a href="#add-direct-method">add-direct-method</a></li>
+            <li><a class="here">remove-direct-method</a></li>
+          </ul>
+        </nav>
+
         <div class="page" id="page-227">
           <a href="https://non-free.hexstream.xyz/clos-mop.hexstreamsoft.com/scans/227.png" target="_blank" class="page-number">
             <span class="hide">[Page </span>
@@ -8681,6 +8823,15 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc classes">
+          <h1><a href="#navigation_misc_classes">Related</a></h1>
+          <ul>
+            <li><a href="#add-direct-subclass">add-direct-subclass</a></li>
+            <li><a class="here">remove-direct-subclass</a></li>
+            <li><a href="#validate-superclass">validate-superclass</a></li>
+          </ul>
+        </nav>
+
         <article class="generic-function definition">
 
           <h1><span class="type">Generic Function</span> <span class="name self">remove-direct-subclass</span></h1>
@@ -8756,6 +8907,14 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/remove-method.html" target="_blank">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title related misc generic-functions">
+          <h1><a href="#navigation_misc_generic-functions">Related</a></h1>
+          <ul>
+            <li><a href="#add-method">add-method</a></li>
+            <li><a class="here">remove-method</a></li>
           </ul>
         </nav>
 
@@ -10378,6 +10537,14 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc specializers">
+          <h1><a href="#navigation_misc_specializers">Related</a></h1>
+          <ul>
+            <li><a class="here">specializer-direct-generic-functions</a></li>
+            <li><a href="#specializer-direct-methods">specializer-direct-methods</a></li>
+          </ul>
+        </nav>
+
         <div class="page" id="page-237">
           <a href="https://non-free.hexstream.xyz/clos-mop.hexstreamsoft.com/scans/237.png" target="_blank" class="page-number">
             <span class="hide">[Page </span>
@@ -10474,6 +10641,14 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/specializer-direct-methods.html" target="_blank">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title related misc specializers">
+          <h1><a href="#navigation_misc_specializers">Related</a></h1>
+          <ul>
+            <li><a href="#specializer-direct-generic-functions">specializer-direct-generic-functions</a></li>
+            <li><a class="here">specializer-direct-methods</a></li>
           </ul>
         </nav>
 
@@ -10765,6 +10940,15 @@
           </ul>
         </nav>
 
+        <nav class="tabs contains-title related misc classes">
+          <h1><a href="#navigation_misc_classes">Related</a></h1>
+          <ul>
+            <li><a href="#add-direct-subclass">add-direct-subclass</a></li>
+            <li><a href="#remove-direct-subclass">remove-direct-subclass</a></li>
+            <li><a class="here">validate-superclass</a></li>
+          </ul>
+        </nav>
+
         <article class="generic-function definition">
 
           <h1><span class="type">Generic Function</span> <span class="name self">validate-superclass</span></h1>
@@ -10864,6 +11048,15 @@
         <nav class="hanging-menu">
           <ul>
             <li class="rs-version"><a href="http://metamodular.com/CLOS-MOP/writer-method-class.html" target="_blank">RS</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title related misc classes">
+          <h1><a href="#navigation_misc_classes">Related</a></h1>
+          <ul>
+            <li><a href="#direct-slot-definition-class">direct-slot-definition-class</a></li>
+            <li><a href="#reader-method-class">reader-method-class</a></li>
+            <li><a class="here">writer-method-class</a></li>
           </ul>
         </nav>
 
