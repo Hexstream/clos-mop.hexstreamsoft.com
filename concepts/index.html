@@ -1415,7 +1415,7 @@
           <figure id="figure-5.3_figure">
             <figcaption>
               <p>Figure 5.3</p>
-              <p>An example <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form and one possible correct expansion. In the expansion, <i>method-lambda</i> is the result of calling <a href="../generic-functions-and-methods/#make-method-lambda" class="body-link generic-function">make-method-lambda</a> as described in the section <a href="#processing-method-bodies" class="body-link"><q>Processing Method Bodies</q>.</a> The initargs appearing after <var class="keyword-initarg">:function</var> are assumed to be additional initargs returned from the call to <a href="../generic-functions-and-methods/#make-method-lambda" class="body-link generic-function">make-method-lambda</a>.</p>
+              <p>An example <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form and one possible correct expansion. In the expansion, <var>method-lambda</var> is the result of calling <a href="../generic-functions-and-methods/#make-method-lambda" class="body-link generic-function">make-method-lambda</a> as described in the section <a href="#processing-method-bodies" class="body-link"><q>Processing Method Bodies</q>.</a> The initargs appearing after <var class="keyword-initarg">:function</var> are assumed to be additional initargs returned from the call to <a href="../generic-functions-and-methods/#make-method-lambda" class="body-link generic-function">make-method-lambda</a>.</p>
             </figcaption>
             <div class="scroll">
               <pre id="figure-5.3">
@@ -1433,7 +1433,7 @@
                                         (intern-eql-specializer 0))
                    ':lambda-list '(p l <span class="lambda-keyword">&amp;optional</span> (visiblyp t)
                                        <span class="lambda-keyword">&amp;key</span> color)
-                   ':function (function method-lambda)
+                   ':function (function <var>method-lambda</var>)
                    'additional-initarg-1 't
                    'additional-initarg-2 '39)))
               </pre>
