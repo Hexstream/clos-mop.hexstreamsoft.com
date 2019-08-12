@@ -44,7 +44,7 @@
 
       </div>
 
-      <p id="last-updated"><span>This page was last updated on </span><time datetime="2018-10-08">8 october 2018</time><span>.</span></p>
+      <p id="last-updated"><span>This page was last updated on </span><time datetime="2019-08-11">11 august 2019</time><span>.</span></p>
 
     </nav>
 
@@ -1408,7 +1408,11 @@
             <a href="#page-151" class="anchor">⚓</a>
           </div>
 
-          <p>The result of the call to <a href="../generic-functions-and-methods/#add-method" class="body-link generic-function">add-method</a> is returned as the result of evaluating or executing the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form.</p>
+          <p><del>The result of the call to <a href="../generic-functions-and-methods/#add-method" class="body-link generic-function">add-method</a> is returned as the result of evaluating or executing the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form.</del></p>
+
+          <article class="remark" data-author="Jean-Philippe Paradis">
+            <p><b>Jean-Philippe Paradis remarks:</b> That's incorrect. <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> must return the new method, as mandated by the standard. (<a href="../generic-functions-and-methods/#add-method" class="body-link generic-function">add-method</a> returns the generic function.)</p>
+          </article>
 
           <p>An example showing a typical <a href="http://www.lispworks.com/documentation/HyperSpec/Body/m_defmet.htm#defmethod" class="body-link clhs">defmethod</a> form and a sample expansion is shown in <a href="#figure-5.3_figure" class="body-link">Figure 5.3</a>. The processing of the method body for this method is shown in <a href="#figure-5.4_figure" class="body-link">Figure 5.4</a>.</p>
 
