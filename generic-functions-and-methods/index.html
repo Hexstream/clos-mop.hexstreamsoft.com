@@ -45,7 +45,7 @@
 
       </div>
 
-      <p id="last-updated"><span>This page was last updated on </span><time datetime="2019-08-11">11 august 2019</time><span>.</span></p>
+      <p id="last-updated"><span>This page was last updated on </span><time datetime="2020-03-20">20 mars 2020</time><span>.</span></p>
 
     </nav>
 
@@ -309,6 +309,7 @@
               <li><a href="#navigation_protocols_class-finalization-protocol_finalize-inheritance">finalize-inheritance</a></li>
               <li><a href="#navigation_protocols_class-finalization-protocol_compute-class-precedence-list">compute-class-precedence-list</a></li>
               <li><a href="#navigation_protocols_class-finalization-protocol_compute-slots">compute-slots</a></li>
+              <li><a href="#navigation_protocols_class-finalization-protocol_direct-slot-definition-class" class="not-technically">direct-slot-definition-class</a></li>
               <li><a href="#navigation_protocols_class-finalization-protocol_effective-slot-definition-class">effective-slot-definition-class</a></li>
               <li><a href="#navigation_protocols_class-finalization-protocol_compute-effective-slot-definition">compute-effective-slot-definition</a></li>
               <li><a href="#navigation_protocols_class-finalization-protocol_compute-default-initargs">compute-default-initargs</a></li>
@@ -392,6 +393,12 @@
               <li class="method"><span class="type">Method</span> <a href="#compute-slots_funcallable-standard-class" class="name">compute-slots</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Around-Method</span> <a href="#compute-slots_around_standard-class" class="name">compute-slots</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="retvals"></span></li>
               <li class="method"><span class="type">Around-Method</span> <a href="#compute-slots_around_funcallable-standard-class" class="name">compute-slots</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="retvals"></span></li>
+            </ul>
+
+            <ul class="operator-and-methods" id="navigation_protocols_class-finalization-protocol_direct-slot-definition-class">
+              <li class="operator"><span class="type">Generic Function</span> <a href="#direct-slot-definition-class" class="name not-technically">direct-slot-definition-class</a> <var>class</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>slot-definition-class</var></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#direct-slot-definition-class_standard-class" class="name not-technically">direct-slot-definition-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
+              <li class="method"><span class="type">Method</span> <a href="#direct-slot-definition-class_funcallable-standard-class" class="name not-technically">direct-slot-definition-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
             </ul>
 
             <ul class="operator-and-methods" id="navigation_protocols_class-finalization-protocol_effective-slot-definition-class">
@@ -615,7 +622,6 @@
               <li><a href="#navigation_misc_classes_add-direct-subclass">add-direct-subclass</a></li>
               <li><a href="#navigation_misc_classes_remove-direct-subclass">remove-direct-subclass</a></li>
               <li><a href="#navigation_misc_classes_validate-superclass">validate-superclass</a></li>
-              <li><a href="#navigation_misc_classes_direct-slot-definition-class">direct-slot-definition-class</a></li>
               <li><a href="#navigation_misc_classes_reader-method-class">reader-method-class</a></li>
               <li><a href="#navigation_misc_classes_writer-method-class">writer-method-class</a></li>
               <li><a href="#navigation_misc_classes_make-instance">make-instance</a></li>
@@ -690,12 +696,6 @@
             <ul class="operator-and-methods" id="navigation_misc_classes_validate-superclass">
               <li class="operator"><span class="type">Generic Function</span> <a href="#validate-superclass" class="name">validate-superclass</a> <var>class</var> <var>superclass</var> <span class="retvals">=&gt; <var>generalized-boolean</var></span></li>
               <li class="method"><span class="type">Method</span> <a href="#validate-superclass_class_class" class="name">validate-superclass</a> <span class="arg">(<var>class</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="arg">(<var>superclass</var> <a href="../classes/#class" class="specializer">class</a>)</span> <span class="retvals"></span></li>
-            </ul>
-
-            <ul class="operator-and-methods" id="navigation_misc_classes_direct-slot-definition-class">
-              <li class="operator"><span class="type">Generic Function</span> <a href="#direct-slot-definition-class" class="name">direct-slot-definition-class</a> <var>class</var> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals">=&gt; <var>slot-definition-class</var></span></li>
-              <li class="method"><span class="type">Method</span> <a href="#direct-slot-definition-class_standard-class" class="name">direct-slot-definition-class</a> <span class="arg">(<var>class</var> <a href="../classes/#standard-class" class="specializer">standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
-              <li class="method"><span class="type">Method</span> <a href="#direct-slot-definition-class_funcallable-standard-class" class="name">direct-slot-definition-class</a> <span class="arg">(<var>class</var> <a href="../classes/#funcallable-standard-class" class="specializer">funcallable-standard-class</a>)</span> <span class="lambda-keyword">&amp;rest</span> <var>initargs</var> <span class="retvals"></span></li>
             </ul>
 
             <ul class="operator-and-methods" id="navigation_misc_classes_reader-method-class">
@@ -2972,6 +2972,7 @@
             <li><a href="#finalize-inheritance">finalize-inheritance</a></li>
             <li><a class="here">compute-class-precedence-list</a></li>
             <li><a href="#compute-slots">compute-slots</a></li>
+            <li><a href="#direct-slot-definition-class" class="not-technically">direct-slot-definition-class</a></li>
             <li><a href="#effective-slot-definition-class">effective-slot-definition-class</a></li>
             <li><a href="#compute-effective-slot-definition">compute-effective-slot-definition</a></li>
             <li><a href="#compute-default-initargs">compute-default-initargs</a></li>
@@ -3068,6 +3069,7 @@
             <li><a href="#finalize-inheritance">finalize-inheritance</a></li>
             <li><a href="#compute-class-precedence-list">compute-class-precedence-list</a></li>
             <li><a href="#compute-slots">compute-slots</a></li>
+            <li><a href="#direct-slot-definition-class" class="not-technically">direct-slot-definition-class</a></li>
             <li><a href="#effective-slot-definition-class">effective-slot-definition-class</a></li>
             <li><a href="#compute-effective-slot-definition">compute-effective-slot-definition</a></li>
             <li><a class="here">compute-default-initargs</a></li>
@@ -3405,6 +3407,7 @@
             <li><a href="#finalize-inheritance">finalize-inheritance</a></li>
             <li><a href="#compute-class-precedence-list">compute-class-precedence-list</a></li>
             <li><a href="#compute-slots">compute-slots</a></li>
+            <li><a href="#direct-slot-definition-class" class="not-technically">direct-slot-definition-class</a></li>
             <li><a href="#effective-slot-definition-class">effective-slot-definition-class</a></li>
             <li><a class="here">compute-effective-slot-definition</a></li>
             <li><a href="#compute-default-initargs">compute-default-initargs</a></li>
@@ -3516,6 +3519,7 @@
             <li><a href="#finalize-inheritance">finalize-inheritance</a></li>
             <li><a href="#compute-class-precedence-list">compute-class-precedence-list</a></li>
             <li><a class="here">compute-slots</a></li>
+            <li><a href="#direct-slot-definition-class" class="not-technically">direct-slot-definition-class</a></li>
             <li><a href="#effective-slot-definition-class">effective-slot-definition-class</a></li>
             <li><a href="#compute-effective-slot-definition">compute-effective-slot-definition</a></li>
             <li><a href="#compute-default-initargs">compute-default-initargs</a></li>
@@ -3665,14 +3669,20 @@
           </ul>
         </nav>
 
-        <nav class="tabs contains-title related misc classes">
-          <h1><a href="#navigation_misc_classes">Related</a></h1>
+        <nav class="tabs contains-title related protocol class-finalization-protocol">
+          <h1><a href="#navigation_protocols_class-finalization-protocol">Class finalization protocol</a></h1>
           <ul>
-            <li><a class="here">direct-slot-definition-class</a></li>
-            <li><a href="#reader-method-class">reader-method-class</a></li>
-            <li><a href="#writer-method-class">writer-method-class</a></li>
+            <li><a href="#finalize-inheritance">finalize-inheritance</a></li>
+            <li><a href="#compute-class-precedence-list">compute-class-precedence-list</a></li>
+            <li><a href="#compute-slots">compute-slots</a></li>
+            <li><a class="here not-technically">direct-slot-definition-class</a></li>
+            <li><a href="#effective-slot-definition-class">effective-slot-definition-class</a></li>
+            <li><a href="#compute-effective-slot-definition">compute-effective-slot-definition</a></li>
+            <li><a href="#compute-default-initargs">compute-default-initargs</a></li>
           </ul>
         </nav>
+
+        <small class="not-technically">(Technically not part of the class finalization protocol.)</small>
 
         <article class="generic-function definition">
 
@@ -3776,6 +3786,7 @@
             <li><a href="#finalize-inheritance">finalize-inheritance</a></li>
             <li><a href="#compute-class-precedence-list">compute-class-precedence-list</a></li>
             <li><a href="#compute-slots">compute-slots</a></li>
+            <li><a href="#direct-slot-definition-class" class="not-technically">direct-slot-definition-class</a></li>
             <li><a class="here">effective-slot-definition-class</a></li>
             <li><a href="#compute-effective-slot-definition">compute-effective-slot-definition</a></li>
             <li><a href="#compute-default-initargs">compute-default-initargs</a></li>
@@ -4566,6 +4577,7 @@
             <li><a class="here">finalize-inheritance</a></li>
             <li><a href="#compute-class-precedence-list">compute-class-precedence-list</a></li>
             <li><a href="#compute-slots">compute-slots</a></li>
+            <li><a href="#direct-slot-definition-class" class="not-technically">direct-slot-definition-class</a></li>
             <li><a href="#effective-slot-definition-class">effective-slot-definition-class</a></li>
             <li><a href="#compute-effective-slot-definition">compute-effective-slot-definition</a></li>
             <li><a href="#compute-default-initargs">compute-default-initargs</a></li>
@@ -8333,7 +8345,6 @@
         <nav class="tabs contains-title related misc classes">
           <h1><a href="#navigation_misc_classes">Related</a></h1>
           <ul>
-            <li><a href="#direct-slot-definition-class">direct-slot-definition-class</a></li>
             <li><a class="here">reader-method-class</a></li>
             <li><a href="#writer-method-class">writer-method-class</a></li>
           </ul>
@@ -10891,7 +10902,6 @@
         <nav class="tabs contains-title related misc classes">
           <h1><a href="#navigation_misc_classes">Related</a></h1>
           <ul>
-            <li><a href="#direct-slot-definition-class">direct-slot-definition-class</a></li>
             <li><a href="#reader-method-class">reader-method-class</a></li>
             <li><a class="here">writer-method-class</a></li>
           </ul>

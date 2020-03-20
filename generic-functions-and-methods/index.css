@@ -413,3 +413,8 @@ section > h1.breadcrumbs a.advisory-header:before {
 section > h1.breadcrumbs a.advisory-header:after {
     content: "]";
 }
+
+
+.not-technically {
+    opacity: 0.7;
+}
