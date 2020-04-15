@@ -246,11 +246,11 @@ pre {
 }
 
 .init-and-or-readers-nav table td a {
-    background-image: url("https://global.hexstreamsoft.com/css/images/unchecked-radio-button.svg");
+    background-image: url("https://global.hexstream.dev/css/images/unchecked-radio-button.svg");
 }
 
 .init-and-or-readers-nav table td a.here {
-    background-image: url("https://global.hexstreamsoft.com/css/images/checked-radio-button.svg");
+    background-image: url("https://global.hexstream.dev/css/images/checked-radio-button.svg");
 }
 
 
