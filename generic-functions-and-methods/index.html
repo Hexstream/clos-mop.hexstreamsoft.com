@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Chapter 6: Generic Functions and Methods | CLOS MOP specification</title>
     <link href="../css/global.css" rel="stylesheet" type="text/css" />
+    <link href="https://global.hexstream.dev/css/forms.css" rel="stylesheet" type="text/css" />
     <link href="https://global.hexstream.dev/css/cl-definitions.css" rel="stylesheet" type="text/css" />
     <link href="index.css" rel="stylesheet" type="text/css" />
     <script src="https://global.hexstream.dev/scripts/global.js"></script>
@@ -848,7 +849,7 @@
 
     </section>
 
-    <main>
+    <main data-state-domain="site-prefs">
 
       <section id="add-dependent">
 
@@ -1551,6 +1552,13 @@
               <span class="page-number">212</span>
               <span class="hide">)</span>
             </a>
+          </div>
+
+          <div class="labelled-control diff-visibility-option">
+            <input id="diff-visibility-option_1" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                   data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+            <label for="diff-visibility-option_1">&nbsp;</label>
+            <label for="diff-visibility-option_1">Show diff</label>
           </div>
 
           <p><ins class="boilerplate-diff">In this and the immediately following sections, the "reader" generic functions which simply return information associated with a particular kind of metaobject are presented together. General information is presented first, followed by a description of the purpose of each, and ending with the specified methods for these generic functions.</ins></p>
@@ -4947,6 +4955,13 @@
             </a>
           </div>
 
+          <div class="labelled-control diff-visibility-option">
+            <input id="diff-visibility-option_2" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                   data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+            <label for="diff-visibility-option_2">&nbsp;</label>
+            <label for="diff-visibility-option_2">Show diff</label>
+          </div>
+
           <p><del class="boilerplate-diff">In this and the immediately following sections, the "reader" generic functions which simply return information associated with a particular kind of metaobject are presented together. General information is presented first, followed by a description of the purpose of each, and ending with the specified methods for these generic functions.</del></p>
 
           <p>The reader generic functions which simply return information associated with <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <ins class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></ins> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobjects are presented together <ins class="boilerplate-diff">in this section</ins><span class="dels-before-punctuation"> <del class="boilerplate-diff">here in the format described under <q><a href="#readers-for-class-metaobjects" class="body-link">Readers for Class Metaobjects</a></q></del></span>.</p>
@@ -5685,6 +5700,13 @@
               <a href="#page-193" class="anchor">⚓</a>
             </div>
 
+            <div class="labelled-control diff-visibility-option">
+              <input id="diff-visibility-option_3" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                     data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+              <label for="diff-visibility-option_3">&nbsp;</label>
+              <label for="diff-visibility-option_3">Show diff</label>
+            </div>
+
             <p>A <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobject can be created by calling <a href="#make-instance" class="body-link generic-function">make-instance</a>. The initialization arguments establish the definition of the <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins><span class="dels-before-punctuation"> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del></span>. A <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobject <ins class="boilerplate-diff">can be redefined by calling <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs" target="_blank">reinitialize-instance</a>. Some classes of <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> metaobject do not support redefinition; in these cases,</ins> <del class="boilerplate-diff">cannot be redefined; calling</del> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs" target="_blank">reinitialize-instance</a> signals an error.</p>
 
             <p>Initialization of a <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobject must be done by calling <a href="#make-instance" class="body-link generic-function">make-instance</a> and allowing it to call <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_init_i.htm#initialize-instance" class="body-link clhs" target="_blank">initialize-instance</a>. <ins class="boilerplate-diff">Reinitialization of a <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> metaobject must be done by calling <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs" target="_blank">reinitialize-instance</a>.</ins> Portable programs must not call <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_init_i.htm#initialize-instance" class="body-link clhs" target="_blank">initialize-instance</a> directly to initialize a <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobject. Portable programs must not call <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_shared.htm#shared-initialize" class="body-link clhs" target="_blank">shared-initialize</a> directly to initialize <ins class="boilerplate-diff">or reinitialize</ins> a <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobject. Portable programs must not call <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_chg_cl.htm#change-class" class="body-link clhs" target="_blank">change-class</a> to change the class of any <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobject or to turn a <ins class="boilerplate-diff">non-class</ins> <del class="boilerplate-diff">non-generic-function</del> <del class="boilerplate-diff">non-method</del> <del class="boilerplate-diff">non-slot-definition</del> object into a <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobject.</p>
@@ -5930,6 +5952,13 @@
               </table>
             </nav>
 
+            <div class="labelled-control diff-visibility-option">
+              <input id="diff-visibility-option_4" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                     data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+              <label for="diff-visibility-option_4">&nbsp;</label>
+              <label for="diff-visibility-option_4">Show diff</label>
+            </div>
+
             <p>It is not specified which methods provide the initialization <ins class="boilerplate-diff">and reinitialization</ins> behavior described above. Instead, the information needed to allow portable programs to specialize <span class="mid-paragraph-transition-mark" id="195-196-page-transition"></span> this behavior is presented as a set of restrictions on the methods a portable program can define. The model is that portable initialization methods have access to the <ins class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></ins> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic-function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot-definition</a></del> metaobject when either all or none of the specified initialization has taken effect.</p>
 
             <div class="page approximate" id="page-196">
@@ -6087,6 +6116,13 @@
                 <span class="hide">]</span>
               </a>
               <a href="#page-197" class="anchor">⚓</a>
+            </div>
+
+            <div class="labelled-control diff-visibility-option">
+              <input id="diff-visibility-option_5" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                     data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+              <label for="diff-visibility-option_5">&nbsp;</label>
+              <label for="diff-visibility-option_5">Show diff</label>
             </div>
 
             <p>A <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <ins class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></ins> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobject can be created by calling <a href="#make-instance" class="body-link generic-function">make-instance</a>. The initialization arguments establish the definition of the <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <ins class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></ins><span class="dels-before-punctuation"> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del></span>. A <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <ins class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></ins> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobject <ins class="boilerplate-diff">can be redefined by calling <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs" target="_blank">reinitialize-instance</a>. Some classes of <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <ins class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></ins> metaobject do not support redefinition; in these cases,</ins> <del class="boilerplate-diff">cannot be redefined; calling</del> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs" target="_blank">reinitialize-instance</a> signals an error.</p>
@@ -6345,6 +6381,13 @@
               </table>
             </nav>
 
+            <div class="labelled-control diff-visibility-option">
+              <input id="diff-visibility-option_6" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                     data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+              <label for="diff-visibility-option_6">&nbsp;</label>
+              <label for="diff-visibility-option_6">Show diff</label>
+            </div>
+
             <p>It is not specified which methods provide the initialization <ins class="boilerplate-diff">and reinitialization</ins> behavior described above. Instead, the information needed to allow portable programs to specialize this behavior is presented as a set of restrictions on the methods a portable program can define. The model is that portable initialization methods have access to the <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <ins class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic-function</a></ins> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot-definition</a></del> metaobject when either all or none of the specified initialization has taken effect.</p>
 
             <p>These restrictions govern the methods that a portable program can define on the generic functions <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_init_i.htm#initialize-instance" class="body-link clhs" target="_blank">initialize-instance</a>, <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs" target="_blank">reinitialize-instance</a>, and <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_shared.htm#shared-initialize" class="body-link clhs" target="_blank">shared-initialize</a>. These restrictions apply only to methods on these generic functions for which the first specializer is a subclass of the class <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <ins class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic-function</a></ins><span class="dels-before-punctuation"> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot-definition</a></del></span>. Other portable methods on these generic functions are not affected by these restrictions.</p>
@@ -6500,6 +6543,13 @@
                 <span class="hide">]</span>
               </a>
               <a href="#page-200" class="anchor">⚓</a>
+            </div>
+
+            <div class="labelled-control diff-visibility-option">
+              <input id="diff-visibility-option_7" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                     data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+              <label for="diff-visibility-option_7">&nbsp;</label>
+              <label for="diff-visibility-option_7">Show diff</label>
             </div>
 
             <p>A <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <ins class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></ins> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobject can be created by calling <a href="#make-instance" class="body-link generic-function">make-instance</a>. The initialization arguments establish the definition of the <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <ins class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></ins><span class="dels-before-punctuation"> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del></span>. A <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <ins class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></ins> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></del> metaobject <del class="boilerplate-diff">can be redefined by calling <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs" target="_blank">reinitialize-instance</a>. Some classes of <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> metaobject do not support redefinition; in these cases,</del> <ins class="boilerplate-diff">cannot be redefined; calling</ins> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs" target="_blank">reinitialize-instance</a> signals an error.</p>
@@ -6723,6 +6773,13 @@
               </table>
             </nav>
 
+            <div class="labelled-control diff-visibility-option">
+              <input id="diff-visibility-option_8" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                     data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+              <label for="diff-visibility-option_8">&nbsp;</label>
+              <label for="diff-visibility-option_8">Show diff</label>
+            </div>
+
             <p>It is not specified which methods provide the initialization <del class="boilerplate-diff">and reinitialization</del> behavior described above. Instead, the information needed to allow portable programs to specialize this behavior is presented <span class="amop-typo" data-original="in"></span> as a set of restrictions on the methods a portable program can define. The model is that portable initialization methods have access to the <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic-function</a></del> <ins class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></ins> <del class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot-definition</a></del> metaobject when either all or none of the specified initialization has taken effect.</p>
 
             <div class="page" id="page-202">
@@ -6882,6 +6939,13 @@
                 <span class="hide">]</span>
               </a>
               <a href="#page-203" class="anchor">⚓</a>
+            </div>
+
+            <div class="labelled-control diff-visibility-option">
+              <input id="diff-visibility-option_9" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                     data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+              <label for="diff-visibility-option_9">&nbsp;</label>
+              <label for="diff-visibility-option_9">Show diff</label>
             </div>
 
             <p>A <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <ins class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></ins> metaobject can be created by calling <a href="#make-instance" class="body-link generic-function">make-instance</a>. The initialization arguments establish the definition of the <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <ins class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></ins>. A <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <ins class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot definition</a></ins> metaobject <del class="boilerplate-diff">can be redefined by calling <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm#reinitialize-instance" class="body-link clhs" target="_blank">reinitialize-instance</a>. Some classes of <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic function</a></del> metaobject do not support redefinition; in these cases,</del> <ins class="boilerplate-diff">cannot be redefined; calling</ins> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_reinit.htm" class="body-link clhs" target="_blank">reinitialize-instance</a> signals an error.</p>
@@ -7138,6 +7202,13 @@
                 </tbody>
               </table>
             </nav>
+
+            <div class="labelled-control diff-visibility-option">
+              <input id="diff-visibility-option_10" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                     data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+              <label for="diff-visibility-option_10">&nbsp;</label>
+              <label for="diff-visibility-option_10">Show diff</label>
+            </div>
 
             <p>It is not specified which methods provide the initialization <ins class="boilerplate-diff">and reinitialization</ins> behavior described above. Instead, the information needed to allow portable programs to specialize this behavior is presented as a set of restrictions on the methods a portable program can define. The model is that portable initialization methods have access to the <del class="boilerplate-diff"><a href="../classes/#class" class="body-link class">class</a></del> <del class="boilerplate-diff"><a href="../classes/#generic-function" class="body-link class">generic-function</a></del> <del class="boilerplate-diff"><a href="../classes/#method" class="body-link class">method</a></del> <ins class="boilerplate-diff"><a href="../classes/#slot-definition" class="body-link class">slot-definition</a></ins> metaobject when either all or none of the specified initialization has taken effect.</p>
 
@@ -7774,6 +7845,13 @@
               <span class="page-number">218<span class="page-fraction">↓</span></span>
               <span class="hide">)</span>
             </a>
+          </div>
+
+          <div class="labelled-control diff-visibility-option">
+            <input id="diff-visibility-option_11" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                   data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+            <label for="diff-visibility-option_11">&nbsp;</label>
+            <label for="diff-visibility-option_11">Show diff</label>
           </div>
 
           <p><del class="boilerplate-diff">In this and the immediately following sections, the "reader" generic functions which simply return information associated with a particular kind of metaobject are presented together. General information is presented first, followed by a description of the purpose of each, and ending with the specified methods for these generic functions.</del></p>
@@ -9460,6 +9538,13 @@
               <span class="page-number">221</span>
               <span class="hide">)</span>
             </a>
+          </div>
+
+          <div class="labelled-control diff-visibility-option">
+            <input id="diff-visibility-option_12" type="checkbox" class="replaced" disabled="disabled" checked="checked"
+                   data-state-key="diff.visibility" data-state-value="show" data-state-antivalue="hide"/>
+            <label for="diff-visibility-option_12">&nbsp;</label>
+            <label for="diff-visibility-option_12">Show diff</label>
           </div>
 
           <p><del class="boilerplate-diff">In this and the immediately following sections, the "reader" generic functions which simply return information associated with a particular kind of metaobject are presented together. General information is presented first, followed by a description of the purpose of each, and ending with the specified methods for these generic functions.</del></p>

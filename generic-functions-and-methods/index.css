@@ -418,3 +418,21 @@ section > h1.breadcrumbs a.advisory-header:after {
 .not-technically {
     opacity: 0.7;
 }
+
+
+.labelled-control {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.labelled-control input.replaced + label {
+    flex: none;
+    width: 1em;
+    padding-right: 0.2em;
+}
+
+.labelled-control input.replaced + label + label {
+    flex: 0 1 auto;
+}
