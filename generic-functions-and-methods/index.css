@@ -165,7 +165,7 @@
 
 .horizontally-aligned-titles-and-tabs ul li.setfable .reader,
 .tabs ul li.setfable .reader {
-    flex: 1 0;
+    flex: 1 1 auto;
 }
 
 .horizontally-aligned-titles-and-tabs ul li.setfable .writer,
@@ -179,7 +179,7 @@
 }
 
 .tabs ul li.setfable {
-    flex: none;
+    flex: 1 1 auto;
 }
 
 .tabs ul li.setfable .reader {
