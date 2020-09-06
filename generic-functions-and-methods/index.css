@@ -116,6 +116,7 @@
     border: none;
     border-left: medium solid transparent;
     font-size: inherit;
+    white-space: initial;
 }
 
 .horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a {
