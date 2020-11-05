@@ -6,42 +6,6 @@ section > h1 {
     margin-top: 0;
 }
 
-/* From clop preferences. */
-
-main ul ul {
-    margin-top: 0.5em;
-    margin-right: 0;
-    margin-bottom: 0.5em;
-}
-
-.labelled-control {
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-}
-
-.labelled-control input.replaced + label {
-    flex: none;
-    width: 1em;
-    padding-right: 0.2em;
-}
-
-.labelled-control input.replaced + label + label {
-    flex: 0 1 auto;
-}
-
-.controls-group.horizontal {
-    display: flex;
-    flex-flow: row;
-}
-
-.controls-group.horizontal > * + * {
-    margin-left: 0.4em;
-}
-
-
-/* End clop preferences. */
-
 
 .labelled-control {
     align-items: flex-start;
