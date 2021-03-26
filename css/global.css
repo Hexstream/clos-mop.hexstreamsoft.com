@@ -48,7 +48,7 @@ main section > .body-list > li {
 
 .breadcrumbs .chapter-toggle .toggle {
     font-size: smaller;
-    line-height: 1em;
+    line-height: 1;
     align-self: center;
     padding: 0.1em 0.2em;
 }
@@ -122,7 +122,7 @@ div.page {
     width: 3.5em;
     height: 4.5em;
     border: thin solid black;
-    line-height: 1.4em;
+    line-height: 1.4;
     white-space: nowrap;
 }
 
@@ -344,14 +344,14 @@ article.remark {
     content: "(" counter(index, lower-roman) ")";
     width: initial;
     height: initial;
-    line-height: 1.4em;
+    line-height: 1.4;
 }
 
 .body-list.decimal > li:before {
     content: counter(index, decimal) ".";
     width: initial;
     height: initial;
-    line-height: 1.4em;
+    line-height: 1.4;
 }
 
 #five-prime:before {
