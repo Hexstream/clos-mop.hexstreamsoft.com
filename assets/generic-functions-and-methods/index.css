@@ -17,8 +17,7 @@
     }
 }
 
-.breadcrumbs .chapter-toggle a.toggle:hover:after,
-.breadcrumbs .chapter-toggle a.toggle:focus:after {
+.breadcrumbs .chapter-toggle a.toggle:is(:hover, :focus):after {
     content: "Go to section of the same name in Chapter 5.";
 }
 
@@ -51,8 +50,7 @@
     margin-top: 0.5em;
 }
 
-#navigation ul.operator-and-methods > li
-{
+#navigation ul.operator-and-methods > li {
     display: table-row;
 }
 
@@ -71,8 +69,7 @@
     text-decoration: none;
 }
 
-#navigation ul.operator-and-methods a:hover,
-#navigation ul.operator-and-methods a:focus {
+#navigation ul.operator-and-methods a:is(:hover, :focus) {
     text-decoration: underline;
     background-color: #FFDD99;
 }
@@ -123,8 +120,7 @@
     padding: 0;
 }
 
-.horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a:hover,
-.horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a:focus {
+.horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a:is(:hover, :focus) {
     text-decoration: underline;
 }
 
@@ -150,26 +146,22 @@
     background-color: #FFCC99;
 }
 
-.horizontally-aligned-titles-and-tabs ul li a:hover,
-.horizontally-aligned-titles-and-tabs ul li a:focus {
+.horizontally-aligned-titles-and-tabs ul li a:is(:hover, :focus) {
     background-color: #FFDD99;
     text-decoration: underline;
 }
 
-.horizontally-aligned-titles-and-tabs ul li.setfable,
-.tabs ul li.setfable {
+:is(.horizontally-aligned-titles-and-tabs, .tabs) ul li.setfable {
     display: flex;
     flex-flow: row;
     justify-content: stretch;
 }
 
-.horizontally-aligned-titles-and-tabs ul li.setfable .reader,
-.tabs ul li.setfable .reader {
+:is(.horizontally-aligned-titles-and-tabs .tabs) ul li.setfable .reader {
     flex: 1 1 auto;
 }
 
-.horizontally-aligned-titles-and-tabs ul li.setfable .writer,
-.tabs ul li.setfable .writer {
+:is(.horizontally-aligned-titles-and-tabs, .tabs) ul li.setfable .writer {
     flex: none;
     text-align: right;
 }
@@ -190,8 +182,7 @@
     padding-left: 0.2em;
 }
 
-.horizontally-aligned-titles-and-tabs ul li.setfable .writer:hover,
-.horizontally-aligned-titles-and-tabs ul li.setfable .writer:focus {
+.horizontally-aligned-titles-and-tabs ul li.setfable .writer:is(:hover, :focus) {
     opacity: 1;
 }
 
@@ -233,8 +224,7 @@ pre {
     }
 }
 
-.init-and-or-readers-nav table th,
-.init-and-or-readers-nav table td {
+.init-and-or-readers-nav table :is(th, td) {
     text-align: center;
 }
 
@@ -318,8 +308,7 @@ pre {
     margin-left: 0.1em;
 }
 
-#readers-for-class-metaobjects_methods_table-and-descriptions table thead th,
-#readers-for-class-metaobjects_methods_table-and-descriptions table tbody td {
+#readers-for-class-metaobjects_methods_table-and-descriptions table :is(thead th, tbody td) {
     text-align: center;
 }
 

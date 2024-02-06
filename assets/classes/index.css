@@ -212,8 +212,7 @@ article.definition > section.mentions article > h1 {
     z-index: 1;
 }
 
-#class-graph svg .hierarchy > path,
-#class-graph svg .hierarchy > g {
+#class-graph svg .hierarchy > :is(path, g) {
     stroke: black;
     fill: none;
     stroke-width: 0.3;

@@ -2,8 +2,7 @@ section.body-section {
     padding-top: 0.8em;
 }
 
-.breadcrumbs .chapter-toggle a.toggle:hover:after,
-.breadcrumbs .chapter-toggle a.toggle:focus:after {
+.breadcrumbs .chapter-toggle a.toggle:is(:hover, :focus):after {
     content: "Go to section of the same name in Chapter 6.";
 }
 
@@ -18,9 +17,7 @@ section.body-section {
     text-decoration: none;
 }
 
-#table-of-contents a:hover,
-#table-of-contents a:focus
-{
+#table-of-contents a:is(:hover, :focus) {
     text-decoration: underline;
 }
 
@@ -28,7 +25,8 @@ section.body-section {
     color: green;
 }
 
-#table-of-contents ol li, #table-of-contents ol li.contains-children > a {
+#table-of-contents ol li,
+#table-of-contents ol li.contains-children > a {
     padding: 0 0.6em;
     margin: 0.5em 0;
     border: thin solid transparent;
