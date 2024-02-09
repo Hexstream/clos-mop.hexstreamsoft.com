@@ -2,7 +2,7 @@ section.body-section {
     padding-top: 0.8em;
 }
 
-.breadcrumbs .chapter-toggle a.toggle:is(:hover, :focus):after {
+.breadcrumbs .chapter-toggle a.toggle:is(:hover, :focus)::after {
     content: "Go to section of the same name in Chapter 6.";
 }
 

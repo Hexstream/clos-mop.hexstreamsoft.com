@@ -50,7 +50,7 @@ main section > .body-list > li {
     padding: 0.1em 0.2em;
 }
 
-.breadcrumbs .chapter-toggle a.toggle:is(:hover, :focus):after {
+.breadcrumbs .chapter-toggle a.toggle:is(:hover, :focus)::after {
     position: absolute;
     font-size: smaller;
     font-weight: normal;
@@ -67,7 +67,7 @@ main section > .body-list > li {
         position: initial;
     }
 
-    .breadcrumbs .chapter-toggle a.toggle:is(:hover, :focus):after {
+    .breadcrumbs .chapter-toggle a.toggle:is(:hover, :focus)::after {
         display: table;
         top: 100%;
         left: 50%;
@@ -125,15 +125,15 @@ div.page {
     margin-right: 3em;
 }
 
-div.page.approximate:before {
+div.page.approximate::before {
     content: "↳";
 }
 
-div.page.approximate.starts-midpage:before {
+div.page.approximate.starts-midpage::before {
     content: "↱";
 }
 
-div.on.page:before {
+div.on.page::before {
     content: "On";
     position: absolute;
     bottom: 100%;
@@ -143,7 +143,7 @@ div.on.page:before {
     margin-bottom: 0.15em;
 }
 
-div.page.approximate:before,
+div.page.approximate::before,
 div.page.approximate a.transition {
     position: absolute;
     right: 100%;
@@ -185,11 +185,11 @@ div.page > a.embedded.page-number {
     bottom: 0;
 }
 
-div.page > a.embedded.page-number > span.page-number:before {
+div.page > a.embedded.page-number > span.page-number::before {
     content: "↳";
 }
 
-div.page > a.embedded.page-number > span.page-number:after {
+div.page > a.embedded.page-number > span.page-number::after {
     content: "↲";
 }
 
@@ -318,7 +318,7 @@ article.remark {
     counter-increment: index;
 }
 
-.body-list li:before {
+.body-list li::before {
     content: url("images/disc.svg");
     display: block;
     width: 0.4em;
@@ -336,21 +336,21 @@ article.remark {
     margin-left: 1.7em;
 }
 
-.body-list.paren-roman > li:before {
+.body-list.paren-roman > li::before {
     content: "(" counter(index, lower-roman) ")";
     width: initial;
     height: initial;
     line-height: 1.4;
 }
 
-.body-list.decimal > li:before {
+.body-list.decimal > li::before {
     content: counter(index, decimal) ".";
     width: initial;
     height: initial;
     line-height: 1.4;
 }
 
-#five-prime:before {
+#five-prime::before {
     content: "(" counter(index, lower-roman) "')";
     counter-reset: index 5;
     counter-increment: index 0;
@@ -384,7 +384,7 @@ article.remark {
     margin-top: var(--prefs_mid-paragraph-transition-mark_margin-top);
 }
 
-.mid-paragraph-transition-mark:before {
+.mid-paragraph-transition-mark::before {
     content: var(--prefs_mid-paragraph-transition-mark_content);
     font-weight: bold;
     color: green;

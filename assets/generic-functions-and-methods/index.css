@@ -17,7 +17,7 @@
     }
 }
 
-.breadcrumbs .chapter-toggle a.toggle:is(:hover, :focus):after {
+.breadcrumbs .chapter-toggle a.toggle:is(:hover, :focus)::after {
     content: "Go to section of the same name in Chapter 5.";
 }
 
@@ -341,7 +341,7 @@ pre {
     flex-flow: row;
 }
 
-#readers-for-class-metaobjects_methods_table-and-descriptions ol li:before {
+#readers-for-class-metaobjects_methods_table-and-descriptions ol li::before {
     position: static;
     width: 1.2em;
     text-align: right;
@@ -388,19 +388,19 @@ nav.tabs.initargs li, nav.tabs.readers li {
 }
 
 
-section.advisory-header > h1 .here:before {
+section.advisory-header > h1 .here::before {
     content: "[";
 }
 
-section.advisory-header > h1 .here:after {
+section.advisory-header > h1 .here::after {
     content: "]";
 }
 
-section > h1.breadcrumbs a.advisory-header:before {
+section > h1.breadcrumbs a.advisory-header::before {
     content: "[";
 }
 
-section > h1.breadcrumbs a.advisory-header:after {
+section > h1.breadcrumbs a.advisory-header::after {
     content: "]";
 }
 
