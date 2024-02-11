@@ -13,12 +13,8 @@ section.body-section {
 }
 
 
-#table-of-contents a {
+#table-of-contents a:where(:not(:is(:hover, :focus))) {
     text-decoration: none;
-}
-
-#table-of-contents a:is(:hover, :focus) {
-    text-decoration: underline;
 }
 
 #table-of-contents ol > li.contains-children:hover > a:not(:hover) {

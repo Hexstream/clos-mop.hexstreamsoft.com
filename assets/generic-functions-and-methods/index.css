@@ -13,7 +13,7 @@
 
 @media (max-width: 39em) {
     table th {
-        white-space: initial;
+        white-space: revert;
     }
 }
 
@@ -54,8 +54,7 @@
     display: table-row;
 }
 
-#navigation ul.operator-and-methods > li > *
-{
+#navigation ul.operator-and-methods > li > * {
     display: table-cell;
     padding: 0.175em 0.25em;
     white-space: nowrap;
@@ -65,12 +64,11 @@
     margin-top: 0;
 }
 
-#navigation ul.operator-and-methods a {
+#navigation ul.operator-and-methods a:where(:not(:is(:hover, :focus))) {
     text-decoration: none;
 }
 
 #navigation ul.operator-and-methods a:is(:hover, :focus) {
-    text-decoration: underline;
     background-color: #FFDD99;
 }
 
@@ -113,7 +111,7 @@
     border: none;
     border-left: medium solid transparent;
     font-size: inherit;
-    white-space: initial;
+    white-space: revert;
 }
 
 .horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a {
@@ -121,7 +119,7 @@
 }
 
 .horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a:is(:hover, :focus) {
-    text-decoration: underline;
+    text-decoration: revert;
 }
 
 .horizontally-aligned-titles-and-tabs ul {
@@ -148,7 +146,7 @@
 
 .horizontally-aligned-titles-and-tabs ul li a:is(:hover, :focus) {
     background-color: #FFDD99;
-    text-decoration: underline;
+    text-decoration: revert;
 }
 
 :is(.horizontally-aligned-titles-and-tabs, .tabs) ul li.setfable {
@@ -183,7 +181,7 @@
 }
 
 .horizontally-aligned-titles-and-tabs ul li.setfable .writer:is(:hover, :focus) {
-    opacity: 1;
+    opacity: revert;
 }
 
 #navigation_protocols #navigation_protocols_summary_dependent-maintenance-protocol {
@@ -278,20 +276,19 @@ pre {
     }
 
     .generated-methods > h1 {
-        position: initial;
+        position: revert;
         margin: 0 0 -2em 0;
         font-size: 0.9em;
         transform: translate(1em, -0.5em);
     }
 }
 
-.generated-methods > h1 a {
+.generated-methods > h1 a:where(:not(:hover)) {
     opacity: 0.25;
 }
 
 .generated-methods > h1 a:hover {
-    opacity: 1;
-    text-decoration: underline;
+    text-decoration: revert;
 }
 
 #readers-for-class-metaobjects_methods_table-and-descriptions {
@@ -342,7 +339,7 @@ pre {
 }
 
 #readers-for-class-metaobjects_methods_table-and-descriptions ol li::before {
-    position: static;
+    position: revert;
     width: 1.2em;
     text-align: right;
     margin-right: 0.4em;

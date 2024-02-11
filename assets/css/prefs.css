@@ -14,7 +14,7 @@ html.diff\.visibility\=show .boilerplate-diff {
 html.diff\.visibility\=hide .boilerplate-diff {
     --prefs_boilerplate-diff_padding: 0;
     --prefs_boilerplate-diff_border: none;
-    --prefs_boilerplate-diff_border-radius: initial;
+    --prefs_boilerplate-diff_border-radius: revert;
     --prefs_boilerplate-diff_background-color: transparent;
 }
 
@@ -33,8 +33,7 @@ html.diff\.visibility\=show del.boilerplate-diff {
 html.diff\.visibility\=hide del.boilerplate-diff,
 html.diff\.removed\.visibility\=hide del.boilerplate-diff,
 html.diff\.visibility\=hide .dels-before-punctuation,
-html.diff\.removed\.visibility\=hide .dels-before-punctuation
-{
+html.diff\.removed\.visibility\=hide .dels-before-punctuation {
     display: none;
 }
 

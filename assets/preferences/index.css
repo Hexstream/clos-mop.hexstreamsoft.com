@@ -20,7 +20,7 @@ main :is(ul, ol) {
 }
 
 #options {
-    position: static;
+    position: revert;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -43,9 +43,9 @@ main :is(ul, ol) {
 
 @media (max-width: 44em) {
     #options #preferences-page-preferences {
-        position: initial;
-        top: initial;
-        left: initial;
+        position: revert;
+        top: revert;
+        left: revert;
         padding-left: 0;
         border-left: none;
     }

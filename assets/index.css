@@ -21,8 +21,8 @@
 
 .navlist h1 {
     font-size: x-large;
-    letter-spacing: initial;
-    word-spacing: initial;
+    letter-spacing: revert;
+    word-spacing: revert;
 }
 
 main .tabs {

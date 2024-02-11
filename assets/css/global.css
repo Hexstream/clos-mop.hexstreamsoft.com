@@ -13,7 +13,7 @@
 }
 
 main section > .body-list > li {
-    overflow-x: initial;
+    overflow-x: revert;
 }
 
 .scroll {
@@ -64,7 +64,7 @@ main section > .body-list > li {
 /* Viewport wide enough to fit tooltip in the rest of the breadcrumbs bar without wrapping. */
 @media (max-width: 81.5625em) {
     .breadcrumbs .chapter-toggle {
-        position: initial;
+        position: revert;
     }
 
     .breadcrumbs .chapter-toggle a.toggle:is(:hover, :focus)::after {
@@ -82,7 +82,7 @@ main section > .body-list > li {
 
 
 main ul, main ol {
-    list-style-type: initial;
+    list-style-type: revert;
 }
 
 :is(ul, ol)[type="i"] {
@@ -152,12 +152,8 @@ div.page.approximate a.transition {
     margin-right: 0.2em;
 }
 
-div.page a {
+div.page a:where(:not(:hover)) {
     text-decoration: none;
-}
-
-div.page a:hover {
-    text-decoration: underline;
 }
 
 div.page .hide {
@@ -181,7 +177,7 @@ div.page > a.page-number > span.page-number .page-fraction {
 }
 
 div.page > a.embedded.page-number {
-    top: initial;
+    top: revert;
     bottom: 0;
 }
 
@@ -211,7 +207,7 @@ div.page .anchor {
 
     div.page {
         position: relative;
-        right: initial;
+        right: revert;
         margin: 0.5em auto;
     }
 
@@ -273,7 +269,7 @@ a.body-link, .self {
 }
 
 a.body-link.long {
-    white-space: initial;
+    white-space: revert;
 }
 
 .fixme {
@@ -336,18 +332,18 @@ article.remark {
     margin-left: 1.7em;
 }
 
+.body-list:is(.paren-roman, .decimal) > li::before {
+    width: revert;
+    height: revert;
+    line-height: 1.4;
+}
+
 .body-list.paren-roman > li::before {
     content: "(" counter(index, lower-roman) ")";
-    width: initial;
-    height: initial;
-    line-height: 1.4;
 }
 
 .body-list.decimal > li::before {
     content: counter(index, decimal) ".";
-    width: initial;
-    height: initial;
-    line-height: 1.4;
 }
 
 #five-prime::before {
@@ -406,7 +402,7 @@ article.remark {
 }
 
 ins.boilerplate-diff a {
-    text-decoration: underline;
+    text-decoration: revert;
 }
 
 .tabs.split + .tabs.split {

@@ -99,7 +99,7 @@ article.definition > section.mentions article > h1 {
 }
 
 #class-graph > .row > .item > a:hover {
-    text-decoration: underline;
+    text-decoration: revert;
 }
 
 #class-graph > .row > .item > a.standard {
@@ -142,14 +142,12 @@ article.definition > section.mentions article > h1 {
     margin-left: -35%;
 }
 
-#cg_slot-definition
-{
+#cg_slot-definition {
     margin-left: 0;
 }
 
 
-#cg_standard-slot-definition
-{
+#cg_standard-slot-definition {
     margin-left: 0;
 }
 
