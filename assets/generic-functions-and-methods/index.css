@@ -13,7 +13,7 @@
 
 @media (max-width: 39em) {
     table th {
-        white-space: revert;
+        white-space: initial;
     }
 }
 
@@ -111,7 +111,7 @@
     border: none;
     border-left: medium solid transparent;
     font-size: inherit;
-    white-space: revert;
+    white-space: initial;
 }
 
 .horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a {

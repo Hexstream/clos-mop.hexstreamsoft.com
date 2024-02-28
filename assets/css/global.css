@@ -269,7 +269,7 @@ a.body-link, .self {
 }
 
 a.body-link.long {
-    white-space: revert;
+    white-space: initial;
 }
 
 .fixme {
