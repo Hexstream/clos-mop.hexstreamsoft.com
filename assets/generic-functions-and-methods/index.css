@@ -219,6 +219,7 @@ pre {
         display: block;
         width: 1.8em;
         transform: rotate(-90deg) translate(-1.2em);
+        overflow-wrap: initial;
     }
 }
 
