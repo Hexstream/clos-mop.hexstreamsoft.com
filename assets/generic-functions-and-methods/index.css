@@ -374,7 +374,7 @@ nav.tabs.initargs li, nav.tabs.readers li {
 }
 
 .init-or-readers-nav .init-readers-toggle ul {
-    background: transparent;
+    background-color: transparent;
     border: none;
     margin: 0;
     text-align: center;

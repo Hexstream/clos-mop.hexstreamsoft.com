@@ -30,7 +30,7 @@ article.definition > section.mentions article {
     margin-top: 1em;
     margin-bottom: 1em;
     max-width: max-content;
-    background: linen;
+    background-color: linen;
 }
 
 article.definition > section.mentions article > blockquote {

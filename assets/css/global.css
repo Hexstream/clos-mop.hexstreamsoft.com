@@ -76,7 +76,7 @@ main section > .body-list > li {
         text-align: center;
         padding: 0.2em 0.3em;
         border: solid thin gray;
-        background: #ECECEC;
+        background-color: #ECECEC;
     }
 }
 
@@ -230,7 +230,7 @@ figure {
     flex-flow: column;
     padding: 0.2em 0.7em 0;
     border: thin solid lightgray;
-    /*background: linen;*/
+    /*background-color: linen;*/
     max-width: min-content;
 }
 
