@@ -228,9 +228,7 @@ pre {
 }
 
 .init-and-or-readers-nav table td a {
-    background-repeat: no-repeat;
     background-origin: content-box;
-    background-position: 50% 50%;
     background-size: 1em;
     color: transparent;
 }
