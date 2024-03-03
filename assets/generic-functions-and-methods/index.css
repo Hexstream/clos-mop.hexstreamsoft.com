@@ -8,7 +8,7 @@
 }
 
 .tabs.column ul > li {
-    text-align: left;
+    text-align: initial;
 }
 
 @media (max-width: 39em) {
@@ -73,7 +73,7 @@
 }
 
 #navigation ul.operator-and-methods .type {
-    text-align: right;
+    text-align: end;
 }
 
 #navigation ul.operator-and-methods .name {
@@ -161,7 +161,7 @@
 
 :is(.horizontally-aligned-titles-and-tabs, .tabs) ul li.setfable .writer {
     flex: none;
-    text-align: right;
+    text-align: end;
 }
 
 .horizontally-aligned-titles-and-tabs ul li.setfable .writer {
@@ -340,7 +340,7 @@ pre {
 #readers-for-class-metaobjects_methods_table-and-descriptions ol li::before {
     position: revert;
     width: 1.2em;
-    text-align: right;
+    text-align: end;
     margin-right: 0.4em;
     flex: none;
 }
