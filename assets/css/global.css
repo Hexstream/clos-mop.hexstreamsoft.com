@@ -264,14 +264,6 @@ table caption p {
     margin-right: 2em;
 }
 
-a.body-link, .self {
-    white-space: nowrap;
-}
-
-a.body-link.long {
-    white-space: initial;
-}
-
 .fixme {
     color: red;
 }

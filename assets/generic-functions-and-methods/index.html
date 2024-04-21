@@ -1444,7 +1444,7 @@
 
           <article class="remark" data-author="Robert Strandh">
             <p><b>Robert Strandh remarks:</b></p>
-            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_alloca.htm#allocate-instance" class="body-link clhs long" target="_blank">description of this function in the Common Lisp HyperSpec</a>.</p>
+            <p>See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_alloca.htm#allocate-instance" class="body-link clhs" target="_blank">description of this function in the Common Lisp HyperSpec</a>.</p>
             <p>The description above suggests that <span class="name self generic-function">allocate-instance</span> checks to see whether the class is finalized and if not, calls <a href="#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a>. However, the <var>initargs</var> passed to <span class="name self generic-function">allocate-instance</span> should be the defaulted initargs, and computing those initargs requires the class to be finalized. Therefore, <a href="#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> must be called <em>before</em> <span class="name self generic-function">allocate-instance</span> is called. Peeking at PCL source confirms that <a href="#finalize-inheritance" class="body-link generic-function">finalize-inheritance</a> is called from <a href="#make-instance" class="body-link generic-function">make-instance</a> before <span class="name self generic-function">allocate-instance</span> is called.</p>
           </article>
 
@@ -4172,13 +4172,13 @@
               <li><var>function-name</var> -- A symbol or a list of the form <code>(setf <var>symbol</var>)</code>.</li>
               <li><var>generic-function</var> -- A generic function metaobject.</li>
             </ul>
-            <p>Some of the keyword arguments accepted by this function are actually processed by <a href="#ensure-generic-function-using-class" class="body-link generic-function">ensure-generic-function-using-class</a>, others are processed during initialization of the generic function metaobject (as described in the section called <q><a href="#initialization-of-generic-function-metaobjects" class="body-link long">Initialization of Generic Function Metaobjects</a></q>).</p>
+            <p>Some of the keyword arguments accepted by this function are actually processed by <a href="#ensure-generic-function-using-class" class="body-link generic-function">ensure-generic-function-using-class</a>, others are processed during initialization of the generic function metaobject (as described in the section called <q><a href="#initialization-of-generic-function-metaobjects" class="body-link">Initialization of Generic Function Metaobjects</a></q>).</p>
           </section>
 
           <section class="arguments">
             <h1>Arguments</h1>
             <p>The <var>function-name</var> argument is a symbol or a list of the form <code>(setf <var>symbol</var>)</code>.</p>
-            <p>Some of the keyword arguments accepted by this function are actually processed by <a href="#ensure-generic-function-using-class" class="body-link generic-function">ensure-generic-function-using-class</a>, others are processed during initialization of the generic function metaobject (as described in the section called <q><a href="#initialization-of-generic-function-metaobjects" class="body-link long">Initialization of Generic Function Metaobjects</a></q>).</p>
+            <p>Some of the keyword arguments accepted by this function are actually processed by <a href="#ensure-generic-function-using-class" class="body-link generic-function">ensure-generic-function-using-class</a>, others are processed during initialization of the generic function metaobject (as described in the section called <q><a href="#initialization-of-generic-function-metaobjects" class="body-link">Initialization of Generic Function Metaobjects</a></q>).</p>
           </section>
 
           <section class="values">
@@ -4216,7 +4216,7 @@
           </section>
 
           <article class="remark" data-author="Robert Strandh">
-            <p><b>Robert Strandh remarks:</b> See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_ensure.htm#ensure-generic-function" class="body-link clhs long" target="_blank">description of this function in the Common Lisp HyperSpec</a>.</p>
+            <p><b>Robert Strandh remarks:</b> See also the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_ensure.htm#ensure-generic-function" class="body-link clhs" target="_blank">description of this function in the Common Lisp HyperSpec</a>.</p>
           </article>
 
         </article>
@@ -4270,7 +4270,7 @@
               </a>
               <a href="#page-187" class="anchor">⚓</a>
             </div>
-            <p>For the interpretation of additional keyword arguments, see <q><a href="#initialization-of-generic-function-metaobjects" class="body-link long">Initialization of Generic Function Metaobjects</a></q>.</p>
+            <p>For the interpretation of additional keyword arguments, see <q><a href="#initialization-of-generic-function-metaobjects" class="body-link">Initialization of Generic Function Metaobjects</a></q>.</p>
             <ul>
               <li><var>generic-function</var> -- A generic function metaobject.</li>
             </ul>
@@ -4281,7 +4281,7 @@
             <p>The <var>generic-function</var> argument is a generic function metaobject or <a href="http://www.lispworks.com/documentation/HyperSpec/Body/v_nil.htm" class="body-link clhs constant nil" target="_blank">nil</a>.</p>
             <p>The <var>function-name</var> argument is a symbol or a list of the form <code>(setf <var>symbol</var>)</code>.</p>
             <p>The <var class="keyword-initarg">:generic-function-class</var> argument is a class metaobject or a class name. If it is not supplied, it defaults to the class named <a href="../classes/#standard-generic-function" class="body-link class">standard-generic-function</a>. If a class name is supplied, it is interpreted as the class with that name. If a class name is supplied, but there is no such class, an error is signaled.</p>
-            <p>For the interpretation of additional keyword arguments, see <q><a href="#initialization-of-generic-function-metaobjects" class="body-link long">Initialization of Generic Function Metaobjects</a></q>.</p>
+            <p>For the interpretation of additional keyword arguments, see <q><a href="#initialization-of-generic-function-metaobjects" class="body-link">Initialization of Generic Function Metaobjects</a></q>.</p>
           </section>
 
           <section class="values">
@@ -6023,7 +6023,7 @@
           </section>
 
           <article class="remark" data-author="Robert Strandh">
-            <p><b>Robert Strandh remarks:</b> This section is named <I>Initialization of Class Metaobjects</I> and appears in Chapter 6 (Generic functions and methods) of the original text. There is <a href="../concepts/#initialization-of-class-metaobjects" class="body-link chapter5 long">a section with the same name in Chapter 5 (Concepts) of the original text.</a> When sections are referred to in the text, it is not specified which one.</p>
+            <p><b>Robert Strandh remarks:</b> This section is named <I>Initialization of Class Metaobjects</I> and appears in Chapter 6 (Generic functions and methods) of the original text. There is <a href="../concepts/#initialization-of-class-metaobjects" class="body-link chapter5">a section with the same name in Chapter 5 (Concepts) of the original text.</a> When sections are referred to in the text, it is not specified which one.</p>
           </article>
 
         </section>
