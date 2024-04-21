@@ -4481,13 +4481,15 @@
 
           <section class="examples">
             <h1>Examples</h1>
-            <pre>
+            <div class="scroll">
+              <pre>
 (extract-lambda-list '((p position)))             ==> (P)
 
 (extract-lambda-list '((p position) x y))         ==> (P X Y)
 
 (extract-lambda-list '(a (b (eql x)) c <span class="lambda-keyword">&amp;rest</span> i))  ==> (A B C <span class="lambda-keyword">&amp;OPTIONAL</span> I)
-            </pre>
+              </pre>
+            </div>
           </section>
 
           <article class="remark" data-author="Robert Strandh">
@@ -4565,13 +4567,15 @@
 
           <section class="examples">
             <h1>Examples</h1>
-            <pre>
+            <div class="scroll">
+              <pre>
 (extract-specializer-names '((p position)))            ==> (POSITION)
 
 (extract-specializer-names '((p position) x y))        ==> (POSITION T T)
 
 (extract-specializer-names '(a (b (eql x)) c <span class="lambda-keyword">&amp;rest</span> i)) ==> (T (EQL X) T)
-            </pre>
+              </pre>
+            </div>
 
           </section>
 
@@ -5827,12 +5831,15 @@
                 <p>The <var class="keyword-initarg">:direct-slots</var> argument is a list of canonicalized slot specifications.</p>
                 <p>An error is signaled if this value is not a proper list or if any element of the list is not a canonicalized slot specification.</p>
                 <p>After error checking, this value is converted to a list of direct slot definition metaobjects before it is associated with the class metaobject. Conversion of each canonicalized slot specification to a direct slot definition metaobject is a two-step process. First, the generic function <a href="#direct-slot-definition-class" class="body-link generic-function">direct-slot-definition-class</a> is called with the class metaobject and the canonicalized slot specification to determine the class of the new direct slot definition metaobject; this permits both the class metaobject and the canonicalized slot specification to control the resulting direct slot definition metaobject class. Second, <a href="#make-instance" class="body-link generic-function">make-instance</a> is applied to the direct slot definition metaobject class and the canonicalized slot specification. This conversion could be implemented as shown in the following code:</p>
-                <pre>(defun convert-to-direct-slot-definition (class canonicalized-slot)
+                <div class="scroll">
+                  <pre>
+(defun convert-to-direct-slot-definition (class canonicalized-slot)
   (apply #'make-instance
          (apply #'direct-slot-definition-class
                 class canonicalized-slot)
          canonicalized-slot))
-                </pre>
+                  </pre>
+                </div>
                 <p>If the class metaobject is being initialized, this argument defaults to the empty list.</p>
                 <p>Once the direct slot definition metaobjects have been created, the specified reader and writer methods are created. The generic functions <a href="#reader-method-class" class="body-link generic-function">reader-method-class</a> and <a href="#writer-method-class" class="body-link generic-function">writer-method-class</a> are called to determine the classes of the method metaobjects created.</p>
               </li>
@@ -7563,8 +7570,8 @@
               <a href="#page-209" class="anchor">⚓</a>
             </div>
             <p>Notice that the extra lexical function bindings get wrapped around the body before <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_call_n.htm#call-next-method" class="body-link clhs" target="_blank">call-next-method</a> is called. In this way, the user's definition of <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_call_n.htm#call-next-method" class="body-link clhs" target="_blank">call-next-method</a> and <a href="http://www.lispworks.com/documentation/HyperSpec/Body/f_next_m.htm#next-method-p" class="body-link clhs" target="_blank">next-method-p</a> are sure to override the system's definitions.</p>
-
-            <pre>
+            <div class="scroll">
+              <pre>
 (defclass my-generic-function (standard-generic-function)
      ()
   (:default-initargs :method-class (find-class 'my-method)))
@@ -7595,7 +7602,9 @@
                                      method-combination
                                      methods)
   `(call-method ,(car methods) ,(cdr methods) ,(car methods)))
-            </pre>
+              </pre>
+            </div>
+
           </section>
 
         </article>
@@ -10851,14 +10860,16 @@
             <p>When a method is added to a generic function, each of the generic function's dependents is updated. The <var>initargs</var> argument is a list of two elements: the symbol <code>add-method</code>, and the method that was added.</p>
             <p>When a method is removed from a generic function, each of the generic function's dependents is updated. The <var>initargs</var> argument is a list of two elements: the symbol <code>remove-method</code>, and the method that was removed.</p>
             <p>In each case, <a href="#map-dependents" class="body-link generic-function">map-dependents</a> is used to call <span class="name self generic-function">update-dependent</span> on each of the dependents. So, for example, the update of a generic function's dependents when a method is added could be performed by the following code:</p>
-            <pre>
-  (map-dependents <var>generic-function</var>
-                  #'(lambda (dep)
-                      (update-dependent <var>generic-function</var>
-                                        dep
-                                        'add-method
-                                        <var>new-method</var>)))
-            </pre>
+            <div class="scroll">
+              <pre>
+(map-dependents <var>generic-function</var>
+                #'(lambda (dep)
+                    (update-dependent <var>generic-function</var>
+                                      dep
+                                      'add-method
+                                      <var>new-method</var>)))
+              </pre>
+            </div>
           </section>
 
           <section class="methods">
