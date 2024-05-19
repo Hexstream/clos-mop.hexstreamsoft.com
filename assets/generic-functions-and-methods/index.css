@@ -123,7 +123,6 @@
 }
 
 .horizontally-aligned-titles-and-tabs ul {
-    list-style-type: none;
     margin: 0;
 }
 
@@ -186,11 +185,6 @@
 
 #navigation_protocols #navigation_protocols_summary_dependent-maintenance-protocol {
     align-items: stretch;
-}
-
-
-pre {
-    margin-top: 1em;
 }
 
 
@@ -307,8 +301,6 @@ pre {
     font-size: medium;
     flex: none;
     margin-top: 0;
-    margin-right: 0.75em;
-    margin-left: 0.1em;
 }
 
 #readers-for-class-metaobjects_methods_table-and-descriptions table :is(thead th, tbody td) {
@@ -331,30 +323,17 @@ pre {
 }
 
 #readers-for-class-metaobjects_methods_table-and-descriptions ol {
-    flex: 1 1;
+    flex: 1 1 auto;
     display: flex;
     flex-flow: row wrap;
-    list-style-type: none;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
+    /* At least the first 7 items fit on the right side of the table.
+       Too many extra items create too much white space under the table. */
+    flex-basis: 25em;
 }
 
 #readers-for-class-metaobjects_methods_table-and-descriptions ol li {
-    display: flex;
-    flex-flow: row;
-}
-
-#readers-for-class-metaobjects_methods_table-and-descriptions ol li::before {
-    position: revert;
-    width: 1.2em;
-    text-align: end;
-    margin-right: 0.4em;
-    flex: none;
-}
-
-#readers-for-class-metaobjects_methods_table-and-descriptions ol li p {
-    margin: 0;
-    margin-right: 1em;
+    margin: 0 1em 1em;
 }
 
 

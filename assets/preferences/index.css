@@ -15,10 +15,6 @@ section > h1 {
     margin: 0 0 0 5em;
 }
 
-main :is(ul, ol) {
-    list-style-type: none;
-}
-
 #options {
     position: revert;
     display: flex;
@@ -57,8 +53,13 @@ main :is(ul, ol) {
     flex: none;
 }
 
-#options > section > ul {
-    margin: 0.5em 0 0;
+#options > section > ul > li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#options > section > ul ul {
+    margin-left: 2em;
 }
 
 #options .hint {
