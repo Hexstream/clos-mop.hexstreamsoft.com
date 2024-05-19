@@ -252,9 +252,11 @@
 
 .generated-methods > h1 {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 50%;
+    bottom: 50%;
     right: 100%;
+    display: flex;
+    justify-content: center;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     text-align: center;
@@ -275,6 +277,7 @@
 
     .generated-methods > h1 {
         position: revert;
+        display: revert;
         writing-mode: revert;
         transform: translate(1em, -0.5em);
         text-align: revert;
