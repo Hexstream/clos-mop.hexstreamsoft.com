@@ -209,16 +209,11 @@ var, .lambda-keyword {
 }
 
 figure {
-    display: flex;
-    flex-flow: column;
     padding: 0.2em 0.7em 0;
-    border: thin solid lightgray;
-    /*background-color: linen;*/
-    max-width: fit-content;
+    max-width: min-content;
 }
 
 figure figcaption {
-    flex: 1 1 auto;
     text-align: center;
     margin-bottom: -0.5em;
 }
@@ -229,9 +224,9 @@ figure figcaption p {
 }
 
 figure table {
-    flex: none;
     margin-left: 1em;
     margin-right: 1em;
+    white-space: nowrap;
 }
 
 table {
