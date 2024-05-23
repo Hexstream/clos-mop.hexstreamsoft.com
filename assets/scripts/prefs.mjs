@@ -16,6 +16,10 @@ const showHide = {
     possibleValues: ["show", "hide"],
     defaultValue: "show"
 };
+const hideShow = {
+    possibleValues: ["show", "hide"],
+    defaultValue: "hide"
+};
 const diffOptions = Object.create(showHide);
 diffOptions.computeRelevance = function (preferences) {
     return preferences["diff.visibility"] === "show";
@@ -35,12 +39,12 @@ const preferencesSchema = new StateDomainSchema(
 
         "arguments-and-values":
         {
-            possibleValues: ["combined", "separate", "combined-and-separate"],
+            possibleValues: ["combined", "separate", "both"],
             defaultValue: "combined"
         },
 
         "diff.visibility":
-        showHide,
+        hideShow,
 
         "diff.removed.visibility":
         diffOptions,

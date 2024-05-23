@@ -289,12 +289,12 @@ article.remark {
 
 .mid-paragraph-transition-mark {
     position: absolute;
-    margin-left: var(--prefs_mid-paragraph-transition-mark_margin-left);
-    margin-top: var(--prefs_mid-paragraph-transition-mark_margin-top);
+    margin-left: -0.45em;
+    margin-top: 0;
 }
 
 .mid-paragraph-transition-mark::before {
-    content: var(--prefs_mid-paragraph-transition-mark_content);
+    content: "⁁";
     font-weight: bold;
     color: green;
     font-size: 1.25em;
@@ -302,16 +302,9 @@ article.remark {
 
 
 .boilerplate-diff {
-    padding: var(--prefs_boilerplate-diff_padding);
-    border: var(--prefs_boilerplate-diff_border);
-    border-radius: var(--prefs_boilerplate-diff_border-radius);
-    background-color: var(--prefs_boilerplate-diff_background-color);
-    border-color: var(--prefs_boilerplate-diff_border-color);
+    padding: 0;
+    border: none;
     text-decoration: none;
-}
-
-.boilerplate-diff .boilerplate-diff {
-    border-color: black;
 }
 
 ins.boilerplate-diff a {
