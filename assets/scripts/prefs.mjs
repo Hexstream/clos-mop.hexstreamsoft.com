@@ -12,66 +12,57 @@ export {
     preferences
 }
 
-const showHide = {
-    possibleValues: ["show", "hide"],
-    defaultValue: "show"
-};
-const hideShow = {
-    possibleValues: ["show", "hide"],
-    defaultValue: "hide"
-};
-const diffOptions = Object.create(showHide);
-diffOptions.computeRelevance = function (preferences) {
-    return preferences["diff.visibility"] === "show";
-};
-const midParagraphTransitionMarksOptions = Object.create(showHide);
-midParagraphTransitionMarksOptions.computeRelevance = function (preferences) {
-    return preferences["/book/pages/references.visibility"] === "show";
-};
-
 const preferencesSchema = new StateDomainSchema(
     {
         "/prefs/hints.visibility":
-        showHide,
+        true,
 
         "/prefs/preview.visibility":
-        showHide,
+        true,
 
         "arguments-and-values":
         {
-            possibleValues: ["combined", "separate", "both"],
-            defaultValue: "combined"
+            possibleValues: ["combined", "separate", "both"]
         },
 
         "diff.visibility":
-        hideShow,
+        false,
 
         "diff.removed.visibility":
-        diffOptions,
+        {
+            base: true,
+            relevantIf: {
+                "diff.visibility": "show"
+            }
+        },
 
         "diff.removed.strikethrough":
         {
             possibleValues: ["strike", "no-strike"],
             defaultValue: "no-strike",
-            computeRelevance (preferences) {
-                return diffOptions.computeRelevance(preferences)
-                    && preferences["diff.removed.visibility"] === "show";
+            relevantIf: {
+                "diff.visibility": "show",
+                "diff.removed.visibility": "show"
             }
         },
 
         "/book/pages/references.visibility":
-        showHide,
+        true,
 
         "/book/pages/mid-paragraph-transition-marks.visibility":
-        midParagraphTransitionMarksOptions,
+        {
+            base: true,
+            relevantIf: {
+                "/book/pages/references.visibility": "show"
+            }
+        },
 
         "/book/pages/mid-paragraph-transition-marks.type":
         {
             possibleValues: ["⁁", "‸"],
-            defaultValue: "⁁",
-            computeRelevance (preferences) {
-                return midParagraphTransitionMarksOptions.computeRelevance(preferences)
-                    && preferences["/book/pages/mid-paragraph-transition-marks.visibility"] === "show";
+            relevantIf: {
+                "/book/pages/references.visibility": "show",
+                "/book/pages/mid-paragraph-transition-marks.visibility": "show"
             }
         }
     });
