@@ -17,12 +17,12 @@ section.body-section {
     text-decoration: none;
 }
 
-#table-of-contents ol > li.contains-children:hover > a:not(:hover) {
+#table-of-contents ol > li:has(ol):hover > a:not(:hover) {
     color: green;
 }
 
 #table-of-contents ol li,
-#table-of-contents ol li.contains-children > a {
+#table-of-contents ol li:has(ol) > a {
     padding: 0 0.6em;
     margin: 0.5em 0;
     border: thin solid transparent;
@@ -33,7 +33,7 @@ section.body-section {
     flex-flow: row wrap;
 }
 
-#table-of-contents ol li.contains-children {
+#table-of-contents ol li:has(ol) {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -41,12 +41,12 @@ section.body-section {
     border: none;
 }
 
-#table-of-contents ol li.contains-children > ol {
+#table-of-contents ol li > ol {
     background-color: rgba(0, 0, 0, 0.05);
     border: thin solid gray;
 }
 
-#table-of-contents > ol > li.contains-children > ol > li.contains-children > ol {
+#table-of-contents > ol > li > ol > li > ol {
     margin-left: 0.6em;
     margin-right: 0.6em;
 }

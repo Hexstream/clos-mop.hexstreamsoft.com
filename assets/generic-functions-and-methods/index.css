@@ -114,11 +114,11 @@
     white-space: initial;
 }
 
-.horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a {
+.horizontally-aligned-titles-and-tabs .tabs > h1 > a {
     padding: 0;
 }
 
-.horizontally-aligned-titles-and-tabs .tabs.contains-title > h1 > a:is(:hover, :focus) {
+.horizontally-aligned-titles-and-tabs .tabs > h1 > a:is(:hover, :focus) {
     text-decoration: revert;
 }
 
